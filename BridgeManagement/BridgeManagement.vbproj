@@ -105,15 +105,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="bridgemanagementDataSet.Designer.vb">
+    <Compile Include="bridgeDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>bridgemanagementDataSet.xsd</DependentUpon>
+      <DependentUpon>bridgeDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="bridgemanagementExcelImportDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bridgemanagementExcelImportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="bridgemanagementview.vb">
+      <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeManagementViewForm.Designer.vb">
+      <DependentUpon>BridgeManagementViewForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeManagementViewForm.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="bridgenote.vb">
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
@@ -128,6 +137,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="InspectionExcelBuilder.vb" />
+    <Compile Include="InspectionHistoryForm.Designer.vb">
+      <DependentUpon>InspectionHistoryForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="InspectionHistoryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Menu.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -162,8 +177,14 @@
     <Compile Include="Setting.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BridgeManagementViewForm.resx">
+      <DependentUpon>BridgeManagementViewForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExcelImportForm.resx">
       <DependentUpon>ExcelImportForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InspectionHistoryForm.resx">
+      <DependentUpon>InspectionHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Menu.resx">
       <DependentUpon>Menu.vb</DependentUpon>
@@ -183,16 +204,16 @@
     <None Include="BridgeManagementDataModel.edmx.diagram">
       <DependentUpon>BridgeManagementDataModel.edmx</DependentUpon>
     </None>
-    <None Include="bridgemanagementDataSet.xsc">
-      <DependentUpon>bridgemanagementDataSet.xsd</DependentUpon>
+    <None Include="bridgeDataSet.xsc">
+      <DependentUpon>bridgeDataSet.xsd</DependentUpon>
     </None>
-    <None Include="bridgemanagementDataSet.xsd">
+    <None Include="bridgeDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bridgemanagementDataSet.Designer.vb</LastGenOutput>
+      <LastGenOutput>bridgeDataSet.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="bridgemanagementDataSet.xss">
-      <DependentUpon>bridgemanagementDataSet.xsd</DependentUpon>
+    <None Include="bridgeDataSet.xss">
+      <DependentUpon>bridgeDataSet.xsd</DependentUpon>
     </None>
     <None Include="bridgemanagementExcelImportDataSet.xsc">
       <DependentUpon>bridgemanagementExcelImportDataSet.xsd</DependentUpon>
@@ -209,6 +230,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\bridgemanagementview.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

@@ -17,6 +17,7 @@ Partial Public Class bridgehistory
     Public Property recorduserid As String
     Public Property recordvalid As Boolean
     Public Property bridgename As String
+    Public Property bridgenameruby As String
     Public Property route As String
     Public Property address As String
     Public Property latitude As String

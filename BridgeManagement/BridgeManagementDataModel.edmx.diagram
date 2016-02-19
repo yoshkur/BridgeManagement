@@ -5,13 +5,14 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="c94a88d1374a4d56bcc7af28e89b180e" Name="Diagram1">
-        <EntityTypeShape EntityType="bridgemanagementModel.bridge" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="bridgemanagementModel.bridgehistory" Width="1.5" PointX="2.75" PointY="0.75" />
         <EntityTypeShape EntityType="bridgemanagementModel.bridgenote" Width="1.5" PointX="4.75" PointY="0.75" />
         <EntityTypeShape EntityType="bridgemanagementModel.bridgenotehistory" Width="1.5" PointX="4.75" PointY="4.75" />
         <EntityTypeShape EntityType="bridgemanagementModel.inspection" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="bridgemanagementModel.inspectionhistory" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="bridgemanagementModel.inspectionexcel" Width="1.5" PointX="7.375" PointY="6.75" />
+        <EntityTypeShape EntityType="bridgemanagementModel.bridge" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bridgemanagementModel.bridgehistory" Width="1.5" PointX="3.75" PointY="8.75" />
+        <EntityTypeShape EntityType="bridgemanagementModel.bridgemanagementview" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

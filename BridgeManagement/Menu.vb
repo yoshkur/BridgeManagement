@@ -16,20 +16,16 @@
 
 		Me.TextBox1.Text = newEntity.id
 
-		'TODO: このコード行はデータを 'BridgemanagementDataSet.bridge' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-		REM Me.BridgeTableAdapter.Fill(Me.BridgemanagementDataSet.bridge)
 	End Sub
 
 	Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-		'TODO: このコード行はデータを 'BridgemanagementDataSet.bridge' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-		REM Me.BridgeTableAdapter.Fill(Me.BridgemanagementDataSet.bridge)
-
+		Me.TextBox1.Text = System.Environment.UserName
 	End Sub
 
 	Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-		'Me.BridgeTableAdapter.Update(Me.BridgemanagementDataSet)
 
-		Dim db As New bridgemanagementEntities
+
+		'Dim db As New bridgemanagementEntities
 		'Dim entities = From en In db.bridge.Where(Function(n) n.id.ToString.Equals(Me.DataGridView1.CurrentCell.Value.ToString))
 
 		'For Each entityb In entities
@@ -40,14 +36,20 @@
 		REM Dim bridgeEntity = db.bridge.Find(Me.DataGridView1.CurrentCell.Value)
 		REM bridgeEntity.recorddate = Now
 
-		db.SaveChanges()
+		'db.SaveChanges()
 
 		'TODO: このコード行はデータを 'BridgemanagementDataSet.bridge' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
 		REM Me.BridgeTableAdapter.Fill(Me.BridgemanagementDataSet.bridge)
 	End Sub
 
-	Private Sub inspectionDataImport_Click(sender As Object, e As EventArgs) Handles inspectionDataImport.Click
+	Private Sub inspectionDataImportButtom_Click(sender As Object, e As EventArgs) Handles inspectionDataImportButtom.Click
 		Dim form As New ExcelImportForm
+		form.ShowDialog(Me)
+		form.Dispose()
+	End Sub
+
+	Private Sub BridgeManagementButton_Click(sender As Object, e As EventArgs) Handles bridgeManagementButton.Click
+		Dim form As New BridgeManagementViewForm
 		form.ShowDialog(Me)
 		form.Dispose()
 	End Sub

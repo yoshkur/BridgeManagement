@@ -15,6 +15,7 @@
           <Property Name="recorduserid" Type="text" Nullable="false" />
           <Property Name="recordvalid" Type="bit" Nullable="false" />
           <Property Name="bridgename" Type="text" />
+          <Property Name="bridgenameruby" Type="text" />
           <Property Name="route" Type="text" />
           <Property Name="address" Type="text" />
           <Property Name="latitude" Type="text" />
@@ -40,6 +41,7 @@
           <Property Name="recorduserid" Type="text" Nullable="false" />
           <Property Name="recordvalid" Type="bit" Nullable="false" />
           <Property Name="bridgename" Type="text" />
+          <Property Name="bridgenameruby" Type="text" />
           <Property Name="route" Type="text" />
           <Property Name="address" Type="text" />
           <Property Name="latitude" Type="text" />
@@ -152,6 +154,47 @@
           <Property Name="face" Type="text" />
           <Property Name="datasavedir" Type="text" />
         </EntityType>
+        <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'bridgemanagement.dbo.bridgemanagementview' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+        <EntityType Name="bridgemanagementview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="bridgename" Type="text" />
+          <Property Name="bridgenameruby" Type="text" />
+          <Property Name="route" Type="text" />
+          <Property Name="address" Type="text" />
+          <Property Name="latitude" Type="text" />
+          <Property Name="longitude" Type="text" />
+          <Property Name="made" Type="int" />
+          <Property Name="bridgeage" Type="int" />
+          <Property Name="bridgelength" Type="numeric" Precision="5" Scale="1" />
+          <Property Name="bridgewidth" Type="numeric" Precision="3" Scale="1" />
+          <Property Name="span" Type="int" />
+          <Property Name="bridgestructure" Type="text" />
+          <Property Name="uppermaterial" Type="text" />
+          <Property Name="lowermaterial" Type="text" />
+          <Property Name="undercondition" Type="text" />
+          <Property Name="emergencyroad" Type="text" />
+          <Property Name="repair" Type="text" />
+          <Property Name="nextinspection" Type="int" />
+          <Property Name="inspectionway" Type="text" />
+          <Property Name="memo" Type="text" />
+          <Property Name="inspectionyear" Type="int" />
+          <Property Name="inspectioner" Type="text" />
+          <Property Name="inspectionundercondition" Type="text" />
+          <Property Name="alternatepath" Type="text" />
+          <Property Name="generalroad" Type="text" />
+          <Property Name="inspectionemergencyroad" Type="text" />
+          <Property Name="occupancy" Type="text" />
+          <Property Name="soundness" Type="text" />
+          <Property Name="inspectionuppermaterial" Type="text" />
+          <Property Name="undermaterial" Type="text" />
+          <Property Name="bearing" Type="text" />
+          <Property Name="face" Type="text" />
+          <Property Name="datasavedir" Type="text" />
+        </EntityType>
         <EntityContainer Name="bridgemanagementModelStoreContainer">
           <EntitySet Name="bridge" EntityType="Self.bridge" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="bridgehistory" EntityType="Self.bridgehistory" Schema="dbo" store:Type="Tables" />
@@ -160,69 +203,59 @@
           <EntitySet Name="inspection" EntityType="Self.inspection" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="inspectionexcel" EntityType="Self.inspectionexcel" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="inspectionhistory" EntityType="Self.inspectionhistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="bridgemanagementview" EntityType="Self.bridgemanagementview" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [bridgemanagementview].[id] AS [id], 
+    [bridgemanagementview].[bridgename] AS [bridgename], 
+    [bridgemanagementview].[bridgenameruby] AS [bridgenameruby], 
+    [bridgemanagementview].[route] AS [route], 
+    [bridgemanagementview].[address] AS [address], 
+    [bridgemanagementview].[latitude] AS [latitude], 
+    [bridgemanagementview].[longitude] AS [longitude], 
+    [bridgemanagementview].[made] AS [made], 
+    [bridgemanagementview].[bridgeage] AS [bridgeage], 
+    [bridgemanagementview].[bridgelength] AS [bridgelength], 
+    [bridgemanagementview].[bridgewidth] AS [bridgewidth], 
+    [bridgemanagementview].[span] AS [span], 
+    [bridgemanagementview].[bridgestructure] AS [bridgestructure], 
+    [bridgemanagementview].[uppermaterial] AS [uppermaterial], 
+    [bridgemanagementview].[lowermaterial] AS [lowermaterial], 
+    [bridgemanagementview].[undercondition] AS [undercondition], 
+    [bridgemanagementview].[emergencyroad] AS [emergencyroad], 
+    [bridgemanagementview].[repair] AS [repair], 
+    [bridgemanagementview].[nextinspection] AS [nextinspection], 
+    [bridgemanagementview].[inspectionway] AS [inspectionway], 
+    [bridgemanagementview].[memo] AS [memo], 
+    [bridgemanagementview].[inspectionyear] AS [inspectionyear], 
+    [bridgemanagementview].[inspectioner] AS [inspectioner], 
+    [bridgemanagementview].[inspectionundercondition] AS [inspectionundercondition], 
+    [bridgemanagementview].[alternatepath] AS [alternatepath], 
+    [bridgemanagementview].[generalroad] AS [generalroad], 
+    [bridgemanagementview].[inspectionemergencyroad] AS [inspectionemergencyroad], 
+    [bridgemanagementview].[occupancy] AS [occupancy], 
+    [bridgemanagementview].[soundness] AS [soundness], 
+    [bridgemanagementview].[inspectionuppermaterial] AS [inspectionuppermaterial], 
+    [bridgemanagementview].[undermaterial] AS [undermaterial], 
+    [bridgemanagementview].[bearing] AS [bearing], 
+    [bridgemanagementview].[face] AS [face], 
+    [bridgemanagementview].[datasavedir] AS [datasavedir]
+    FROM [dbo].[bridgemanagementview] AS [bridgemanagementview]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="bridgemanagementModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="bridgemanagementEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="bridge" EntityType="bridgemanagementModel.bridge" />
-          <EntitySet Name="bridgehistory" EntityType="bridgemanagementModel.bridgehistory" />
           <EntitySet Name="bridgenote" EntityType="bridgemanagementModel.bridgenote" />
           <EntitySet Name="bridgenotehistory" EntityType="bridgemanagementModel.bridgenotehistory" />
           <EntitySet Name="inspection" EntityType="bridgemanagementModel.inspection" />
           <EntitySet Name="inspectionhistory" EntityType="bridgemanagementModel.inspectionhistory" />
           <EntitySet Name="inspectionexcel" EntityType="bridgemanagementModel.inspectionexcel" />
+          <EntitySet Name="bridge" EntityType="bridgemanagementModel.bridge" />
+          <EntitySet Name="bridgehistory" EntityType="bridgemanagementModel.bridgehistory" />
+          <EntitySet Name="bridgemanagementview" EntityType="bridgemanagementModel.bridgemanagementview" />
         </EntityContainer>
-        <EntityType Name="bridge">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recordvalid" Type="Boolean" Nullable="false" />
-          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="made" Type="Int32" />
-          <Property Name="bridgelength" Type="Decimal" Precision="5" Scale="1" />
-          <Property Name="bridgewidth" Type="Decimal" Precision="3" Scale="1" />
-          <Property Name="span" Type="Int32" />
-          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="bridgehistory">
-          <Key>
-            <PropertyRef Name="id" />
-            <PropertyRef Name="recorddate" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recordvalid" Type="Boolean" Nullable="false" />
-          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="made" Type="Int32" />
-          <Property Name="bridgelength" Type="Decimal" Precision="5" Scale="1" />
-          <Property Name="bridgewidth" Type="Decimal" Precision="3" Scale="1" />
-          <Property Name="span" Type="Int32" />
-          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-        </EntityType>
         <EntityType Name="bridgenote">
           <Key>
             <PropertyRef Name="id" />
@@ -321,62 +354,102 @@
           <Property Name="error" Type="Boolean" Nullable="false" />
           <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="bridge">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordvalid" Type="Boolean" Nullable="false" />
+          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bridgenameruby" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="made" Type="Int32" />
+          <Property Name="bridgelength" Type="Decimal" Precision="5" Scale="1" />
+          <Property Name="bridgewidth" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="span" Type="Int32" />
+          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bridgehistory">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="recorddate" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordvalid" Type="Boolean" Nullable="false" />
+          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bridgenameruby" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="made" Type="Int32" />
+          <Property Name="bridgelength" Type="Decimal" Precision="5" Scale="1" />
+          <Property Name="bridgewidth" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="span" Type="Int32" />
+          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="bridgemanagementview">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bridgenameruby" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="made" Type="Int32" />
+          <Property Name="bridgeage" Type="Int32" />
+          <Property Name="bridgelength" Type="Decimal" Precision="5" Scale="1" />
+          <Property Name="bridgewidth" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="span" Type="Int32" />
+          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="repair" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="nextinspection" Type="Int32" />
+          <Property Name="inspectionway" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectionyear" Type="Int32" />
+          <Property Name="inspectioner" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectionundercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="alternatepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="generalroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectionemergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectionuppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="datasavedir" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="bridgemanagementModelStoreContainer" CdmEntityContainer="bridgemanagementEntities">
-          <EntitySetMapping Name="bridge">
-            <EntityTypeMapping TypeName="bridgemanagementModel.bridge">
-              <MappingFragment StoreEntitySet="bridge">
-                <ScalarProperty Name="emergencyroad" ColumnName="emergencyroad" />
-                <ScalarProperty Name="undercondition" ColumnName="undercondition" />
-                <ScalarProperty Name="lowermaterial" ColumnName="lowermaterial" />
-                <ScalarProperty Name="uppermaterial" ColumnName="uppermaterial" />
-                <ScalarProperty Name="bridgestructure" ColumnName="bridgestructure" />
-                <ScalarProperty Name="span" ColumnName="span" />
-                <ScalarProperty Name="bridgewidth" ColumnName="bridgewidth" />
-                <ScalarProperty Name="bridgelength" ColumnName="bridgelength" />
-                <ScalarProperty Name="made" ColumnName="made" />
-                <ScalarProperty Name="longitude" ColumnName="longitude" />
-                <ScalarProperty Name="latitude" ColumnName="latitude" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="route" ColumnName="route" />
-                <ScalarProperty Name="bridgename" ColumnName="bridgename" />
-                <ScalarProperty Name="recordvalid" ColumnName="recordvalid" />
-                <ScalarProperty Name="recorduserid" ColumnName="recorduserid" />
-                <ScalarProperty Name="recordprogram" ColumnName="recordprogram" />
-                <ScalarProperty Name="recorddate" ColumnName="recorddate" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="bridgehistory">
-            <EntityTypeMapping TypeName="bridgemanagementModel.bridgehistory">
-              <MappingFragment StoreEntitySet="bridgehistory">
-                <ScalarProperty Name="emergencyroad" ColumnName="emergencyroad" />
-                <ScalarProperty Name="undercondition" ColumnName="undercondition" />
-                <ScalarProperty Name="lowermaterial" ColumnName="lowermaterial" />
-                <ScalarProperty Name="uppermaterial" ColumnName="uppermaterial" />
-                <ScalarProperty Name="bridgestructure" ColumnName="bridgestructure" />
-                <ScalarProperty Name="span" ColumnName="span" />
-                <ScalarProperty Name="bridgewidth" ColumnName="bridgewidth" />
-                <ScalarProperty Name="bridgelength" ColumnName="bridgelength" />
-                <ScalarProperty Name="made" ColumnName="made" />
-                <ScalarProperty Name="longitude" ColumnName="longitude" />
-                <ScalarProperty Name="latitude" ColumnName="latitude" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="route" ColumnName="route" />
-                <ScalarProperty Name="bridgename" ColumnName="bridgename" />
-                <ScalarProperty Name="recordvalid" ColumnName="recordvalid" />
-                <ScalarProperty Name="recorduserid" ColumnName="recorduserid" />
-                <ScalarProperty Name="recordprogram" ColumnName="recordprogram" />
-                <ScalarProperty Name="recorddate" ColumnName="recorddate" />
-                <ScalarProperty Name="id" ColumnName="id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="bridgenote">
             <EntityTypeMapping TypeName="bridgemanagementModel.bridgenote">
               <MappingFragment StoreEntitySet="bridgenote">
@@ -475,6 +548,98 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="datadir" ColumnName="datadir" />
                 <ScalarProperty Name="ident" ColumnName="ident" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bridge">
+            <EntityTypeMapping TypeName="bridgemanagementModel.bridge">
+              <MappingFragment StoreEntitySet="bridge">
+                <ScalarProperty Name="emergencyroad" ColumnName="emergencyroad" />
+                <ScalarProperty Name="undercondition" ColumnName="undercondition" />
+                <ScalarProperty Name="lowermaterial" ColumnName="lowermaterial" />
+                <ScalarProperty Name="uppermaterial" ColumnName="uppermaterial" />
+                <ScalarProperty Name="bridgestructure" ColumnName="bridgestructure" />
+                <ScalarProperty Name="span" ColumnName="span" />
+                <ScalarProperty Name="bridgewidth" ColumnName="bridgewidth" />
+                <ScalarProperty Name="bridgelength" ColumnName="bridgelength" />
+                <ScalarProperty Name="made" ColumnName="made" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="route" ColumnName="route" />
+                <ScalarProperty Name="bridgenameruby" ColumnName="bridgenameruby" />
+                <ScalarProperty Name="bridgename" ColumnName="bridgename" />
+                <ScalarProperty Name="recordvalid" ColumnName="recordvalid" />
+                <ScalarProperty Name="recorduserid" ColumnName="recorduserid" />
+                <ScalarProperty Name="recordprogram" ColumnName="recordprogram" />
+                <ScalarProperty Name="recorddate" ColumnName="recorddate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bridgehistory">
+            <EntityTypeMapping TypeName="bridgemanagementModel.bridgehistory">
+              <MappingFragment StoreEntitySet="bridgehistory">
+                <ScalarProperty Name="emergencyroad" ColumnName="emergencyroad" />
+                <ScalarProperty Name="undercondition" ColumnName="undercondition" />
+                <ScalarProperty Name="lowermaterial" ColumnName="lowermaterial" />
+                <ScalarProperty Name="uppermaterial" ColumnName="uppermaterial" />
+                <ScalarProperty Name="bridgestructure" ColumnName="bridgestructure" />
+                <ScalarProperty Name="span" ColumnName="span" />
+                <ScalarProperty Name="bridgewidth" ColumnName="bridgewidth" />
+                <ScalarProperty Name="bridgelength" ColumnName="bridgelength" />
+                <ScalarProperty Name="made" ColumnName="made" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="route" ColumnName="route" />
+                <ScalarProperty Name="bridgenameruby" ColumnName="bridgenameruby" />
+                <ScalarProperty Name="bridgename" ColumnName="bridgename" />
+                <ScalarProperty Name="recordvalid" ColumnName="recordvalid" />
+                <ScalarProperty Name="recorduserid" ColumnName="recorduserid" />
+                <ScalarProperty Name="recordprogram" ColumnName="recordprogram" />
+                <ScalarProperty Name="recorddate" ColumnName="recorddate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="bridgemanagementview">
+            <EntityTypeMapping TypeName="bridgemanagementModel.bridgemanagementview">
+              <MappingFragment StoreEntitySet="bridgemanagementview">
+                <ScalarProperty Name="datasavedir" ColumnName="datasavedir" />
+                <ScalarProperty Name="face" ColumnName="face" />
+                <ScalarProperty Name="bearing" ColumnName="bearing" />
+                <ScalarProperty Name="undermaterial" ColumnName="undermaterial" />
+                <ScalarProperty Name="inspectionuppermaterial" ColumnName="inspectionuppermaterial" />
+                <ScalarProperty Name="soundness" ColumnName="soundness" />
+                <ScalarProperty Name="occupancy" ColumnName="occupancy" />
+                <ScalarProperty Name="inspectionemergencyroad" ColumnName="inspectionemergencyroad" />
+                <ScalarProperty Name="generalroad" ColumnName="generalroad" />
+                <ScalarProperty Name="alternatepath" ColumnName="alternatepath" />
+                <ScalarProperty Name="inspectionundercondition" ColumnName="inspectionundercondition" />
+                <ScalarProperty Name="inspectioner" ColumnName="inspectioner" />
+                <ScalarProperty Name="inspectionyear" ColumnName="inspectionyear" />
+                <ScalarProperty Name="memo" ColumnName="memo" />
+                <ScalarProperty Name="inspectionway" ColumnName="inspectionway" />
+                <ScalarProperty Name="nextinspection" ColumnName="nextinspection" />
+                <ScalarProperty Name="repair" ColumnName="repair" />
+                <ScalarProperty Name="emergencyroad" ColumnName="emergencyroad" />
+                <ScalarProperty Name="undercondition" ColumnName="undercondition" />
+                <ScalarProperty Name="lowermaterial" ColumnName="lowermaterial" />
+                <ScalarProperty Name="uppermaterial" ColumnName="uppermaterial" />
+                <ScalarProperty Name="bridgestructure" ColumnName="bridgestructure" />
+                <ScalarProperty Name="span" ColumnName="span" />
+                <ScalarProperty Name="bridgewidth" ColumnName="bridgewidth" />
+                <ScalarProperty Name="bridgelength" ColumnName="bridgelength" />
+                <ScalarProperty Name="bridgeage" ColumnName="bridgeage" />
+                <ScalarProperty Name="made" ColumnName="made" />
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="route" ColumnName="route" />
+                <ScalarProperty Name="bridgenameruby" ColumnName="bridgenameruby" />
+                <ScalarProperty Name="bridgename" ColumnName="bridgename" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

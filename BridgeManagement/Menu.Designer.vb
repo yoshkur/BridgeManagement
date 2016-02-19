@@ -25,11 +25,12 @@ Partial Class Menu
 		Me.components = New System.ComponentModel.Container()
 		Me.Button1 = New System.Windows.Forms.Button()
 		Me.BridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-		Me.BridgemanagementDataSet = New BridgeManagement.bridgemanagementDataSet()
+		Me.BridgemanagementDataSet = New BridgeManagement.bridgeDataSet()
 		Me.BridgeTableAdapter = New BridgeManagement.bridgemanagementDataSetTableAdapters.bridgeTableAdapter()
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.TextBox1 = New System.Windows.Forms.TextBox()
-		Me.inspectionDataImport = New System.Windows.Forms.Button()
+		Me.inspectionDataImportButtom = New System.Windows.Forms.Button()
+		Me.bridgeManagementButton = New System.Windows.Forms.Button()
 		CType(Me.BridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BridgemanagementDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -74,21 +75,31 @@ Partial Class Menu
 		Me.TextBox1.Size = New System.Drawing.Size(100, 19)
 		Me.TextBox1.TabIndex = 3
 		'
-		'inspectionDataImport
+		'inspectionDataImportButtom
 		'
-		Me.inspectionDataImport.Location = New System.Drawing.Point(28, 13)
-		Me.inspectionDataImport.Name = "inspectionDataImport"
-		Me.inspectionDataImport.Size = New System.Drawing.Size(140, 23)
-		Me.inspectionDataImport.TabIndex = 4
-		Me.inspectionDataImport.Text = "点検データ取り込み"
-		Me.inspectionDataImport.UseVisualStyleBackColor = True
+		Me.inspectionDataImportButtom.Location = New System.Drawing.Point(28, 13)
+		Me.inspectionDataImportButtom.Name = "inspectionDataImportButtom"
+		Me.inspectionDataImportButtom.Size = New System.Drawing.Size(140, 23)
+		Me.inspectionDataImportButtom.TabIndex = 4
+		Me.inspectionDataImportButtom.Text = "点検データ取り込み"
+		Me.inspectionDataImportButtom.UseVisualStyleBackColor = True
+		'
+		'bridgeManagementButton
+		'
+		Me.bridgeManagementButton.Location = New System.Drawing.Point(28, 92)
+		Me.bridgeManagementButton.Name = "bridgeManagementButton"
+		Me.bridgeManagementButton.Size = New System.Drawing.Size(111, 23)
+		Me.bridgeManagementButton.TabIndex = 5
+		Me.bridgeManagementButton.Text = "橋梁管理台帳"
+		Me.bridgeManagementButton.UseVisualStyleBackColor = True
 		'
 		'Menu
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(809, 261)
-		Me.Controls.Add(Me.inspectionDataImport)
+		Me.Controls.Add(Me.bridgeManagementButton)
+		Me.Controls.Add(Me.inspectionDataImportButtom)
 		Me.Controls.Add(Me.TextBox1)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.Button1)
@@ -102,10 +113,11 @@ Partial Class Menu
 	End Sub
 
 	Friend WithEvents Button1 As Button
-	Friend WithEvents BridgemanagementDataSet As bridgemanagementDataSet
+	Friend WithEvents BridgemanagementDataSet As bridgeDataSet
 	Friend WithEvents BridgeBindingSource As BindingSource
 	Friend WithEvents BridgeTableAdapter As bridgemanagementDataSetTableAdapters.bridgeTableAdapter
 	Friend WithEvents Button2 As Button
 	Friend WithEvents TextBox1 As TextBox
-	Friend WithEvents inspectionDataImport As Button
+	Friend WithEvents inspectionDataImportButtom As Button
+	Friend WithEvents bridgeManagementButton As Button
 End Class

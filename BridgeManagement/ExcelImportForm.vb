@@ -46,7 +46,7 @@ Public Class ExcelImportForm
 				newEntity.id = inspectionExcel.id
 				newEntity.recorddate = Now
 				newEntity.recordprogram = Me.Name
-				newEntity.recorduserid = "system"
+				newEntity.recorduserid = System.Environment.UserName
 				newEntity.recordvalid = True
 				newEntity.inspectionyear = inspectionExcel.inspectionyear
 				newEntity.inspectioner = inspectionExcel.inspectioner
@@ -66,7 +66,7 @@ Public Class ExcelImportForm
 			Else
 				findEntity.recorddate = Now
 				findEntity.recordprogram = Me.Name
-				findEntity.recorduserid = "system"
+				findEntity.recorduserid = System.Environment.UserName
 				findEntity.recordvalid = True
 				findEntity.inspectionyear = inspectionExcel.inspectionyear
 				findEntity.inspectioner = inspectionExcel.inspectioner
