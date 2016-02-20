@@ -65,7 +65,6 @@ Public Class ExcelImportForm
 				newEntity.face = inspectionExcel.face
 				newEntity.datasavedir = Me.moveDirectory(inspectionExcel, newEntity)
 				db.inspection.Add(newEntity)
-				Me.addInspectionHistory(db, newEntity)
 			Else
 				findEntity.recorddate = Now
 				findEntity.recordprogram = Me.Name
@@ -84,32 +83,8 @@ Public Class ExcelImportForm
 				findEntity.bearing = inspectionExcel.bearing
 				findEntity.face = inspectionExcel.face
 				findEntity.datasavedir = Me.moveDirectory(inspectionExcel, findEntity)
-				Me.addInspectionHistory(db, findEntity)
 			End If
 		Next
-	End Sub
-
-	Private Sub addInspectionHistory(db As bridgemanagementEntities, inspection As inspection)
-		Dim inspectionHistory As New inspectionhistory
-		inspectionHistory.id = inspection.id
-		inspectionHistory.recorddate = inspection.recorddate
-		inspectionHistory.recordprogram = inspection.recordprogram
-		inspectionHistory.recorduserid = inspection.recorduserid
-		inspectionHistory.recordvalid = inspection.recordvalid
-		inspectionHistory.inspectionyear = inspection.inspectionyear
-		inspectionHistory.inspectioner = inspection.inspectioner
-		inspectionHistory.undercondition = inspection.undercondition
-		inspectionHistory.alternatepath = inspection.alternatepath
-		inspectionHistory.generalroad = inspection.generalroad
-		inspectionHistory.emergencyroad = inspection.emergencyroad
-		inspectionHistory.occupancy = inspection.occupancy
-		inspectionHistory.soundness = inspection.soundness
-		inspectionHistory.uppermaterial = inspection.uppermaterial
-		inspectionHistory.undermaterial = inspection.undermaterial
-		inspectionHistory.bearing = inspection.bearing
-		inspectionHistory.face = inspection.face
-		inspectionHistory.datasavedir = inspection.datasavedir
-		db.inspectionhistory.Add(inspectionHistory)
 	End Sub
 
 	Private Function moveDirectory(inspectionExcel As inspectionexcel, inspection As inspection) As String
