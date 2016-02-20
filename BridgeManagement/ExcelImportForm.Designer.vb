@@ -24,6 +24,7 @@ Partial Class ExcelImportForm
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+		Me.ImportButton = New System.Windows.Forms.Button()
 		Me.ErrorDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
 		Me.MessageDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.IdentDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -41,10 +42,9 @@ Partial Class ExcelImportForm
 		Me.UndermaterialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.BearingDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.FaceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.ImportButton = New System.Windows.Forms.Button()
-		Me.InspectionexcelBindingSource1 = New System.Windows.Forms.BindingSource(Me.components)
+		Me.InspectionexcelBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.InspectionexcelBindingSource1, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.InspectionexcelBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'DataGridView1
@@ -54,13 +54,22 @@ Partial Class ExcelImportForm
 		Me.DataGridView1.AutoGenerateColumns = False
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
 		Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ErrorDataGridViewCheckBoxColumn, Me.MessageDataGridViewTextBoxColumn, Me.IdentDataGridViewTextBoxColumn, Me.DatadirDataGridViewTextBoxColumn, Me.IdDataGridViewTextBoxColumn, Me.InspectionyearDataGridViewTextBoxColumn, Me.InspectionerDataGridViewTextBoxColumn, Me.UnderconditionDataGridViewTextBoxColumn, Me.AlternatepathDataGridViewTextBoxColumn, Me.GeneralroadDataGridViewTextBoxColumn, Me.EmergencyroadDataGridViewTextBoxColumn, Me.OccupancyDataGridViewTextBoxColumn, Me.SoundnessDataGridViewTextBoxColumn, Me.UppermaterialDataGridViewTextBoxColumn, Me.UndermaterialDataGridViewTextBoxColumn, Me.BearingDataGridViewTextBoxColumn, Me.FaceDataGridViewTextBoxColumn})
-		Me.DataGridView1.DataSource = Me.InspectionexcelBindingSource1
+		Me.DataGridView1.DataSource = Me.InspectionexcelBindingSource
 		Me.DataGridView1.Location = New System.Drawing.Point(26, 58)
 		Me.DataGridView1.Name = "DataGridView1"
 		Me.DataGridView1.ReadOnly = True
 		Me.DataGridView1.RowTemplate.Height = 21
 		Me.DataGridView1.Size = New System.Drawing.Size(1058, 372)
 		Me.DataGridView1.TabIndex = 0
+		'
+		'ImportButton
+		'
+		Me.ImportButton.Location = New System.Drawing.Point(26, 13)
+		Me.ImportButton.Name = "ImportButton"
+		Me.ImportButton.Size = New System.Drawing.Size(75, 23)
+		Me.ImportButton.TabIndex = 1
+		Me.ImportButton.Text = "データ取り込み"
+		Me.ImportButton.UseVisualStyleBackColor = True
 		'
 		'ErrorDataGridViewCheckBoxColumn
 		'
@@ -182,18 +191,9 @@ Partial Class ExcelImportForm
 		Me.FaceDataGridViewTextBoxColumn.Name = "FaceDataGridViewTextBoxColumn"
 		Me.FaceDataGridViewTextBoxColumn.ReadOnly = True
 		'
-		'ImportButton
+		'InspectionexcelBindingSource
 		'
-		Me.ImportButton.Location = New System.Drawing.Point(26, 13)
-		Me.ImportButton.Name = "ImportButton"
-		Me.ImportButton.Size = New System.Drawing.Size(75, 23)
-		Me.ImportButton.TabIndex = 1
-		Me.ImportButton.Text = "データ取り込み"
-		Me.ImportButton.UseVisualStyleBackColor = True
-		'
-		'InspectionexcelBindingSource1
-		'
-		Me.InspectionexcelBindingSource1.DataSource = GetType(BridgeManagement.inspectionexcel)
+		Me.InspectionexcelBindingSource.DataSource = GetType(BridgeManagement.inspectionexcel)
 		'
 		'ExcelImportForm
 		'
@@ -203,9 +203,9 @@ Partial Class ExcelImportForm
 		Me.Controls.Add(Me.ImportButton)
 		Me.Controls.Add(Me.DataGridView1)
 		Me.Name = "ExcelImportForm"
-		Me.Text = "ExcelImportForm"
+		Me.Text = "点検データ確認"
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.InspectionexcelBindingSource1, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.InspectionexcelBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 
 	End Sub
@@ -229,5 +229,5 @@ Partial Class ExcelImportForm
 	Friend WithEvents BearingDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents FaceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents ImportButton As Button
-	Friend WithEvents InspectionexcelBindingSource1 As BindingSource
+	Friend WithEvents InspectionexcelBindingSource As BindingSource
 End Class

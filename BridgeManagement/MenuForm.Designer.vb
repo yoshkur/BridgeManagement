@@ -73,7 +73,7 @@ Partial Class MenuForm
 		Me.bridgeManagementButton.Text = "橋梁管理台帳"
 		Me.bridgeManagementButton.UseVisualStyleBackColor = True
 		'
-		'Menu
+		'MenuForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -83,8 +83,8 @@ Partial Class MenuForm
 		Me.Controls.Add(Me.TextBox1)
 		Me.Controls.Add(Me.Button2)
 		Me.Controls.Add(Me.Button1)
-		Me.Name = "Menu"
-		Me.Text = "Form1"
+		Me.Name = "MenuForm"
+		Me.Text = "橋梁管理システム"
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
