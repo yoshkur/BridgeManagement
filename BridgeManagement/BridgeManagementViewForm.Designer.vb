@@ -26,6 +26,8 @@ Partial Class BridgeManagementViewForm
 		Me.inspectionHistoryButton = New System.Windows.Forms.Button()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
 		Me.bridgeHistoryButton = New System.Windows.Forms.Button()
+		Me.bridgeNoteButton = New System.Windows.Forms.Button()
+		Me.BridgemanagementviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.bridgename = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.bridgenameruby = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -60,42 +62,6 @@ Partial Class BridgeManagementViewForm
 		Me.bearing = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.face = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.datasavedir = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.bridgeNoteButton = New System.Windows.Forms.Button()
-		Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.BridgeageDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn11 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn14 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn19 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn20 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn21 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn22 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.InspectionunderconditionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn23 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn24 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.InspectionemergencyroadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn25 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn26 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.InspectionuppermaterialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn27 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.BridgemanagementviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BridgemanagementviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -115,7 +81,7 @@ Partial Class BridgeManagementViewForm
 		Me.DataGridView1.AllowUserToDeleteRows = False
 		Me.DataGridView1.AutoGenerateColumns = False
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.bridgename, Me.bridgenameruby, Me.route, Me.address, Me.latitude, Me.longitude, Me.made, Me.bridgeage, Me.bridgelength, Me.bridgewidth, Me.span, Me.bridgestructure, Me.uppermaterial, Me.lowermaterial, Me.undercondition, Me.emergencyroad, Me.repair, Me.nextinspection, Me.inspectionway, Me.memo, Me.inspectionyear, Me.inspectioner, Me.inspectionundercondition, Me.alternatepath, Me.generalroad, Me.inspectionemergencyroad, Me.occupancy, Me.soundness, Me.inspectionuppermaterial, Me.undermaterial, Me.bearing, Me.face, Me.datasavedir, Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn8, Me.BridgeageDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn9, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewTextBoxColumn18, Me.DataGridViewTextBoxColumn19, Me.DataGridViewTextBoxColumn20, Me.DataGridViewTextBoxColumn21, Me.DataGridViewTextBoxColumn22, Me.InspectionunderconditionDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.InspectionemergencyroadDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.InspectionuppermaterialDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn29, Me.DataGridViewTextBoxColumn30})
+		Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.bridgename, Me.bridgenameruby, Me.route, Me.address, Me.latitude, Me.longitude, Me.made, Me.bridgeage, Me.bridgelength, Me.bridgewidth, Me.span, Me.bridgestructure, Me.uppermaterial, Me.lowermaterial, Me.undercondition, Me.emergencyroad, Me.repair, Me.nextinspection, Me.inspectionway, Me.memo, Me.inspectionyear, Me.inspectioner, Me.inspectionundercondition, Me.alternatepath, Me.generalroad, Me.inspectionemergencyroad, Me.occupancy, Me.soundness, Me.inspectionuppermaterial, Me.undermaterial, Me.bearing, Me.face, Me.datasavedir})
 		Me.DataGridView1.DataSource = Me.BridgemanagementviewBindingSource
 		Me.DataGridView1.Location = New System.Drawing.Point(12, 53)
 		Me.DataGridView1.Name = "DataGridView1"
@@ -132,6 +98,19 @@ Partial Class BridgeManagementViewForm
 		Me.bridgeHistoryButton.TabIndex = 3
 		Me.bridgeHistoryButton.Text = "橋梁履歴"
 		Me.bridgeHistoryButton.UseVisualStyleBackColor = True
+		'
+		'bridgeNoteButton
+		'
+		Me.bridgeNoteButton.Location = New System.Drawing.Point(276, 13)
+		Me.bridgeNoteButton.Name = "bridgeNoteButton"
+		Me.bridgeNoteButton.Size = New System.Drawing.Size(93, 23)
+		Me.bridgeNoteButton.TabIndex = 4
+		Me.bridgeNoteButton.Text = "橋梁メモ履歴"
+		Me.bridgeNoteButton.UseVisualStyleBackColor = True
+		'
+		'BridgemanagementviewBindingSource
+		'
+		Me.BridgemanagementviewBindingSource.DataSource = GetType(BridgeManagement.bridgemanagementview)
 		'
 		'id
 		'
@@ -371,257 +350,6 @@ Partial Class BridgeManagementViewForm
 		Me.datasavedir.Name = "datasavedir"
 		Me.datasavedir.ReadOnly = True
 		'
-		'bridgeNoteButton
-		'
-		Me.bridgeNoteButton.Location = New System.Drawing.Point(276, 13)
-		Me.bridgeNoteButton.Name = "bridgeNoteButton"
-		Me.bridgeNoteButton.Size = New System.Drawing.Size(93, 23)
-		Me.bridgeNoteButton.TabIndex = 4
-		Me.bridgeNoteButton.Text = "橋梁メモ履歴"
-		Me.bridgeNoteButton.UseVisualStyleBackColor = True
-		'
-		'DataGridViewTextBoxColumn1
-		'
-		Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
-		Me.DataGridViewTextBoxColumn1.HeaderText = "id"
-		Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-		Me.DataGridViewTextBoxColumn1.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn2
-		'
-		Me.DataGridViewTextBoxColumn2.DataPropertyName = "bridgename"
-		Me.DataGridViewTextBoxColumn2.HeaderText = "bridgename"
-		Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
-		Me.DataGridViewTextBoxColumn2.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn3
-		'
-		Me.DataGridViewTextBoxColumn3.DataPropertyName = "bridgenameruby"
-		Me.DataGridViewTextBoxColumn3.HeaderText = "bridgenameruby"
-		Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-		Me.DataGridViewTextBoxColumn3.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn4
-		'
-		Me.DataGridViewTextBoxColumn4.DataPropertyName = "route"
-		Me.DataGridViewTextBoxColumn4.HeaderText = "route"
-		Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-		Me.DataGridViewTextBoxColumn4.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn5
-		'
-		Me.DataGridViewTextBoxColumn5.DataPropertyName = "address"
-		Me.DataGridViewTextBoxColumn5.HeaderText = "address"
-		Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
-		Me.DataGridViewTextBoxColumn5.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn6
-		'
-		Me.DataGridViewTextBoxColumn6.DataPropertyName = "latitude"
-		Me.DataGridViewTextBoxColumn6.HeaderText = "latitude"
-		Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-		Me.DataGridViewTextBoxColumn6.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn7
-		'
-		Me.DataGridViewTextBoxColumn7.DataPropertyName = "longitude"
-		Me.DataGridViewTextBoxColumn7.HeaderText = "longitude"
-		Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-		Me.DataGridViewTextBoxColumn7.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn8
-		'
-		Me.DataGridViewTextBoxColumn8.DataPropertyName = "made"
-		Me.DataGridViewTextBoxColumn8.HeaderText = "made"
-		Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-		Me.DataGridViewTextBoxColumn8.ReadOnly = True
-		'
-		'BridgeageDataGridViewTextBoxColumn
-		'
-		Me.BridgeageDataGridViewTextBoxColumn.DataPropertyName = "bridgeage"
-		Me.BridgeageDataGridViewTextBoxColumn.HeaderText = "bridgeage"
-		Me.BridgeageDataGridViewTextBoxColumn.Name = "BridgeageDataGridViewTextBoxColumn"
-		Me.BridgeageDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn9
-		'
-		Me.DataGridViewTextBoxColumn9.DataPropertyName = "bridgelength"
-		Me.DataGridViewTextBoxColumn9.HeaderText = "bridgelength"
-		Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-		Me.DataGridViewTextBoxColumn9.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn10
-		'
-		Me.DataGridViewTextBoxColumn10.DataPropertyName = "bridgewidth"
-		Me.DataGridViewTextBoxColumn10.HeaderText = "bridgewidth"
-		Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-		Me.DataGridViewTextBoxColumn10.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn11
-		'
-		Me.DataGridViewTextBoxColumn11.DataPropertyName = "span"
-		Me.DataGridViewTextBoxColumn11.HeaderText = "span"
-		Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-		Me.DataGridViewTextBoxColumn11.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn12
-		'
-		Me.DataGridViewTextBoxColumn12.DataPropertyName = "bridgestructure"
-		Me.DataGridViewTextBoxColumn12.HeaderText = "bridgestructure"
-		Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-		Me.DataGridViewTextBoxColumn12.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn13
-		'
-		Me.DataGridViewTextBoxColumn13.DataPropertyName = "uppermaterial"
-		Me.DataGridViewTextBoxColumn13.HeaderText = "uppermaterial"
-		Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-		Me.DataGridViewTextBoxColumn13.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn14
-		'
-		Me.DataGridViewTextBoxColumn14.DataPropertyName = "lowermaterial"
-		Me.DataGridViewTextBoxColumn14.HeaderText = "lowermaterial"
-		Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-		Me.DataGridViewTextBoxColumn14.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn15
-		'
-		Me.DataGridViewTextBoxColumn15.DataPropertyName = "undercondition"
-		Me.DataGridViewTextBoxColumn15.HeaderText = "undercondition"
-		Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-		Me.DataGridViewTextBoxColumn15.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn16
-		'
-		Me.DataGridViewTextBoxColumn16.DataPropertyName = "emergencyroad"
-		Me.DataGridViewTextBoxColumn16.HeaderText = "emergencyroad"
-		Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-		Me.DataGridViewTextBoxColumn16.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn17
-		'
-		Me.DataGridViewTextBoxColumn17.DataPropertyName = "repair"
-		Me.DataGridViewTextBoxColumn17.HeaderText = "repair"
-		Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-		Me.DataGridViewTextBoxColumn17.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn18
-		'
-		Me.DataGridViewTextBoxColumn18.DataPropertyName = "nextinspection"
-		Me.DataGridViewTextBoxColumn18.HeaderText = "nextinspection"
-		Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-		Me.DataGridViewTextBoxColumn18.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn19
-		'
-		Me.DataGridViewTextBoxColumn19.DataPropertyName = "inspectionway"
-		Me.DataGridViewTextBoxColumn19.HeaderText = "inspectionway"
-		Me.DataGridViewTextBoxColumn19.Name = "DataGridViewTextBoxColumn19"
-		Me.DataGridViewTextBoxColumn19.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn20
-		'
-		Me.DataGridViewTextBoxColumn20.DataPropertyName = "memo"
-		Me.DataGridViewTextBoxColumn20.HeaderText = "memo"
-		Me.DataGridViewTextBoxColumn20.Name = "DataGridViewTextBoxColumn20"
-		Me.DataGridViewTextBoxColumn20.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn21
-		'
-		Me.DataGridViewTextBoxColumn21.DataPropertyName = "inspectionyear"
-		Me.DataGridViewTextBoxColumn21.HeaderText = "inspectionyear"
-		Me.DataGridViewTextBoxColumn21.Name = "DataGridViewTextBoxColumn21"
-		Me.DataGridViewTextBoxColumn21.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn22
-		'
-		Me.DataGridViewTextBoxColumn22.DataPropertyName = "inspectioner"
-		Me.DataGridViewTextBoxColumn22.HeaderText = "inspectioner"
-		Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-		Me.DataGridViewTextBoxColumn22.ReadOnly = True
-		'
-		'InspectionunderconditionDataGridViewTextBoxColumn
-		'
-		Me.InspectionunderconditionDataGridViewTextBoxColumn.DataPropertyName = "inspectionundercondition"
-		Me.InspectionunderconditionDataGridViewTextBoxColumn.HeaderText = "inspectionundercondition"
-		Me.InspectionunderconditionDataGridViewTextBoxColumn.Name = "InspectionunderconditionDataGridViewTextBoxColumn"
-		Me.InspectionunderconditionDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn23
-		'
-		Me.DataGridViewTextBoxColumn23.DataPropertyName = "alternatepath"
-		Me.DataGridViewTextBoxColumn23.HeaderText = "alternatepath"
-		Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-		Me.DataGridViewTextBoxColumn23.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn24
-		'
-		Me.DataGridViewTextBoxColumn24.DataPropertyName = "generalroad"
-		Me.DataGridViewTextBoxColumn24.HeaderText = "generalroad"
-		Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
-		Me.DataGridViewTextBoxColumn24.ReadOnly = True
-		'
-		'InspectionemergencyroadDataGridViewTextBoxColumn
-		'
-		Me.InspectionemergencyroadDataGridViewTextBoxColumn.DataPropertyName = "inspectionemergencyroad"
-		Me.InspectionemergencyroadDataGridViewTextBoxColumn.HeaderText = "inspectionemergencyroad"
-		Me.InspectionemergencyroadDataGridViewTextBoxColumn.Name = "InspectionemergencyroadDataGridViewTextBoxColumn"
-		Me.InspectionemergencyroadDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn25
-		'
-		Me.DataGridViewTextBoxColumn25.DataPropertyName = "occupancy"
-		Me.DataGridViewTextBoxColumn25.HeaderText = "occupancy"
-		Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
-		Me.DataGridViewTextBoxColumn25.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn26
-		'
-		Me.DataGridViewTextBoxColumn26.DataPropertyName = "soundness"
-		Me.DataGridViewTextBoxColumn26.HeaderText = "soundness"
-		Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
-		Me.DataGridViewTextBoxColumn26.ReadOnly = True
-		'
-		'InspectionuppermaterialDataGridViewTextBoxColumn
-		'
-		Me.InspectionuppermaterialDataGridViewTextBoxColumn.DataPropertyName = "inspectionuppermaterial"
-		Me.InspectionuppermaterialDataGridViewTextBoxColumn.HeaderText = "inspectionuppermaterial"
-		Me.InspectionuppermaterialDataGridViewTextBoxColumn.Name = "InspectionuppermaterialDataGridViewTextBoxColumn"
-		Me.InspectionuppermaterialDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn27
-		'
-		Me.DataGridViewTextBoxColumn27.DataPropertyName = "undermaterial"
-		Me.DataGridViewTextBoxColumn27.HeaderText = "undermaterial"
-		Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
-		Me.DataGridViewTextBoxColumn27.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn28
-		'
-		Me.DataGridViewTextBoxColumn28.DataPropertyName = "bearing"
-		Me.DataGridViewTextBoxColumn28.HeaderText = "bearing"
-		Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
-		Me.DataGridViewTextBoxColumn28.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn29
-		'
-		Me.DataGridViewTextBoxColumn29.DataPropertyName = "face"
-		Me.DataGridViewTextBoxColumn29.HeaderText = "face"
-		Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
-		Me.DataGridViewTextBoxColumn29.ReadOnly = True
-		'
-		'DataGridViewTextBoxColumn30
-		'
-		Me.DataGridViewTextBoxColumn30.DataPropertyName = "datasavedir"
-		Me.DataGridViewTextBoxColumn30.HeaderText = "datasavedir"
-		Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
-		Me.DataGridViewTextBoxColumn30.ReadOnly = True
-		'
-		'BridgemanagementviewBindingSource
-		'
-		Me.BridgemanagementviewBindingSource.DataSource = GetType(BridgeManagement.bridgemanagementview)
-		'
 		'BridgeManagementViewForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -674,6 +402,8 @@ Partial Class BridgeManagementViewForm
 	Friend WithEvents DatasavedirDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents DataGridView1 As DataGridView
 	Friend WithEvents bridgeHistoryButton As Button
+	Friend WithEvents BridgemanagementviewBindingSource As BindingSource
+	Friend WithEvents bridgeNoteButton As Button
 	Friend WithEvents id As DataGridViewTextBoxColumn
 	Friend WithEvents bridgename As DataGridViewTextBoxColumn
 	Friend WithEvents bridgenameruby As DataGridViewTextBoxColumn
@@ -708,40 +438,4 @@ Partial Class BridgeManagementViewForm
 	Friend WithEvents bearing As DataGridViewTextBoxColumn
 	Friend WithEvents face As DataGridViewTextBoxColumn
 	Friend WithEvents datasavedir As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn1 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn2 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn3 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn4 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn7 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn8 As DataGridViewTextBoxColumn
-	Friend WithEvents BridgeageDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn9 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn10 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn11 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn12 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn13 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn14 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn15 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn16 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn17 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn18 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn19 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn20 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn21 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn22 As DataGridViewTextBoxColumn
-	Friend WithEvents InspectionunderconditionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn23 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn24 As DataGridViewTextBoxColumn
-	Friend WithEvents InspectionemergencyroadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn25 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn26 As DataGridViewTextBoxColumn
-	Friend WithEvents InspectionuppermaterialDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn27 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn28 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
-	Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
-	Friend WithEvents BridgemanagementviewBindingSource As BindingSource
-	Friend WithEvents bridgeNoteButton As Button
 End Class
