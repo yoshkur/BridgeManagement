@@ -126,6 +126,12 @@
     <Compile Include="bridgenotehistory.vb">
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BridgeNoteHistoryForm.Designer.vb">
+      <DependentUpon>BridgeNoteHistoryForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeNoteHistoryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ExcelImportForm.Designer.vb">
       <DependentUpon>ExcelImportForm.vb</DependentUpon>
     </Compile>
@@ -179,6 +185,9 @@
     <EmbeddedResource Include="BridgeManagementViewForm.resx">
       <DependentUpon>BridgeManagementViewForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BridgeNoteHistoryForm.resx">
+      <DependentUpon>BridgeNoteHistoryForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ExcelImportForm.resx">
       <DependentUpon>ExcelImportForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +218,7 @@
     </None>
     <None Include="My Project\DataSources\bridgehistory.datasource" />
     <None Include="My Project\DataSources\bridgemanagementview.datasource" />
+    <None Include="My Project\DataSources\bridgenotehistory.datasource" />
     <None Include="My Project\DataSources\inspectionexcel.datasource" />
     <None Include="My Project\DataSources\inspectionhistory.datasource" />
     <None Include="My Project\Settings.settings">

@@ -22,4 +22,11 @@
 		form.ShowDialog(Me)
 		form.Dispose()
 	End Sub
+
+	Private Sub bridgeNoteButton_Click(sender As Object, e As EventArgs) Handles bridgeNoteButton.Click
+		Dim form As New BridgeNoteHistoryForm
+		form.setDataSource(Me.DataGridView1.Item(0, Me.DataGridView1.CurrentRow.Index).Value)
+		form.ShowDialog(Me)
+		form.Dispose()
+	End Sub
 End Class

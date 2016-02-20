@@ -26,7 +26,6 @@ Partial Class BridgeManagementViewForm
 		Me.inspectionHistoryButton = New System.Windows.Forms.Button()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
 		Me.bridgeHistoryButton = New System.Windows.Forms.Button()
-		Me.BridgemanagementviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.bridgename = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.bridgenameruby = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -61,6 +60,7 @@ Partial Class BridgeManagementViewForm
 		Me.bearing = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.face = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.datasavedir = New System.Windows.Forms.DataGridViewTextBoxColumn()
+		Me.bridgeNoteButton = New System.Windows.Forms.Button()
 		Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -95,6 +95,7 @@ Partial Class BridgeManagementViewForm
 		Me.DataGridViewTextBoxColumn28 = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.DataGridViewTextBoxColumn29 = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.DataGridViewTextBoxColumn30 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+		Me.BridgemanagementviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BridgemanagementviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -125,16 +126,12 @@ Partial Class BridgeManagementViewForm
 		'
 		'bridgeHistoryButton
 		'
-		Me.bridgeHistoryButton.Location = New System.Drawing.Point(262, 12)
+		Me.bridgeHistoryButton.Location = New System.Drawing.Point(402, 12)
 		Me.bridgeHistoryButton.Name = "bridgeHistoryButton"
 		Me.bridgeHistoryButton.Size = New System.Drawing.Size(75, 23)
 		Me.bridgeHistoryButton.TabIndex = 3
 		Me.bridgeHistoryButton.Text = "橋梁履歴"
 		Me.bridgeHistoryButton.UseVisualStyleBackColor = True
-		'
-		'BridgemanagementviewBindingSource
-		'
-		Me.BridgemanagementviewBindingSource.DataSource = GetType(BridgeManagement.bridgemanagementview)
 		'
 		'id
 		'
@@ -374,6 +371,15 @@ Partial Class BridgeManagementViewForm
 		Me.datasavedir.Name = "datasavedir"
 		Me.datasavedir.ReadOnly = True
 		'
+		'bridgeNoteButton
+		'
+		Me.bridgeNoteButton.Location = New System.Drawing.Point(276, 13)
+		Me.bridgeNoteButton.Name = "bridgeNoteButton"
+		Me.bridgeNoteButton.Size = New System.Drawing.Size(93, 23)
+		Me.bridgeNoteButton.TabIndex = 4
+		Me.bridgeNoteButton.Text = "橋梁メモ履歴"
+		Me.bridgeNoteButton.UseVisualStyleBackColor = True
+		'
 		'DataGridViewTextBoxColumn1
 		'
 		Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
@@ -612,11 +618,16 @@ Partial Class BridgeManagementViewForm
 		Me.DataGridViewTextBoxColumn30.Name = "DataGridViewTextBoxColumn30"
 		Me.DataGridViewTextBoxColumn30.ReadOnly = True
 		'
+		'BridgemanagementviewBindingSource
+		'
+		Me.BridgemanagementviewBindingSource.DataSource = GetType(BridgeManagement.bridgemanagementview)
+		'
 		'BridgeManagementViewForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1460, 606)
+		Me.Controls.Add(Me.bridgeNoteButton)
 		Me.Controls.Add(Me.bridgeHistoryButton)
 		Me.Controls.Add(Me.DataGridView1)
 		Me.Controls.Add(Me.inspectionHistoryButton)
@@ -732,4 +743,5 @@ Partial Class BridgeManagementViewForm
 	Friend WithEvents DataGridViewTextBoxColumn29 As DataGridViewTextBoxColumn
 	Friend WithEvents DataGridViewTextBoxColumn30 As DataGridViewTextBoxColumn
 	Friend WithEvents BridgemanagementviewBindingSource As BindingSource
+	Friend WithEvents bridgeNoteButton As Button
 End Class
