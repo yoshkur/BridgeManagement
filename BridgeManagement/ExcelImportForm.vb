@@ -3,9 +3,12 @@
 Public Class ExcelImportForm
 	Private Sub ExcelImportForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Me.getInspectionData()
-		'TODO: このコード行はデータを 'BridgemanagementExcelImportDataSet.inspectionexcel' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
-		Me.InspectionexcelTableAdapter.Fill(Me.BridgemanagementExcelImportDataSet.inspectionexcel)
-
+		Dim db As New bridgemanagementEntities
+		Dim bs As New BindingSource
+		For Each ent In db.inspectionexcel
+			bs.Add(ent)
+		Next
+		Me.DataGridView1.DataSource = bs
 	End Sub
 
 	Private Sub getInspectionData()

@@ -1,4 +1,4 @@
-﻿Public Class Menu
+﻿Public Class MenuForm
 	Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 		'Me.BridgeTableAdapter.Insert(id:=4, recorddate:=Now, recordprogram:=Me.Name, recorduserid:="test", recordvalid:=True, bridgename:="aaa", route:="bbb", address:="ccc", latitude:="143", longitude:="38", made:=1972, bridgelength:=59.7, bridgewidth:=7.8, span:=9, bridgestructure:="ddd", uppermaterial:="eee", lowermaterial:="fff", undercondition:="ggg", emergencyroad:="hhh", memo:="iii")
 

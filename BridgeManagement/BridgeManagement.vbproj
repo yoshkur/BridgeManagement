@@ -90,6 +90,12 @@
     <Compile Include="bridgehistory.vb">
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BridgeHistoryForm.Designer.vb">
+      <DependentUpon>BridgeHistoryForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeHistoryForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="BridgeManagementDataModel.Context.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -104,16 +110,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="bridgeDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bridgeDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="bridgemanagementExcelImportDataSet.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>bridgemanagementExcelImportDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="bridgemanagementview.vb">
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
@@ -143,11 +139,11 @@
     <Compile Include="InspectionHistoryForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.vb">
+    <Compile Include="MenuForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Menu.Designer.vb">
-      <DependentUpon>Menu.vb</DependentUpon>
+    <Compile Include="MenuForm.Designer.vb">
+      <DependentUpon>MenuForm.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="inspection.vb">
@@ -177,6 +173,9 @@
     <Compile Include="Setting.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BridgeHistoryForm.resx">
+      <DependentUpon>BridgeHistoryForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BridgeManagementViewForm.resx">
       <DependentUpon>BridgeManagementViewForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -186,8 +185,8 @@
     <EmbeddedResource Include="InspectionHistoryForm.resx">
       <DependentUpon>InspectionHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Menu.resx">
-      <DependentUpon>Menu.vb</DependentUpon>
+    <EmbeddedResource Include="MenuForm.resx">
+      <DependentUpon>MenuForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -204,33 +203,14 @@
     <None Include="BridgeManagementDataModel.edmx.diagram">
       <DependentUpon>BridgeManagementDataModel.edmx</DependentUpon>
     </None>
-    <None Include="bridgeDataSet.xsc">
-      <DependentUpon>bridgeDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="bridgeDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bridgeDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bridgeDataSet.xss">
-      <DependentUpon>bridgeDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="bridgemanagementExcelImportDataSet.xsc">
-      <DependentUpon>bridgemanagementExcelImportDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="bridgemanagementExcelImportDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>bridgemanagementExcelImportDataSet.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="bridgemanagementExcelImportDataSet.xss">
-      <DependentUpon>bridgemanagementExcelImportDataSet.xsd</DependentUpon>
-    </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\bridgehistory.datasource" />
     <None Include="My Project\DataSources\bridgemanagementview.datasource" />
+    <None Include="My Project\DataSources\inspectionexcel.datasource" />
+    <None Include="My Project\DataSources\inspectionhistory.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

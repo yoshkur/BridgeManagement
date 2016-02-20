@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Menu
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class MenuForm
 	Inherits System.Windows.Forms.Form
 
     'フォームがコンポーネントの一覧をクリーンアップするために dispose をオーバーライドします。
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
 	Protected Overrides Sub Dispose(ByVal disposing As Boolean)
 		Try
 			If disposing AndAlso components IsNot Nothing Then
@@ -20,19 +20,13 @@ Partial Class Menu
     'メモ: 以下のプロシージャは Windows フォーム デザイナーで必要です。
     'Windows フォーム デザイナーを使用して変更できます。  
     'コード エディターを使って変更しないでください。
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
 	Private Sub InitializeComponent()
-		Me.components = New System.ComponentModel.Container()
 		Me.Button1 = New System.Windows.Forms.Button()
-		Me.BridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-		Me.BridgemanagementDataSet = New BridgeManagement.bridgeDataSet()
-		Me.BridgeTableAdapter = New BridgeManagement.bridgemanagementDataSetTableAdapters.bridgeTableAdapter()
 		Me.Button2 = New System.Windows.Forms.Button()
 		Me.TextBox1 = New System.Windows.Forms.TextBox()
 		Me.inspectionDataImportButtom = New System.Windows.Forms.Button()
 		Me.bridgeManagementButton = New System.Windows.Forms.Button()
-		CType(Me.BridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-		CType(Me.BridgemanagementDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'Button1
@@ -43,20 +37,6 @@ Partial Class Menu
 		Me.Button1.TabIndex = 0
 		Me.Button1.Text = "Button1"
 		Me.Button1.UseVisualStyleBackColor = True
-		'
-		'BridgeBindingSource
-		'
-		Me.BridgeBindingSource.DataMember = "bridge"
-		Me.BridgeBindingSource.DataSource = Me.BridgemanagementDataSet
-		'
-		'BridgemanagementDataSet
-		'
-		Me.BridgemanagementDataSet.DataSetName = "bridgemanagementDataSet"
-		Me.BridgemanagementDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-		'
-		'BridgeTableAdapter
-		'
-		Me.BridgeTableAdapter.ClearBeforeFill = True
 		'
 		'Button2
 		'
@@ -105,17 +85,12 @@ Partial Class Menu
 		Me.Controls.Add(Me.Button1)
 		Me.Name = "Menu"
 		Me.Text = "Form1"
-		CType(Me.BridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-		CType(Me.BridgemanagementDataSet, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
 	End Sub
 
 	Friend WithEvents Button1 As Button
-	Friend WithEvents BridgemanagementDataSet As bridgeDataSet
-	Friend WithEvents BridgeBindingSource As BindingSource
-	Friend WithEvents BridgeTableAdapter As bridgemanagementDataSetTableAdapters.bridgeTableAdapter
 	Friend WithEvents Button2 As Button
 	Friend WithEvents TextBox1 As TextBox
 	Friend WithEvents inspectionDataImportButtom As Button
