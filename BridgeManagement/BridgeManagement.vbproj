@@ -87,6 +87,12 @@
     <Compile Include="bridge.vb">
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BridgeAddForm.Designer.vb">
+      <DependentUpon>BridgeAddForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeAddForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="bridgehistory.vb">
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
     </Compile>
@@ -179,6 +185,9 @@
     <Compile Include="Setting.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="BridgeAddForm.resx">
+      <DependentUpon>BridgeAddForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BridgeHistoryForm.resx">
       <DependentUpon>BridgeHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
