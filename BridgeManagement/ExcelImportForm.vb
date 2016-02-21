@@ -43,46 +43,32 @@ Public Class ExcelImportForm
 		Dim inspectionExcels = db.inspectionexcel
 
 		For Each inspectionExcel In inspectionExcels
-			Dim newEntity As New inspection
-			Dim findEntity = db.inspection.Find(inspectionExcel.id)
-			If findEntity Is Nothing Then
-				newEntity.id = inspectionExcel.id
-				newEntity.recorddate = Now
-				newEntity.recordprogram = Me.Name
-				newEntity.recorduserid = System.Environment.UserName
-				newEntity.recordvalid = True
-				newEntity.inspectionyear = inspectionExcel.inspectionyear
-				newEntity.inspectioner = inspectionExcel.inspectioner
-				newEntity.undercondition = inspectionExcel.undercondition
-				newEntity.alternatepath = inspectionExcel.alternatepath
-				newEntity.generalroad = inspectionExcel.generalroad
-				newEntity.emergencyroad = inspectionExcel.emergencyroad
-				newEntity.occupancy = inspectionExcel.occupancy
-				newEntity.soundness = inspectionExcel.soundness
-				newEntity.uppermaterial = inspectionExcel.uppermaterial
-				newEntity.undermaterial = inspectionExcel.undermaterial
-				newEntity.bearing = inspectionExcel.bearing
-				newEntity.face = inspectionExcel.face
-				newEntity.datasavedir = Me.moveDirectory(inspectionExcel, newEntity)
-				db.inspection.Add(newEntity)
-			Else
-				findEntity.recorddate = Now
-				findEntity.recordprogram = Me.Name
-				findEntity.recorduserid = System.Environment.UserName
-				findEntity.recordvalid = True
-				findEntity.inspectionyear = inspectionExcel.inspectionyear
-				findEntity.inspectioner = inspectionExcel.inspectioner
-				findEntity.undercondition = inspectionExcel.undercondition
-				findEntity.alternatepath = inspectionExcel.alternatepath
-				findEntity.generalroad = inspectionExcel.generalroad
-				findEntity.emergencyroad = inspectionExcel.emergencyroad
-				findEntity.occupancy = inspectionExcel.occupancy
-				findEntity.soundness = inspectionExcel.soundness
-				findEntity.uppermaterial = inspectionExcel.uppermaterial
-				findEntity.undermaterial = inspectionExcel.undermaterial
-				findEntity.bearing = inspectionExcel.bearing
-				findEntity.face = inspectionExcel.face
-				findEntity.datasavedir = Me.moveDirectory(inspectionExcel, findEntity)
+			Dim ent = db.inspection.Find(inspectionExcel.id)
+			Dim _new As Boolean = ent Is Nothing
+
+			If _new Then
+				ent = New inspection
+			End If
+			ent.id = inspectionExcel.id
+			ent.recorddate = Now
+			ent.recordprogram = Me.Name
+			ent.recorduserid = System.Environment.UserName
+			ent.recordvalid = True
+			ent.inspectionyear = inspectionExcel.inspectionyear
+			ent.inspectioner = inspectionExcel.inspectioner
+			ent.undercondition = inspectionExcel.undercondition
+			ent.alternatepath = inspectionExcel.alternatepath
+			ent.generalroad = inspectionExcel.generalroad
+			ent.emergencyroad = inspectionExcel.emergencyroad
+			ent.occupancy = inspectionExcel.occupancy
+			ent.soundness = inspectionExcel.soundness
+			ent.uppermaterial = inspectionExcel.uppermaterial
+			ent.undermaterial = inspectionExcel.undermaterial
+			ent.bearing = inspectionExcel.bearing
+			ent.face = inspectionExcel.face
+			ent.datasavedir = Me.moveDirectory(inspectionExcel, ent)
+			If _new Then
+				db.inspection.Add(ent)
 			End If
 		Next
 	End Sub
