@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="bridgemanagementModel.inspection" Width="1.5" PointX="6.75" PointY="0.75" />
         <EntityTypeShape EntityType="bridgemanagementModel.inspectionhistory" Width="1.5" PointX="0.75" PointY="6.75" />
         <EntityTypeShape EntityType="bridgemanagementModel.inspectionexcel" Width="1.5" PointX="7.375" PointY="6.75" />
-        <EntityTypeShape EntityType="bridgemanagementModel.bridge" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="bridgemanagementModel.更新" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="bridgemanagementModel.bridgehistory" Width="1.5" PointX="3.75" PointY="8.75" />
         <EntityTypeShape EntityType="bridgemanagementModel.bridgemanagementview" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>

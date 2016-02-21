@@ -11,24 +11,24 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="recorddate" Type="datetime" Nullable="false" />
-          <Property Name="recordprogram" Type="text" Nullable="false" />
-          <Property Name="recorduserid" Type="text" Nullable="false" />
+          <Property Name="recordprogram" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="recorduserid" Type="nvarchar(max)" Nullable="false" />
           <Property Name="recordvalid" Type="bit" Nullable="false" />
-          <Property Name="bridgename" Type="text" />
-          <Property Name="bridgenameruby" Type="text" />
-          <Property Name="route" Type="text" />
-          <Property Name="address" Type="text" />
-          <Property Name="latitude" Type="text" />
-          <Property Name="longitude" Type="text" />
+          <Property Name="bridgename" Type="nvarchar(max)" />
+          <Property Name="bridgenameruby" Type="nvarchar(max)" />
+          <Property Name="route" Type="nvarchar(max)" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="latitude" Type="nvarchar(max)" />
+          <Property Name="longitude" Type="nvarchar(max)" />
           <Property Name="made" Type="int" />
           <Property Name="bridgelength" Type="numeric" Precision="5" Scale="1" />
           <Property Name="bridgewidth" Type="numeric" Precision="3" Scale="1" />
           <Property Name="span" Type="int" />
-          <Property Name="bridgestructure" Type="text" />
-          <Property Name="uppermaterial" Type="text" />
-          <Property Name="lowermaterial" Type="text" />
-          <Property Name="undercondition" Type="text" />
-          <Property Name="emergencyroad" Type="text" />
+          <Property Name="bridgestructure" Type="nvarchar(max)" />
+          <Property Name="uppermaterial" Type="nvarchar(max)" />
+          <Property Name="lowermaterial" Type="nvarchar(max)" />
+          <Property Name="undercondition" Type="nvarchar(max)" />
+          <Property Name="emergencyroad" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="bridgehistory">
           <Key>
@@ -37,24 +37,24 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="recorddate" Type="datetime" Nullable="false" />
-          <Property Name="recordprogram" Type="text" Nullable="false" />
-          <Property Name="recorduserid" Type="text" Nullable="false" />
+          <Property Name="recordprogram" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="recorduserid" Type="nvarchar(max)" Nullable="false" />
           <Property Name="recordvalid" Type="bit" Nullable="false" />
-          <Property Name="bridgename" Type="text" />
-          <Property Name="bridgenameruby" Type="text" />
-          <Property Name="route" Type="text" />
-          <Property Name="address" Type="text" />
-          <Property Name="latitude" Type="text" />
-          <Property Name="longitude" Type="text" />
+          <Property Name="bridgename" Type="nvarchar(max)" />
+          <Property Name="bridgenameruby" Type="nvarchar(max)" />
+          <Property Name="route" Type="nvarchar(max)" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="latitude" Type="nvarchar(max)" />
+          <Property Name="longitude" Type="nvarchar(max)" />
           <Property Name="made" Type="int" />
           <Property Name="bridgelength" Type="numeric" Precision="5" Scale="1" />
           <Property Name="bridgewidth" Type="numeric" Precision="3" Scale="1" />
           <Property Name="span" Type="int" />
-          <Property Name="bridgestructure" Type="text" />
-          <Property Name="uppermaterial" Type="text" />
-          <Property Name="lowermaterial" Type="text" />
-          <Property Name="undercondition" Type="text" />
-          <Property Name="emergencyroad" Type="text" />
+          <Property Name="bridgestructure" Type="nvarchar(max)" />
+          <Property Name="uppermaterial" Type="nvarchar(max)" />
+          <Property Name="lowermaterial" Type="nvarchar(max)" />
+          <Property Name="undercondition" Type="nvarchar(max)" />
+          <Property Name="emergencyroad" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="bridgenote">
           <Key>
@@ -62,13 +62,13 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="recorddate" Type="datetime" Nullable="false" />
-          <Property Name="recordprogram" Type="text" Nullable="false" />
-          <Property Name="recorduserid" Type="text" Nullable="false" />
+          <Property Name="recordprogram" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="recorduserid" Type="nvarchar(max)" Nullable="false" />
           <Property Name="recordvalid" Type="bit" Nullable="false" />
-          <Property Name="repair" Type="text" />
+          <Property Name="repair" Type="nvarchar(max)" />
           <Property Name="nextinspection" Type="int" />
-          <Property Name="inspectionway" Type="text" />
-          <Property Name="memo" Type="text" />
+          <Property Name="inspectionway" Type="nvarchar(max)" />
+          <Property Name="memo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="bridgenotehistory">
           <Key>
@@ -77,13 +77,13 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="recorddate" Type="datetime" Nullable="false" />
-          <Property Name="recordprogram" Type="text" Nullable="false" />
-          <Property Name="recorduserid" Type="text" Nullable="false" />
+          <Property Name="recordprogram" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="recorduserid" Type="nvarchar(max)" Nullable="false" />
           <Property Name="recordvalid" Type="bit" Nullable="false" />
-          <Property Name="repair" Type="text" />
+          <Property Name="repair" Type="nvarchar(max)" />
           <Property Name="nextinspection" Type="int" />
-          <Property Name="inspectionway" Type="text" />
-          <Property Name="memo" Type="text" />
+          <Property Name="inspectionway" Type="nvarchar(max)" />
+          <Property Name="memo" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="inspection">
           <Key>
@@ -91,44 +91,44 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="recorddate" Type="datetime" Nullable="false" />
-          <Property Name="recordprogram" Type="text" Nullable="false" />
-          <Property Name="recorduserid" Type="text" Nullable="false" />
+          <Property Name="recordprogram" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="recorduserid" Type="nvarchar(max)" Nullable="false" />
           <Property Name="recordvalid" Type="bit" Nullable="false" />
           <Property Name="inspectionyear" Type="int" />
-          <Property Name="inspectioner" Type="text" />
-          <Property Name="undercondition" Type="text" />
-          <Property Name="alternatepath" Type="text" />
-          <Property Name="generalroad" Type="text" />
-          <Property Name="emergencyroad" Type="text" />
-          <Property Name="occupancy" Type="text" />
-          <Property Name="soundness" Type="text" />
-          <Property Name="uppermaterial" Type="text" />
-          <Property Name="undermaterial" Type="text" />
-          <Property Name="bearing" Type="text" />
-          <Property Name="face" Type="text" />
-          <Property Name="datasavedir" Type="text" />
+          <Property Name="inspectioner" Type="nvarchar(max)" />
+          <Property Name="undercondition" Type="nvarchar(max)" />
+          <Property Name="alternatepath" Type="nvarchar(max)" />
+          <Property Name="generalroad" Type="nvarchar(max)" />
+          <Property Name="emergencyroad" Type="nvarchar(max)" />
+          <Property Name="occupancy" Type="nvarchar(max)" />
+          <Property Name="soundness" Type="nvarchar(max)" />
+          <Property Name="uppermaterial" Type="nvarchar(max)" />
+          <Property Name="undermaterial" Type="nvarchar(max)" />
+          <Property Name="bearing" Type="nvarchar(max)" />
+          <Property Name="face" Type="nvarchar(max)" />
+          <Property Name="datasavedir" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="inspectionexcel">
           <Key>
             <PropertyRef Name="ident" />
           </Key>
           <Property Name="ident" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="datadir" Type="text" Nullable="false" />
+          <Property Name="datadir" Type="nvarchar(max)" Nullable="false" />
           <Property Name="id" Type="int" />
           <Property Name="inspectionyear" Type="int" />
-          <Property Name="inspectioner" Type="text" />
-          <Property Name="undercondition" Type="text" />
-          <Property Name="alternatepath" Type="text" />
-          <Property Name="generalroad" Type="text" />
-          <Property Name="emergencyroad" Type="text" />
-          <Property Name="occupancy" Type="text" />
-          <Property Name="soundness" Type="text" />
-          <Property Name="uppermaterial" Type="text" />
-          <Property Name="undermaterial" Type="text" />
-          <Property Name="bearing" Type="text" />
-          <Property Name="face" Type="text" />
+          <Property Name="inspectioner" Type="nvarchar(max)" />
+          <Property Name="undercondition" Type="nvarchar(max)" />
+          <Property Name="alternatepath" Type="nvarchar(max)" />
+          <Property Name="generalroad" Type="nvarchar(max)" />
+          <Property Name="emergencyroad" Type="nvarchar(max)" />
+          <Property Name="occupancy" Type="nvarchar(max)" />
+          <Property Name="soundness" Type="nvarchar(max)" />
+          <Property Name="uppermaterial" Type="nvarchar(max)" />
+          <Property Name="undermaterial" Type="nvarchar(max)" />
+          <Property Name="bearing" Type="nvarchar(max)" />
+          <Property Name="face" Type="nvarchar(max)" />
           <Property Name="error" Type="bit" Nullable="false" />
-          <Property Name="message" Type="text" />
+          <Property Name="message" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="inspectionhistory">
           <Key>
@@ -137,22 +137,22 @@
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
           <Property Name="recorddate" Type="datetime" Nullable="false" />
-          <Property Name="recordprogram" Type="text" Nullable="false" />
-          <Property Name="recorduserid" Type="text" Nullable="false" />
+          <Property Name="recordprogram" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="recorduserid" Type="nvarchar(max)" Nullable="false" />
           <Property Name="recordvalid" Type="bit" Nullable="false" />
           <Property Name="inspectionyear" Type="int" />
-          <Property Name="inspectioner" Type="text" />
-          <Property Name="undercondition" Type="text" />
-          <Property Name="alternatepath" Type="text" />
-          <Property Name="generalroad" Type="text" />
-          <Property Name="emergencyroad" Type="text" />
-          <Property Name="occupancy" Type="text" />
-          <Property Name="soundness" Type="text" />
-          <Property Name="uppermaterial" Type="text" />
-          <Property Name="undermaterial" Type="text" />
-          <Property Name="bearing" Type="text" />
-          <Property Name="face" Type="text" />
-          <Property Name="datasavedir" Type="text" />
+          <Property Name="inspectioner" Type="nvarchar(max)" />
+          <Property Name="undercondition" Type="nvarchar(max)" />
+          <Property Name="alternatepath" Type="nvarchar(max)" />
+          <Property Name="generalroad" Type="nvarchar(max)" />
+          <Property Name="emergencyroad" Type="nvarchar(max)" />
+          <Property Name="occupancy" Type="nvarchar(max)" />
+          <Property Name="soundness" Type="nvarchar(max)" />
+          <Property Name="uppermaterial" Type="nvarchar(max)" />
+          <Property Name="undermaterial" Type="nvarchar(max)" />
+          <Property Name="bearing" Type="nvarchar(max)" />
+          <Property Name="face" Type="nvarchar(max)" />
+          <Property Name="datasavedir" Type="nvarchar(max)" />
         </EntityType>
         <!--生成中に見つかったエラー:
 警告 6002: テーブル/ビュー 'bridgemanagement.dbo.bridgemanagementview' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
@@ -252,7 +252,7 @@
           <EntitySet Name="inspection" EntityType="bridgemanagementModel.inspection" />
           <EntitySet Name="inspectionhistory" EntityType="bridgemanagementModel.inspectionhistory" />
           <EntitySet Name="inspectionexcel" EntityType="bridgemanagementModel.inspectionexcel" />
-          <EntitySet Name="bridge" EntityType="bridgemanagementModel.bridge" />
+          <EntitySet Name="bridge" EntityType="bridgemanagementModel.更新" />
           <EntitySet Name="bridgehistory" EntityType="bridgemanagementModel.bridgehistory" />
           <EntitySet Name="bridgemanagementview" EntityType="bridgemanagementModel.bridgemanagementview" />
         </EntityContainer>
@@ -262,13 +262,13 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="recordvalid" Type="Boolean" Nullable="false" />
-          <Property Name="repair" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="repair" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="nextinspection" Type="Int32" />
-          <Property Name="inspectionway" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectionway" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="bridgenotehistory">
           <Key>
@@ -277,13 +277,13 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="recordvalid" Type="Boolean" Nullable="false" />
-          <Property Name="repair" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="repair" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="nextinspection" Type="Int32" />
-          <Property Name="inspectionway" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectionway" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="inspection">
           <Key>
@@ -291,22 +291,22 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="recordvalid" Type="Boolean" Nullable="false" />
           <Property Name="inspectionyear" Type="Int32" />
-          <Property Name="inspectioner" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="alternatepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="generalroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="datasavedir" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectioner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="alternatepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="generalroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="datasavedir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="inspectionhistory">
           <Key>
@@ -315,69 +315,69 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="recordvalid" Type="Boolean" Nullable="false" />
           <Property Name="inspectionyear" Type="Int32" />
-          <Property Name="inspectioner" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="alternatepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="generalroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="datasavedir" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectioner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="alternatepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="generalroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="datasavedir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="inspectionexcel">
           <Key>
             <PropertyRef Name="ident" />
           </Key>
           <Property Name="ident" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="datadir" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="datadir" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="id" Type="Int32" />
           <Property Name="inspectionyear" Type="Int32" />
-          <Property Name="inspectioner" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="alternatepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="generalroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectioner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="alternatepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="generalroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="error" Type="Boolean" Nullable="false" />
-          <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="bridge">
+        <EntityType Name="更新">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="recordvalid" Type="Boolean" Nullable="false" />
-          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="bridgenameruby" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bridgenameruby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="made" Type="Int32" />
           <Property Name="bridgelength" Type="Decimal" Precision="5" Scale="1" />
           <Property Name="bridgewidth" Type="Decimal" Precision="3" Scale="1" />
           <Property Name="span" Type="Int32" />
-          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="bridgehistory">
           <Key>
@@ -386,24 +386,24 @@
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="recorddate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="recordprogram" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="recorduserid" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="recordvalid" Type="Boolean" Nullable="false" />
-          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="bridgenameruby" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bridgenameruby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="made" Type="Int32" />
           <Property Name="bridgelength" Type="Decimal" Precision="5" Scale="1" />
           <Property Name="bridgewidth" Type="Decimal" Precision="3" Scale="1" />
           <Property Name="span" Type="Int32" />
-          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="bridgemanagementview">
           <Key>
@@ -552,7 +552,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="bridge">
-            <EntityTypeMapping TypeName="bridgemanagementModel.bridge">
+            <EntityTypeMapping TypeName="bridgemanagementModel.更新">
               <MappingFragment StoreEntitySet="bridge">
                 <ScalarProperty Name="emergencyroad" ColumnName="emergencyroad" />
                 <ScalarProperty Name="undercondition" ColumnName="undercondition" />
