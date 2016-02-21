@@ -22,13 +22,13 @@ Partial Public Class bridgemanagementEntities
         Throw New UnintentionalCodeFirstException()
     End Sub
 
+    Public Overridable Property bridge() As DbSet(Of bridge)
+    Public Overridable Property bridgehistory() As DbSet(Of bridgehistory)
     Public Overridable Property bridgenote() As DbSet(Of bridgenote)
     Public Overridable Property bridgenotehistory() As DbSet(Of bridgenotehistory)
     Public Overridable Property inspection() As DbSet(Of inspection)
-    Public Overridable Property inspectionhistory() As DbSet(Of inspectionhistory)
     Public Overridable Property inspectionexcel() As DbSet(Of inspectionexcel)
-    Public Overridable Property bridge() As DbSet(Of bridge)
-    Public Overridable Property bridgehistory() As DbSet(Of bridgehistory)
+    Public Overridable Property inspectionhistory() As DbSet(Of inspectionhistory)
     Public Overridable Property bridgemanagementview() As DbSet(Of bridgemanagementview)
 
 End Class
