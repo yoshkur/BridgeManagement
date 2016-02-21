@@ -225,6 +225,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\DataSources\bridge.datasource" />
     <None Include="My Project\DataSources\bridgehistory.datasource" />
     <None Include="My Project\DataSources\bridgemanagementview.datasource" />
     <None Include="My Project\DataSources\bridgenotehistory.datasource" />

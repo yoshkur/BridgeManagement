@@ -53,4 +53,10 @@
 		form.ShowDialog(Me)
 		form.Dispose()
 	End Sub
+
+	Private Sub bridgeAddButton_Click(sender As Object, e As EventArgs) Handles bridgeAddButton.Click
+		Dim form As New BridgeAddForm
+		form.ShowDialog(Me)
+		Form.Dispose()
+	End Sub
 End Class

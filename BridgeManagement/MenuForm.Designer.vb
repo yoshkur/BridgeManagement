@@ -27,6 +27,7 @@ Partial Class MenuForm
 		Me.TextBox1 = New System.Windows.Forms.TextBox()
 		Me.inspectionDataImportButtom = New System.Windows.Forms.Button()
 		Me.bridgeManagementButton = New System.Windows.Forms.Button()
+		Me.bridgeAddButton = New System.Windows.Forms.Button()
 		Me.SuspendLayout()
 		'
 		'Button1
@@ -73,11 +74,21 @@ Partial Class MenuForm
 		Me.bridgeManagementButton.Text = "橋梁管理台帳"
 		Me.bridgeManagementButton.UseVisualStyleBackColor = True
 		'
+		'bridgeAddButton
+		'
+		Me.bridgeAddButton.Location = New System.Drawing.Point(200, 92)
+		Me.bridgeAddButton.Name = "bridgeAddButton"
+		Me.bridgeAddButton.Size = New System.Drawing.Size(75, 23)
+		Me.bridgeAddButton.TabIndex = 6
+		Me.bridgeAddButton.Text = "橋梁追加"
+		Me.bridgeAddButton.UseVisualStyleBackColor = True
+		'
 		'MenuForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(809, 261)
+		Me.Controls.Add(Me.bridgeAddButton)
 		Me.Controls.Add(Me.bridgeManagementButton)
 		Me.Controls.Add(Me.inspectionDataImportButtom)
 		Me.Controls.Add(Me.TextBox1)
@@ -95,4 +106,5 @@ Partial Class MenuForm
 	Friend WithEvents TextBox1 As TextBox
 	Friend WithEvents inspectionDataImportButtom As Button
 	Friend WithEvents bridgeManagementButton As Button
+	Friend WithEvents bridgeAddButton As Button
 End Class
