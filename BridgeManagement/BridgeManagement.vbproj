@@ -228,6 +228,7 @@
     <None Include="My Project\DataSources\bridge.datasource" />
     <None Include="My Project\DataSources\bridgehistory.datasource" />
     <None Include="My Project\DataSources\bridgemanagementview.datasource" />
+    <None Include="My Project\DataSources\bridgenote.datasource" />
     <None Include="My Project\DataSources\bridgenotehistory.datasource" />
     <None Include="My Project\DataSources\inspectionexcel.datasource" />
     <None Include="My Project\DataSources\inspectionhistory.datasource" />

@@ -22,6 +22,7 @@ Partial Class BridgeAddForm
     'コード エディターを使って変更しないでください。
     <System.Diagnostics.DebuggerStepThrough()> _
 	Private Sub InitializeComponent()
+		Me.components = New System.ComponentModel.Container()
 		Me.Label1 = New System.Windows.Forms.Label()
 		Me.id = New System.Windows.Forms.TextBox()
 		Me.bridgename = New System.Windows.Forms.TextBox()
@@ -63,6 +64,10 @@ Partial Class BridgeAddForm
 		Me.lowermaterial = New System.Windows.Forms.TextBox()
 		Me.Label20 = New System.Windows.Forms.Label()
 		Me.createBridgeButton = New System.Windows.Forms.Button()
+		Me.BridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+		Me.BridgeNoteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+		CType(Me.BridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.BridgeNoteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'Label1
@@ -76,6 +81,7 @@ Partial Class BridgeAddForm
 		'
 		'id
 		'
+		Me.id.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "id", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "N0"))
 		Me.id.Location = New System.Drawing.Point(172, 22)
 		Me.id.Name = "id"
 		Me.id.Size = New System.Drawing.Size(220, 19)
@@ -83,6 +89,7 @@ Partial Class BridgeAddForm
 		'
 		'bridgename
 		'
+		Me.bridgename.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "bridgename", True))
 		Me.bridgename.Location = New System.Drawing.Point(172, 63)
 		Me.bridgename.Name = "bridgename"
 		Me.bridgename.Size = New System.Drawing.Size(220, 19)
@@ -99,6 +106,7 @@ Partial Class BridgeAddForm
 		'
 		'bridgenameruby
 		'
+		Me.bridgenameruby.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "bridgenameruby", True))
 		Me.bridgenameruby.Location = New System.Drawing.Point(172, 106)
 		Me.bridgenameruby.Name = "bridgenameruby"
 		Me.bridgenameruby.Size = New System.Drawing.Size(220, 19)
@@ -115,6 +123,7 @@ Partial Class BridgeAddForm
 		'
 		'route
 		'
+		Me.route.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "route", True))
 		Me.route.Location = New System.Drawing.Point(172, 154)
 		Me.route.Name = "route"
 		Me.route.Size = New System.Drawing.Size(220, 19)
@@ -131,6 +140,7 @@ Partial Class BridgeAddForm
 		'
 		'address
 		'
+		Me.address.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "address", True))
 		Me.address.Location = New System.Drawing.Point(172, 200)
 		Me.address.Name = "address"
 		Me.address.Size = New System.Drawing.Size(220, 19)
@@ -147,6 +157,7 @@ Partial Class BridgeAddForm
 		'
 		'latitude
 		'
+		Me.latitude.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "latitude", True))
 		Me.latitude.Location = New System.Drawing.Point(172, 252)
 		Me.latitude.Name = "latitude"
 		Me.latitude.Size = New System.Drawing.Size(220, 19)
@@ -163,6 +174,7 @@ Partial Class BridgeAddForm
 		'
 		'longitude
 		'
+		Me.longitude.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "longitude", True))
 		Me.longitude.Location = New System.Drawing.Point(172, 300)
 		Me.longitude.Name = "longitude"
 		Me.longitude.Size = New System.Drawing.Size(220, 19)
@@ -179,6 +191,7 @@ Partial Class BridgeAddForm
 		'
 		'made
 		'
+		Me.made.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "made", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "0", "N0"))
 		Me.made.Location = New System.Drawing.Point(172, 343)
 		Me.made.Name = "made"
 		Me.made.Size = New System.Drawing.Size(220, 19)
@@ -195,6 +208,7 @@ Partial Class BridgeAddForm
 		'
 		'bridgelength
 		'
+		Me.bridgelength.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "bridgelength", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "N1"))
 		Me.bridgelength.Location = New System.Drawing.Point(172, 390)
 		Me.bridgelength.Name = "bridgelength"
 		Me.bridgelength.Size = New System.Drawing.Size(220, 19)
@@ -211,6 +225,7 @@ Partial Class BridgeAddForm
 		'
 		'bridgewidth
 		'
+		Me.bridgewidth.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "bridgewidth", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "N1"))
 		Me.bridgewidth.Location = New System.Drawing.Point(172, 432)
 		Me.bridgewidth.Name = "bridgewidth"
 		Me.bridgewidth.Size = New System.Drawing.Size(220, 19)
@@ -227,6 +242,7 @@ Partial Class BridgeAddForm
 		'
 		'span
 		'
+		Me.span.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "span", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "N0"))
 		Me.span.Location = New System.Drawing.Point(172, 478)
 		Me.span.Name = "span"
 		Me.span.Size = New System.Drawing.Size(220, 19)
@@ -243,6 +259,7 @@ Partial Class BridgeAddForm
 		'
 		'bridgestructure
 		'
+		Me.bridgestructure.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "bridgestructure", True))
 		Me.bridgestructure.Location = New System.Drawing.Point(172, 524)
 		Me.bridgestructure.Name = "bridgestructure"
 		Me.bridgestructure.Size = New System.Drawing.Size(220, 19)
@@ -259,6 +276,7 @@ Partial Class BridgeAddForm
 		'
 		'uppermaterial
 		'
+		Me.uppermaterial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "uppermaterial", True))
 		Me.uppermaterial.Location = New System.Drawing.Point(172, 569)
 		Me.uppermaterial.Name = "uppermaterial"
 		Me.uppermaterial.Size = New System.Drawing.Size(220, 19)
@@ -275,6 +293,7 @@ Partial Class BridgeAddForm
 		'
 		'memo
 		'
+		Me.memo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeNoteBindingSource, "memo", True))
 		Me.memo.Location = New System.Drawing.Point(172, 898)
 		Me.memo.Name = "memo"
 		Me.memo.Size = New System.Drawing.Size(220, 19)
@@ -291,6 +310,7 @@ Partial Class BridgeAddForm
 		'
 		'inspectionway
 		'
+		Me.inspectionway.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeNoteBindingSource, "inspectionway", True))
 		Me.inspectionway.Location = New System.Drawing.Point(172, 850)
 		Me.inspectionway.Name = "inspectionway"
 		Me.inspectionway.Size = New System.Drawing.Size(220, 19)
@@ -307,6 +327,7 @@ Partial Class BridgeAddForm
 		'
 		'nextinspection
 		'
+		Me.nextinspection.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeNoteBindingSource, "nextinspection", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, "0", "N0"))
 		Me.nextinspection.Location = New System.Drawing.Point(172, 798)
 		Me.nextinspection.Name = "nextinspection"
 		Me.nextinspection.Size = New System.Drawing.Size(220, 19)
@@ -323,6 +344,7 @@ Partial Class BridgeAddForm
 		'
 		'repair
 		'
+		Me.repair.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeNoteBindingSource, "repair", True))
 		Me.repair.Location = New System.Drawing.Point(172, 752)
 		Me.repair.Name = "repair"
 		Me.repair.Size = New System.Drawing.Size(220, 19)
@@ -339,6 +361,7 @@ Partial Class BridgeAddForm
 		'
 		'emergencyroad
 		'
+		Me.emergencyroad.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "emergencyroad", True))
 		Me.emergencyroad.Location = New System.Drawing.Point(172, 704)
 		Me.emergencyroad.Name = "emergencyroad"
 		Me.emergencyroad.Size = New System.Drawing.Size(220, 19)
@@ -355,6 +378,7 @@ Partial Class BridgeAddForm
 		'
 		'undercondition
 		'
+		Me.undercondition.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "undercondition", True))
 		Me.undercondition.Location = New System.Drawing.Point(172, 661)
 		Me.undercondition.Name = "undercondition"
 		Me.undercondition.Size = New System.Drawing.Size(220, 19)
@@ -371,6 +395,7 @@ Partial Class BridgeAddForm
 		'
 		'lowermaterial
 		'
+		Me.lowermaterial.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.BridgeBindingSource, "lowermaterial", True))
 		Me.lowermaterial.Location = New System.Drawing.Point(172, 620)
 		Me.lowermaterial.Name = "lowermaterial"
 		Me.lowermaterial.Size = New System.Drawing.Size(220, 19)
@@ -393,6 +418,14 @@ Partial Class BridgeAddForm
 		Me.createBridgeButton.TabIndex = 40
 		Me.createBridgeButton.Text = "登録"
 		Me.createBridgeButton.UseVisualStyleBackColor = True
+		'
+		'BridgeBindingSource
+		'
+		Me.BridgeBindingSource.DataSource = GetType(BridgeManagement.bridge)
+		'
+		'BridgeNoteBindingSource
+		'
+		Me.BridgeNoteBindingSource.DataSource = GetType(BridgeManagement.bridgenote)
 		'
 		'BridgeAddForm
 		'
@@ -442,6 +475,8 @@ Partial Class BridgeAddForm
 		Me.Controls.Add(Me.Label1)
 		Me.Name = "BridgeAddForm"
 		Me.Text = "BridgeAddForm"
+		CType(Me.BridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.BridgeNoteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 
@@ -488,4 +523,6 @@ Partial Class BridgeAddForm
 	Friend WithEvents lowermaterial As TextBox
 	Friend WithEvents Label20 As Label
 	Friend WithEvents createBridgeButton As Button
+	Friend WithEvents BridgeBindingSource As BindingSource
+	Friend WithEvents BridgeNoteBindingSource As BindingSource
 End Class
