@@ -64,10 +64,10 @@ Partial Class BridgeAddForm
 		Me.lowermaterial = New System.Windows.Forms.TextBox()
 		Me.Label20 = New System.Windows.Forms.Label()
 		Me.createBridgeButton = New System.Windows.Forms.Button()
-		Me.BridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		Me.BridgeNoteBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-		CType(Me.BridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+		Me.BridgeBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		CType(Me.BridgeNoteBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+		CType(Me.BridgeBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'Label1
@@ -419,13 +419,13 @@ Partial Class BridgeAddForm
 		Me.createBridgeButton.Text = "登録"
 		Me.createBridgeButton.UseVisualStyleBackColor = True
 		'
-		'BridgeBindingSource
-		'
-		Me.BridgeBindingSource.DataSource = GetType(BridgeManagement.bridge)
-		'
 		'BridgeNoteBindingSource
 		'
 		Me.BridgeNoteBindingSource.DataSource = GetType(BridgeManagement.bridgenote)
+		'
+		'BridgeBindingSource
+		'
+		Me.BridgeBindingSource.DataSource = GetType(BridgeManagement.bridge)
 		'
 		'BridgeAddForm
 		'
@@ -474,9 +474,9 @@ Partial Class BridgeAddForm
 		Me.Controls.Add(Me.id)
 		Me.Controls.Add(Me.Label1)
 		Me.Name = "BridgeAddForm"
-		Me.Text = "BridgeAddForm"
-		CType(Me.BridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+		Me.Text = "橋梁追加"
 		CType(Me.BridgeNoteBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+		CType(Me.BridgeBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)
 		Me.PerformLayout()
 

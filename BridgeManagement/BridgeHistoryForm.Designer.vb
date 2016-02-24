@@ -24,7 +24,6 @@ Partial Class BridgeHistoryForm
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-		Me.BridgehistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.BridgenameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.BridgenamerubyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -41,6 +40,7 @@ Partial Class BridgeHistoryForm
 		Me.LowermaterialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.UnderconditionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.EmergencyroadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+		Me.BridgehistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BridgehistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -59,10 +59,6 @@ Partial Class BridgeHistoryForm
 		Me.DataGridView1.RowTemplate.Height = 21
 		Me.DataGridView1.Size = New System.Drawing.Size(1183, 428)
 		Me.DataGridView1.TabIndex = 0
-		'
-		'BridgehistoryBindingSource
-		'
-		Me.BridgehistoryBindingSource.DataSource = GetType(BridgeManagement.bridgehistory)
 		'
 		'IdDataGridViewTextBoxColumn
 		'
@@ -176,6 +172,10 @@ Partial Class BridgeHistoryForm
 		Me.EmergencyroadDataGridViewTextBoxColumn.Name = "EmergencyroadDataGridViewTextBoxColumn"
 		Me.EmergencyroadDataGridViewTextBoxColumn.ReadOnly = True
 		'
+		'BridgehistoryBindingSource
+		'
+		Me.BridgehistoryBindingSource.DataSource = GetType(BridgeManagement.bridgehistory)
+		'
 		'BridgeHistoryForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -183,7 +183,7 @@ Partial Class BridgeHistoryForm
 		Me.ClientSize = New System.Drawing.Size(1208, 463)
 		Me.Controls.Add(Me.DataGridView1)
 		Me.Name = "BridgeHistoryForm"
-		Me.Text = "橋梁履歴フォーム"
+		Me.Text = "橋梁履歴"
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
 		CType(Me.BridgehistoryBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
 		Me.ResumeLayout(False)

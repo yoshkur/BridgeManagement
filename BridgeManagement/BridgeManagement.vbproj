@@ -93,6 +93,12 @@
     <Compile Include="BridgeAddForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="BridgeEditForm.Designer.vb">
+      <DependentUpon>BridgeEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeEditForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="bridgehistory.vb">
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
     </Compile>
@@ -128,6 +134,12 @@
     </Compile>
     <Compile Include="bridgenote.vb">
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeNoteEditForm.Designer.vb">
+      <DependentUpon>BridgeNoteEditForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BridgeNoteEditForm.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="bridgenotehistory.vb">
       <DependentUpon>BridgeManagementDataModel.tt</DependentUpon>
@@ -188,11 +200,17 @@
     <EmbeddedResource Include="BridgeAddForm.resx">
       <DependentUpon>BridgeAddForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BridgeEditForm.resx">
+      <DependentUpon>BridgeEditForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BridgeHistoryForm.resx">
       <DependentUpon>BridgeHistoryForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BridgeManagementViewForm.resx">
       <DependentUpon>BridgeManagementViewForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BridgeNoteEditForm.resx">
+      <DependentUpon>BridgeNoteEditForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BridgeNoteHistoryForm.resx">
       <DependentUpon>BridgeNoteHistoryForm.vb</DependentUpon>
