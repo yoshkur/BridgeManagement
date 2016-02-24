@@ -24,7 +24,9 @@ Partial Class BridgeNoteHistoryForm
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+		Me.BridgenotehistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+		Me.recorddate = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.RecorddateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.RecordprogramDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.RecorduseridDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -33,7 +35,6 @@ Partial Class BridgeNoteHistoryForm
 		Me.NextinspectionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.InspectionwayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.MemoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.BridgenotehistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BridgenotehistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -44,7 +45,7 @@ Partial Class BridgeNoteHistoryForm
 		Me.DataGridView1.AllowUserToDeleteRows = False
 		Me.DataGridView1.AutoGenerateColumns = False
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.RecorddateDataGridViewTextBoxColumn, Me.RecordprogramDataGridViewTextBoxColumn, Me.RecorduseridDataGridViewTextBoxColumn, Me.RecordvalidDataGridViewCheckBoxColumn, Me.RepairDataGridViewTextBoxColumn, Me.NextinspectionDataGridViewTextBoxColumn, Me.InspectionwayDataGridViewTextBoxColumn, Me.MemoDataGridViewTextBoxColumn})
+		Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.recorddate, Me.RecorddateDataGridViewTextBoxColumn, Me.RecordprogramDataGridViewTextBoxColumn, Me.RecorduseridDataGridViewTextBoxColumn, Me.RecordvalidDataGridViewCheckBoxColumn, Me.RepairDataGridViewTextBoxColumn, Me.NextinspectionDataGridViewTextBoxColumn, Me.InspectionwayDataGridViewTextBoxColumn, Me.MemoDataGridViewTextBoxColumn})
 		Me.DataGridView1.DataSource = Me.BridgenotehistoryBindingSource
 		Me.DataGridView1.Location = New System.Drawing.Point(22, 22)
 		Me.DataGridView1.Name = "DataGridView1"
@@ -53,12 +54,23 @@ Partial Class BridgeNoteHistoryForm
 		Me.DataGridView1.Size = New System.Drawing.Size(950, 453)
 		Me.DataGridView1.TabIndex = 0
 		'
+		'BridgenotehistoryBindingSource
+		'
+		Me.BridgenotehistoryBindingSource.DataSource = GetType(BridgeManagement.bridgenotehistory)
+		'
 		'IdDataGridViewTextBoxColumn
 		'
 		Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
 		Me.IdDataGridViewTextBoxColumn.HeaderText = "国交省作業番号"
 		Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
 		Me.IdDataGridViewTextBoxColumn.ReadOnly = True
+		'
+		'recorddate
+		'
+		Me.recorddate.DataPropertyName = "recorddate"
+		Me.recorddate.HeaderText = "データ保存日時"
+		Me.recorddate.Name = "recorddate"
+		Me.recorddate.ReadOnly = True
 		'
 		'RecorddateDataGridViewTextBoxColumn
 		'
@@ -116,10 +128,6 @@ Partial Class BridgeNoteHistoryForm
 		Me.MemoDataGridViewTextBoxColumn.Name = "MemoDataGridViewTextBoxColumn"
 		Me.MemoDataGridViewTextBoxColumn.ReadOnly = True
 		'
-		'BridgenotehistoryBindingSource
-		'
-		Me.BridgenotehistoryBindingSource.DataSource = GetType(BridgeManagement.bridgenotehistory)
-		'
 		'BridgeNoteHistoryForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -135,7 +143,9 @@ Partial Class BridgeNoteHistoryForm
 	End Sub
 
 	Friend WithEvents DataGridView1 As DataGridView
+	Friend WithEvents BridgenotehistoryBindingSource As BindingSource
 	Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+	Friend WithEvents recorddate As DataGridViewTextBoxColumn
 	Friend WithEvents RecorddateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents RecordprogramDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents RecorduseridDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -144,5 +154,4 @@ Partial Class BridgeNoteHistoryForm
 	Friend WithEvents NextinspectionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents InspectionwayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents MemoDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents BridgenotehistoryBindingSource As BindingSource
 End Class
