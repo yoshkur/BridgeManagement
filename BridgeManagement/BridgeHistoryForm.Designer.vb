@@ -24,7 +24,9 @@ Partial Class BridgeHistoryForm
 	Private Sub InitializeComponent()
 		Me.components = New System.ComponentModel.Container()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+		Me.BridgehistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+		Me.recorddate = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.BridgenameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.BridgenamerubyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.RouteDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -40,7 +42,6 @@ Partial Class BridgeHistoryForm
 		Me.LowermaterialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.UnderconditionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.EmergencyroadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.BridgehistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BridgehistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
@@ -51,7 +52,7 @@ Partial Class BridgeHistoryForm
 		Me.DataGridView1.AllowUserToDeleteRows = False
 		Me.DataGridView1.AutoGenerateColumns = False
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.BridgenameDataGridViewTextBoxColumn, Me.BridgenamerubyDataGridViewTextBoxColumn, Me.RouteDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.LatitudeDataGridViewTextBoxColumn, Me.LongitudeDataGridViewTextBoxColumn, Me.MadeDataGridViewTextBoxColumn, Me.BridgelengthDataGridViewTextBoxColumn, Me.BridgewidthDataGridViewTextBoxColumn, Me.SpanDataGridViewTextBoxColumn, Me.BridgestructureDataGridViewTextBoxColumn, Me.UppermaterialDataGridViewTextBoxColumn, Me.LowermaterialDataGridViewTextBoxColumn, Me.UnderconditionDataGridViewTextBoxColumn, Me.EmergencyroadDataGridViewTextBoxColumn})
+		Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.recorddate, Me.BridgenameDataGridViewTextBoxColumn, Me.BridgenamerubyDataGridViewTextBoxColumn, Me.RouteDataGridViewTextBoxColumn, Me.AddressDataGridViewTextBoxColumn, Me.LatitudeDataGridViewTextBoxColumn, Me.LongitudeDataGridViewTextBoxColumn, Me.MadeDataGridViewTextBoxColumn, Me.BridgelengthDataGridViewTextBoxColumn, Me.BridgewidthDataGridViewTextBoxColumn, Me.SpanDataGridViewTextBoxColumn, Me.BridgestructureDataGridViewTextBoxColumn, Me.UppermaterialDataGridViewTextBoxColumn, Me.LowermaterialDataGridViewTextBoxColumn, Me.UnderconditionDataGridViewTextBoxColumn, Me.EmergencyroadDataGridViewTextBoxColumn})
 		Me.DataGridView1.DataSource = Me.BridgehistoryBindingSource
 		Me.DataGridView1.Location = New System.Drawing.Point(13, 23)
 		Me.DataGridView1.Name = "DataGridView1"
@@ -60,12 +61,23 @@ Partial Class BridgeHistoryForm
 		Me.DataGridView1.Size = New System.Drawing.Size(1183, 428)
 		Me.DataGridView1.TabIndex = 0
 		'
+		'BridgehistoryBindingSource
+		'
+		Me.BridgehistoryBindingSource.DataSource = GetType(BridgeManagement.bridgehistory)
+		'
 		'IdDataGridViewTextBoxColumn
 		'
 		Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
 		Me.IdDataGridViewTextBoxColumn.HeaderText = "国交省作業番号"
 		Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
 		Me.IdDataGridViewTextBoxColumn.ReadOnly = True
+		'
+		'recorddate
+		'
+		Me.recorddate.DataPropertyName = "recorddate"
+		Me.recorddate.HeaderText = "データ保存日時"
+		Me.recorddate.Name = "recorddate"
+		Me.recorddate.ReadOnly = True
 		'
 		'BridgenameDataGridViewTextBoxColumn
 		'
@@ -172,10 +184,6 @@ Partial Class BridgeHistoryForm
 		Me.EmergencyroadDataGridViewTextBoxColumn.Name = "EmergencyroadDataGridViewTextBoxColumn"
 		Me.EmergencyroadDataGridViewTextBoxColumn.ReadOnly = True
 		'
-		'BridgehistoryBindingSource
-		'
-		Me.BridgehistoryBindingSource.DataSource = GetType(BridgeManagement.bridgehistory)
-		'
 		'BridgeHistoryForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -193,6 +201,7 @@ Partial Class BridgeHistoryForm
 	Friend WithEvents DataGridView1 As DataGridView
 	Friend WithEvents BridgehistoryBindingSource As BindingSource
 	Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+	Friend WithEvents recorddate As DataGridViewTextBoxColumn
 	Friend WithEvents BridgenameDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents BridgenamerubyDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents RouteDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
