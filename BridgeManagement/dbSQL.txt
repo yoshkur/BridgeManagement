@@ -1,0 +1,438 @@
+﻿USE [master]
+GO
+/****** Object:  Database [bridgemanagement]    Script Date: 2016/02/24 23:15:20 ******/
+CREATE DATABASE [bridgemanagement]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'bridgemanagement', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\bridgemanagement.mdf' , SIZE = 7168KB , MAXSIZE = UNLIMITED, FILEGROWTH = 1024KB )
+ LOG ON 
+( NAME = N'bridgemanagement_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL12.SQLEXPRESS\MSSQL\DATA\bridgemanagement_log.ldf' , SIZE = 5184KB , MAXSIZE = 2048GB , FILEGROWTH = 10%)
+GO
+ALTER DATABASE [bridgemanagement] SET COMPATIBILITY_LEVEL = 120
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [bridgemanagement].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [bridgemanagement] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [bridgemanagement] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [bridgemanagement] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [bridgemanagement] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [bridgemanagement] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET RECOVERY SIMPLE 
+GO
+ALTER DATABASE [bridgemanagement] SET  MULTI_USER 
+GO
+ALTER DATABASE [bridgemanagement] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [bridgemanagement] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [bridgemanagement] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [bridgemanagement] SET TARGET_RECOVERY_TIME = 0 SECONDS 
+GO
+ALTER DATABASE [bridgemanagement] SET DELAYED_DURABILITY = DISABLED 
+GO
+USE [bridgemanagement]
+GO
+/****** Object:  Table [dbo].[bridge]    Script Date: 2016/02/24 23:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[bridge](
+	[id] [int] NOT NULL,
+	[recorddate] [datetime] NOT NULL,
+	[recordprogram] [nvarchar](max) NOT NULL,
+	[recorduserid] [nvarchar](max) NOT NULL,
+	[recordvalid] [bit] NOT NULL,
+	[bridgename] [nvarchar](max) NULL,
+	[bridgenameruby] [nvarchar](max) NULL,
+	[route] [nvarchar](max) NULL,
+	[address] [nvarchar](max) NULL,
+	[latitude] [nvarchar](max) NULL,
+	[longitude] [nvarchar](max) NULL,
+	[made] [int] NULL,
+	[bridgelength] [numeric](5, 1) NULL,
+	[bridgewidth] [numeric](3, 1) NULL,
+	[span] [int] NULL,
+	[bridgestructure] [nvarchar](max) NULL,
+	[uppermaterial] [nvarchar](max) NULL,
+	[lowermaterial] [nvarchar](max) NULL,
+	[undercondition] [nvarchar](max) NULL,
+	[emergencyroad] [nvarchar](max) NULL,
+ CONSTRAINT [pk_bridge] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[bridgehistory]    Script Date: 2016/02/24 23:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[bridgehistory](
+	[id] [int] NOT NULL,
+	[recorddate] [datetime] NOT NULL,
+	[recordprogram] [nvarchar](max) NOT NULL,
+	[recorduserid] [nvarchar](max) NOT NULL,
+	[recordvalid] [bit] NOT NULL,
+	[bridgename] [nvarchar](max) NULL,
+	[bridgenameruby] [nvarchar](max) NULL,
+	[route] [nvarchar](max) NULL,
+	[address] [nvarchar](max) NULL,
+	[latitude] [nvarchar](max) NULL,
+	[longitude] [nvarchar](max) NULL,
+	[made] [int] NULL,
+	[bridgelength] [numeric](5, 1) NULL,
+	[bridgewidth] [numeric](3, 1) NULL,
+	[span] [int] NULL,
+	[bridgestructure] [nvarchar](max) NULL,
+	[uppermaterial] [nvarchar](max) NULL,
+	[lowermaterial] [nvarchar](max) NULL,
+	[undercondition] [nvarchar](max) NULL,
+	[emergencyroad] [nvarchar](max) NULL,
+ CONSTRAINT [pk_bridgehistory] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC,
+	[recorddate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[bridgenote]    Script Date: 2016/02/24 23:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[bridgenote](
+	[id] [int] NOT NULL,
+	[recorddate] [datetime] NOT NULL,
+	[recordprogram] [nvarchar](max) NOT NULL,
+	[recorduserid] [nvarchar](max) NOT NULL,
+	[recordvalid] [bit] NOT NULL,
+	[repair] [nvarchar](max) NULL,
+	[nextinspection] [int] NULL,
+	[inspectionway] [nvarchar](max) NULL,
+	[memo] [nvarchar](max) NULL,
+ CONSTRAINT [pk_bridgenote] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[bridgenotehistory]    Script Date: 2016/02/24 23:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[bridgenotehistory](
+	[id] [int] NOT NULL,
+	[recorddate] [datetime] NOT NULL,
+	[recordprogram] [nvarchar](max) NOT NULL,
+	[recorduserid] [nvarchar](max) NOT NULL,
+	[recordvalid] [bit] NOT NULL,
+	[repair] [nvarchar](max) NULL,
+	[nextinspection] [int] NULL,
+	[inspectionway] [nvarchar](max) NULL,
+	[memo] [nvarchar](max) NULL,
+ CONSTRAINT [pk_bridgenotehistory] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC,
+	[recorddate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[inspection]    Script Date: 2016/02/24 23:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[inspection](
+	[id] [int] NOT NULL,
+	[recorddate] [datetime] NOT NULL,
+	[recordprogram] [nvarchar](max) NOT NULL,
+	[recorduserid] [nvarchar](max) NOT NULL,
+	[recordvalid] [bit] NOT NULL,
+	[inspectionyear] [int] NULL,
+	[inspectioner] [nvarchar](max) NULL,
+	[undercondition] [nvarchar](max) NULL,
+	[alternatepath] [nvarchar](max) NULL,
+	[generalroad] [nvarchar](max) NULL,
+	[emergencyroad] [nvarchar](max) NULL,
+	[occupancy] [nvarchar](max) NULL,
+	[soundness] [nvarchar](max) NULL,
+	[uppermaterial] [nvarchar](max) NULL,
+	[undermaterial] [nvarchar](max) NULL,
+	[bearing] [nvarchar](max) NULL,
+	[face] [nvarchar](max) NULL,
+	[datasavedir] [nvarchar](max) NULL,
+ CONSTRAINT [pk_inspection] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[inspectionexcel]    Script Date: 2016/02/24 23:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[inspectionexcel](
+	[ident] [int] IDENTITY(1,1) NOT NULL,
+	[datadir] [nvarchar](max) NOT NULL,
+	[id] [int] NULL,
+	[inspectionyear] [int] NULL,
+	[inspectioner] [nvarchar](max) NULL,
+	[undercondition] [nvarchar](max) NULL,
+	[alternatepath] [nvarchar](max) NULL,
+	[generalroad] [nvarchar](max) NULL,
+	[emergencyroad] [nvarchar](max) NULL,
+	[occupancy] [nvarchar](max) NULL,
+	[soundness] [nvarchar](max) NULL,
+	[uppermaterial] [nvarchar](max) NULL,
+	[undermaterial] [nvarchar](max) NULL,
+	[bearing] [nvarchar](max) NULL,
+	[face] [nvarchar](max) NULL,
+	[error] [bit] NOT NULL,
+	[message] [nvarchar](max) NULL,
+ CONSTRAINT [PK_inspectionexcel] PRIMARY KEY CLUSTERED 
+(
+	[ident] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[inspectionhistory]    Script Date: 2016/02/24 23:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[inspectionhistory](
+	[id] [int] NOT NULL,
+	[recorddate] [datetime] NOT NULL,
+	[recordprogram] [nvarchar](max) NOT NULL,
+	[recorduserid] [nvarchar](max) NOT NULL,
+	[recordvalid] [bit] NOT NULL,
+	[inspectionyear] [int] NULL,
+	[inspectioner] [nvarchar](max) NULL,
+	[undercondition] [nvarchar](max) NULL,
+	[alternatepath] [nvarchar](max) NULL,
+	[generalroad] [nvarchar](max) NULL,
+	[emergencyroad] [nvarchar](max) NULL,
+	[occupancy] [nvarchar](max) NULL,
+	[soundness] [nvarchar](max) NULL,
+	[uppermaterial] [nvarchar](max) NULL,
+	[undermaterial] [nvarchar](max) NULL,
+	[bearing] [nvarchar](max) NULL,
+	[face] [nvarchar](max) NULL,
+	[datasavedir] [nvarchar](max) NULL,
+ CONSTRAINT [pk_inspectionhistory] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC,
+	[recorddate] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+GO
+/****** Object:  View [dbo].[bridgemanagementview]    Script Date: 2016/02/24 23:15:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE VIEW [dbo].[bridgemanagementview]
+AS
+SELECT                      dbo.bridge.id, dbo.bridge.bridgename, dbo.bridge.bridgenameruby, dbo.bridge.route, dbo.bridge.address, 
+                                      dbo.bridge.latitude, dbo.bridge.longitude, dbo.bridge.made, format({ fn NOW() }, 'yyyy') - dbo.bridge.made AS bridgeage,
+                                       dbo.bridge.bridgelength, dbo.bridge.bridgewidth, dbo.bridge.span, dbo.bridge.bridgestructure, dbo.bridge.uppermaterial, 
+                                      dbo.bridge.lowermaterial, dbo.bridge.undercondition, dbo.bridge.emergencyroad, dbo.bridgenote.repair, 
+                                      dbo.bridgenote.nextinspection, dbo.bridgenote.inspectionway, dbo.bridgenote.memo, dbo.inspection.inspectionyear, 
+                                      dbo.inspection.inspectioner, dbo.inspection.undercondition AS inspectionundercondition, dbo.inspection.alternatepath, 
+                                      dbo.inspection.generalroad, dbo.inspection.emergencyroad AS inspectionemergencyroad, dbo.inspection.occupancy, 
+                                      dbo.inspection.soundness, dbo.inspection.uppermaterial AS inspectionuppermaterial, dbo.inspection.undermaterial, 
+                                      dbo.inspection.bearing, dbo.inspection.face, dbo.inspection.datasavedir
+FROM                         dbo.bridge LEFT OUTER JOIN
+                                      dbo.bridgenote ON dbo.bridge.id = dbo.bridgenote.id LEFT OUTER JOIN
+                                      dbo.inspection ON dbo.bridge.id = dbo.inspection.id
+
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "bridge"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 136
+               Right = 209
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+         Begin Table = "bridgenote"
+            Begin Extent = 
+               Top = 79
+               Left = 261
+               Bottom = 209
+               Right = 429
+            End
+            DisplayFlags = 280
+            TopColumn = 5
+         End
+         Begin Table = "inspection"
+            Begin Extent = 
+               Top = 6
+               Left = 453
+               Bottom = 136
+               Right = 624
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 11
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'bridgemanagementview'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'bridgemanagementview'
+GO
+USE [master]
+GO
+ALTER DATABASE [bridgemanagement] SET  READ_WRITE 
+GO
