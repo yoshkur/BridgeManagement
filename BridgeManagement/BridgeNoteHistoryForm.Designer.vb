@@ -27,10 +27,6 @@ Partial Class BridgeNoteHistoryForm
 		Me.BridgenotehistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
 		Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.recorddate = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.RecorddateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.RecordprogramDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.RecorduseridDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-		Me.RecordvalidDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
 		Me.RepairDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.NextinspectionDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.InspectionwayDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -45,7 +41,7 @@ Partial Class BridgeNoteHistoryForm
 		Me.DataGridView1.AllowUserToDeleteRows = False
 		Me.DataGridView1.AutoGenerateColumns = False
 		Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.recorddate, Me.RecorddateDataGridViewTextBoxColumn, Me.RecordprogramDataGridViewTextBoxColumn, Me.RecorduseridDataGridViewTextBoxColumn, Me.RecordvalidDataGridViewCheckBoxColumn, Me.RepairDataGridViewTextBoxColumn, Me.NextinspectionDataGridViewTextBoxColumn, Me.InspectionwayDataGridViewTextBoxColumn, Me.MemoDataGridViewTextBoxColumn})
+		Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdDataGridViewTextBoxColumn, Me.recorddate, Me.RepairDataGridViewTextBoxColumn, Me.NextinspectionDataGridViewTextBoxColumn, Me.InspectionwayDataGridViewTextBoxColumn, Me.MemoDataGridViewTextBoxColumn})
 		Me.DataGridView1.DataSource = Me.BridgenotehistoryBindingSource
 		Me.DataGridView1.Location = New System.Drawing.Point(22, 22)
 		Me.DataGridView1.Name = "DataGridView1"
@@ -71,34 +67,6 @@ Partial Class BridgeNoteHistoryForm
 		Me.recorddate.HeaderText = "データ保存日時"
 		Me.recorddate.Name = "recorddate"
 		Me.recorddate.ReadOnly = True
-		'
-		'RecorddateDataGridViewTextBoxColumn
-		'
-		Me.RecorddateDataGridViewTextBoxColumn.DataPropertyName = "recorddate"
-		Me.RecorddateDataGridViewTextBoxColumn.HeaderText = "登録日"
-		Me.RecorddateDataGridViewTextBoxColumn.Name = "RecorddateDataGridViewTextBoxColumn"
-		Me.RecorddateDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'RecordprogramDataGridViewTextBoxColumn
-		'
-		Me.RecordprogramDataGridViewTextBoxColumn.DataPropertyName = "recordprogram"
-		Me.RecordprogramDataGridViewTextBoxColumn.HeaderText = "recordprogram"
-		Me.RecordprogramDataGridViewTextBoxColumn.Name = "RecordprogramDataGridViewTextBoxColumn"
-		Me.RecordprogramDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'RecorduseridDataGridViewTextBoxColumn
-		'
-		Me.RecorduseridDataGridViewTextBoxColumn.DataPropertyName = "recorduserid"
-		Me.RecorduseridDataGridViewTextBoxColumn.HeaderText = "recorduserid"
-		Me.RecorduseridDataGridViewTextBoxColumn.Name = "RecorduseridDataGridViewTextBoxColumn"
-		Me.RecorduseridDataGridViewTextBoxColumn.ReadOnly = True
-		'
-		'RecordvalidDataGridViewCheckBoxColumn
-		'
-		Me.RecordvalidDataGridViewCheckBoxColumn.DataPropertyName = "recordvalid"
-		Me.RecordvalidDataGridViewCheckBoxColumn.HeaderText = "recordvalid"
-		Me.RecordvalidDataGridViewCheckBoxColumn.Name = "RecordvalidDataGridViewCheckBoxColumn"
-		Me.RecordvalidDataGridViewCheckBoxColumn.ReadOnly = True
 		'
 		'RepairDataGridViewTextBoxColumn
 		'
@@ -146,10 +114,6 @@ Partial Class BridgeNoteHistoryForm
 	Friend WithEvents BridgenotehistoryBindingSource As BindingSource
 	Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents recorddate As DataGridViewTextBoxColumn
-	Friend WithEvents RecorddateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents RecordprogramDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents RecorduseridDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-	Friend WithEvents RecordvalidDataGridViewCheckBoxColumn As DataGridViewCheckBoxColumn
 	Friend WithEvents RepairDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents NextinspectionDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
 	Friend WithEvents InspectionwayDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
