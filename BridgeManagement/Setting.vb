@@ -61,6 +61,8 @@
 
 	Private _saveDirectoryPath As String = "C:\bridge\data"
 
+	Private _inspectionspan As Integer = 5
+
 	Private Shared _singleton As New Setting
 
 	Private Sub New()
@@ -323,6 +325,15 @@
 		End Get
 		Set(value As String)
 			_sheetName = value
+		End Set
+	End Property
+
+	Public Property Inspectionspan As Integer
+		Get
+			Return _inspectionspan
+		End Get
+		Set(value As Integer)
+			_inspectionspan = value
 		End Set
 	End Property
 End Class

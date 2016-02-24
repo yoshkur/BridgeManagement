@@ -1,4 +1,6 @@
 ﻿Public Class BridgeManagementViewForm
+	Private setting As Setting = Setting.getInstance
+
 	Private Sub updateDatasource()
 		Dim db As New bridgemanagementEntities
 		Dim bs As New BindingSource
@@ -10,6 +12,7 @@
 
 	Private Sub BridgeManagementViewForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 		Me.updateDatasource()
+		Me.setNextInspectionYear()
 	End Sub
 
 	Private Sub inspectionHistoryButton_Click(sender As Object, e As EventArgs) Handles inspectionHistoryButton.Click
@@ -50,6 +53,7 @@
 		form.ShowDialog(Me)
 		form.Dispose()
 		Me.updateDatasource()
+		Me.setNextInspectionYear()
 	End Sub
 
 	Private Sub openDirectoryButton_Click(sender As Object, e As EventArgs) Handles openDirectoryButton.Click
@@ -60,5 +64,44 @@
 		Else
 			MsgBox("点検データの登録がありません。")
 		End If
+	End Sub
+
+	Private Sub setNextInspectionYear()
+		Me.inspectionYearComboBox.Items.Clear()
+		Dim db As New bridgemanagementEntities
+		Dim yearCandidate As ArrayList = New ArrayList
+		For Each ent In db.bridgenote.Where(Function(n) n.nextinspection > 0)
+			If Not yearCandidate.Contains(ent.nextinspection) Then
+				yearCandidate.Add(ent.nextinspection)
+			End If
+		Next
+		For Each ent In db.inspection
+			If Not yearCandidate.Contains(ent.inspectionyear + Me.setting.Inspectionspan) Then
+				yearCandidate.Add(ent.inspectionyear + Me.setting.Inspectionspan)
+			End If
+		Next
+		yearCandidate.Sort()
+		Me.inspectionYearComboBox.Items.AddRange(yearCandidate.ToArray)
+	End Sub
+
+	Private Sub searchButton_Click(sender As Object, e As EventArgs) Handles searchButton.Click
+		Try
+			If Me.inspectionYearComboBox.SelectedItem Is Nothing Then
+				MsgBox("調査年度を指定してください。")
+				Return
+			End If
+
+			Dim db As New bridgemanagementEntities
+			Dim bs As New BindingSource
+			For Each ent In db.bridgemanagementview
+				If ent.nextinspection.Equals(Me.inspectionYearComboBox.SelectedItem) Or Me.inspectionYearComboBox.SelectedItem.Equals(ent.inspectionyear + Me.setting.Inspectionspan) Then
+					bs.Add(ent)
+				End If
+			Next
+			Me.DataGridView1.DataSource = bs
+
+		Catch ex As Exception
+			MsgBox(ex.Message)
+		End Try
 	End Sub
 End Class
