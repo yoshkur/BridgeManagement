@@ -8,4 +8,13 @@
 		Me.DataGridView1.DataSource = bs
 	End Sub
 
+	Private Sub openDirectoryButton_Click(sender As Object, e As EventArgs) Handles openDirectoryButton.Click
+		Dim db As New bridgemanagementEntities
+		Dim ent As inspectionhistory = db.inspectionhistory.Find(Me.DataGridView1.Item(0, Me.DataGridView1.CurrentRow.Index).Value, Me.DataGridView1.Item(1, Me.DataGridView1.CurrentRow.Index).Value)
+		If ent IsNot Nothing AndAlso ent.datasavedir.Length > 0 Then
+			System.Diagnostics.Process.Start(ent.datasavedir)
+		Else
+			MsgBox("点検データの登録がありません。")
+		End If
+	End Sub
 End Class
