@@ -49,39 +49,13 @@ Public Class InspectionExcelBuilder
 	End Function
 
 	Private Sub getExcelFileData()
-		Dim oXls As New Excel.Application
-		oXls.Visible = True
-		Dim oWBook As Excel.Workbook
+
 		Try
-			oXls = New Excel.Application()
-			'動作しているのを確認するためExcelのウィンドウを表示する。
-			oXls.Visible = True
+			Dim excelController As New ExcelControllClass
 
-			oWBook = DirectCast((oXls.Workbooks.Open(
-				Me.getExcelFilenNme,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing,
-				Type.Missing)),
-				Excel.Workbook)
-
-			Dim sheetName As String = Me.setting.SheetName
-			Dim oSheet As Excel.Worksheet
-			oSheet = DirectCast(oWBook.Sheets(sheetName), Excel.Worksheet)
-
-			'Dim year = DirectCast(oSheet.Cells(Me.setting.InspectionyearRow, Me.setting.InspectionyearColumn), Excel.Range).Text
-			'Me._inspectionExcel.inspectionyear = Integer.Parse(year.ToString.Substring(0, year.ToString.IndexOf(".")))
-			Dim inspectionYear = DirectCast(oSheet.Cells(Me.setting.InspectionyearRow, Me.setting.InspectionyearColumn), Excel.Range).Text
+			excelController.openFile(Me.getExcelFilenNme, True)
+			excelController.setWorkSheet(Me.setting.SheetName)
+			Dim inspectionYear = excelController.Cells(Me.setting.InspectionyearRow, Me.setting.InspectionyearColumn).Text
 			Dim dtInspectionYear As DateTime
 			If DateTime.TryParse(inspectionYear, dtInspectionYear) Then
 				Me._inspectionExcel.inspectionyear = dtInspectionYear.Year
@@ -89,47 +63,25 @@ Public Class InspectionExcelBuilder
 				Me._inspectionExcel.error = True
 				Me._inspectionExcel.message = Me._inspectionExcel.message & "点検年度が取得できません。"
 			End If
-			Me._inspectionExcel.inspectioner = DirectCast(oSheet.Cells(Me.setting.InspectionerRow, Me.setting.InspectionerColumn), Excel.Range).Text
-			Me._inspectionExcel.undercondition = DirectCast(oSheet.Cells(Me.setting.UnderconditionRow, Me.setting.UnderconditionColumn), Excel.Range).Text
-			Me._inspectionExcel.alternatepath = DirectCast(oSheet.Cells(Me.setting.AlternatepathRow, Me.setting.AlternatepathColumn), Excel.Range).Text
-			Me._inspectionExcel.generalroad = DirectCast(oSheet.Cells(Me.setting.GeneralroadRow, Me.setting.GeneralroadColumn), Excel.Range).Text
-			Me._inspectionExcel.emergencyroad = DirectCast(oSheet.Cells(Me.setting.EmergencyroadRow, Me.setting.EmergencyroadColumn), Excel.Range).Text
-			Me._inspectionExcel.occupancy = DirectCast(oSheet.Cells(Me.setting.OccupancyRow, Me.setting.OccupancyColumn), Excel.Range).Text
-			Me._inspectionExcel.soundness = DirectCast(oSheet.Cells(Me.setting.SoundnessRow, Me.setting.SoundnessColumn), Excel.Range).Text
-			Me._inspectionExcel.uppermaterial = DirectCast(oSheet.Cells(Me.setting.UppermaterialRow, Me.setting.UppermaterialColumn), Excel.Range).Text
-			Me._inspectionExcel.undermaterial = DirectCast(oSheet.Cells(Me.setting.UndermaterialRow, Me.setting.UndermaterialColumn), Excel.Range).Text
-			Me._inspectionExcel.bearing = DirectCast(oSheet.Cells(Me.setting.BearingRow, Me.setting.BearingColumn), Excel.Range).Text
-			Me._inspectionExcel.face = DirectCast(oSheet.Cells(Me.setting.FaceRow, Me.setting.FaceColumn), Excel.Range).Text
+			Me._inspectionExcel.inspectioner = excelController.Cells(Me.setting.InspectionerRow, Me.setting.InspectionerColumn).Text
+			Me._inspectionExcel.undercondition = excelController.Cells(Me.setting.UnderconditionRow, Me.setting.UnderconditionColumn).Text
+			Me._inspectionExcel.alternatepath = excelController.Cells(Me.setting.AlternatepathRow, Me.setting.AlternatepathColumn).Text
+			Me._inspectionExcel.generalroad = excelController.Cells(Me.setting.GeneralroadRow, Me.setting.GeneralroadColumn).Text
+			Me._inspectionExcel.emergencyroad = excelController.Cells(Me.setting.EmergencyroadRow, Me.setting.EmergencyroadColumn).Text
+			Me._inspectionExcel.occupancy = excelController.Cells(Me.setting.OccupancyRow, Me.setting.OccupancyColumn).Text
+			Me._inspectionExcel.soundness = excelController.Cells(Me.setting.SoundnessRow, Me.setting.SoundnessColumn).Text
+			Me._inspectionExcel.uppermaterial = excelController.Cells(Me.setting.UppermaterialRow, Me.setting.UppermaterialColumn).Text
+			Me._inspectionExcel.undermaterial = excelController.Cells(Me.setting.UndermaterialRow, Me.setting.UndermaterialColumn).Text
+			Me._inspectionExcel.bearing = excelController.Cells(Me.setting.BearingRow, Me.setting.BearingColumn).Text
+			Me._inspectionExcel.face = excelController.Cells(Me.setting.FaceRow, Me.setting.FaceColumn).Text
+			excelController.close(False)
 
 		Catch ex As Exception
 			Me._inspectionExcel.error = True
 			Me._inspectionExcel.message = Me._inspectionExcel.message & ex.Message
-		Finally
-			If oWBook IsNot Nothing Then
-				oWBook.Close(False, Type.Missing, Type.Missing)
-			End If
-			oXls.Quit()
-			MRComObject(oXls)
+
 		End Try
 
-	End Sub
-
-	Private Shared Sub MRComObject(Of T As Class)(ByRef objCom As T,
-												 Optional ByVal force As Boolean = False)
-		If objCom Is Nothing Then
-			Return
-		End If
-		Try
-			If System.Runtime.InteropServices.Marshal.IsComObject(objCom) Then
-				If force Then
-					System.Runtime.InteropServices.Marshal.FinalReleaseComObject(objCom)
-				Else
-					System.Runtime.InteropServices.Marshal.ReleaseComObject(objCom)
-				End If
-			End If
-		Finally
-			objCom = Nothing
-		End Try
 	End Sub
 
 	Private Function getExcelFilenNme() As String

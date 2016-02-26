@@ -93,6 +93,8 @@
 
 			Dim db As New bridgemanagementEntities
 			Dim bs As New BindingSource
+			'Dim query = from ent In db.bridgemanagementview Where ent.nextinspection.Equals(Me.inspectionYearComboBox.SelectedItem) Or Me.inspectionYearComboBox.SelectedItem.Equals(ent.inspectionyear + Me.setting.Inspectionspan)
+			'のように、LINQを利用すると動かなかったための措置。
 			For Each ent In db.bridgemanagementview
 				If ent.nextinspection.Equals(Me.inspectionYearComboBox.SelectedItem) Or Me.inspectionYearComboBox.SelectedItem.Equals(ent.inspectionyear + Me.setting.Inspectionspan) Then
 					bs.Add(ent)
@@ -103,5 +105,17 @@
 		Catch ex As Exception
 			MsgBox(ex.Message)
 		End Try
+	End Sub
+
+	Private Sub exportButton_Click(sender As Object, e As EventArgs) Handles exportButton.Click
+		Dim colCount = Me.DataGridView1.ColumnCount
+		For i = 0 To colCount - 1
+			'MsgBox(Me.DataGridView1.Columns(i).HeaderText)
+		Next
+		For Each row As DataGridViewRow In Me.DataGridView1.SelectedRows
+			For i = 0 To colCount - 1
+				MsgBox(Me.DataGridView1(i, row.Index).Value)
+			Next
+		Next
 	End Sub
 End Class

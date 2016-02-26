@@ -25,11 +25,6 @@ Partial Class BridgeManagementViewForm
 		Me.components = New System.ComponentModel.Container()
 		Me.inspectionHistoryButton = New System.Windows.Forms.Button()
 		Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-		Me.bridgeHistoryButton = New System.Windows.Forms.Button()
-		Me.bridgeNoteButton = New System.Windows.Forms.Button()
-		Me.editBridgeButton = New System.Windows.Forms.Button()
-		Me.editBridgeNoteButton = New System.Windows.Forms.Button()
-		Me.openDirectoryButton = New System.Windows.Forms.Button()
 		Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.bridgename = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.bridgenameruby = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -64,6 +59,16 @@ Partial Class BridgeManagementViewForm
 		Me.bearing = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.face = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.datasavedir = New System.Windows.Forms.DataGridViewTextBoxColumn()
+		Me.bridgeHistoryButton = New System.Windows.Forms.Button()
+		Me.bridgeNoteButton = New System.Windows.Forms.Button()
+		Me.editBridgeButton = New System.Windows.Forms.Button()
+		Me.editBridgeNoteButton = New System.Windows.Forms.Button()
+		Me.openDirectoryButton = New System.Windows.Forms.Button()
+		Me.searchButton = New System.Windows.Forms.Button()
+		Me.inspectionYearComboBox = New System.Windows.Forms.ComboBox()
+		Me.Label1 = New System.Windows.Forms.Label()
+		Me.exportButton = New System.Windows.Forms.Button()
+		Me.archiveButton = New System.Windows.Forms.Button()
 		Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.BridgenameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.BridgenamerubyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -99,16 +104,13 @@ Partial Class BridgeManagementViewForm
 		Me.FaceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.DatasavedirDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
 		Me.BridgemanagementviewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-		Me.searchButton = New System.Windows.Forms.Button()
-		Me.inspectionYearComboBox = New System.Windows.Forms.ComboBox()
-		Me.Label1 = New System.Windows.Forms.Label()
 		CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
 		CType(Me.BridgemanagementviewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
 		Me.SuspendLayout()
 		'
 		'inspectionHistoryButton
 		'
-		Me.inspectionHistoryButton.Location = New System.Drawing.Point(12, 13)
+		Me.inspectionHistoryButton.Location = New System.Drawing.Point(106, 13)
 		Me.inspectionHistoryButton.Name = "inspectionHistoryButton"
 		Me.inspectionHistoryButton.Size = New System.Drawing.Size(75, 23)
 		Me.inspectionHistoryButton.TabIndex = 1
@@ -129,51 +131,6 @@ Partial Class BridgeManagementViewForm
 		Me.DataGridView1.RowTemplate.Height = 21
 		Me.DataGridView1.Size = New System.Drawing.Size(1436, 541)
 		Me.DataGridView1.TabIndex = 2
-		'
-		'bridgeHistoryButton
-		'
-		Me.bridgeHistoryButton.Location = New System.Drawing.Point(856, 12)
-		Me.bridgeHistoryButton.Name = "bridgeHistoryButton"
-		Me.bridgeHistoryButton.Size = New System.Drawing.Size(75, 23)
-		Me.bridgeHistoryButton.TabIndex = 3
-		Me.bridgeHistoryButton.Text = "橋梁履歴"
-		Me.bridgeHistoryButton.UseVisualStyleBackColor = True
-		'
-		'bridgeNoteButton
-		'
-		Me.bridgeNoteButton.Location = New System.Drawing.Point(546, 11)
-		Me.bridgeNoteButton.Name = "bridgeNoteButton"
-		Me.bridgeNoteButton.Size = New System.Drawing.Size(93, 23)
-		Me.bridgeNoteButton.TabIndex = 4
-		Me.bridgeNoteButton.Text = "橋梁メモ履歴"
-		Me.bridgeNoteButton.UseVisualStyleBackColor = True
-		'
-		'editBridgeButton
-		'
-		Me.editBridgeButton.Location = New System.Drawing.Point(775, 11)
-		Me.editBridgeButton.Name = "editBridgeButton"
-		Me.editBridgeButton.Size = New System.Drawing.Size(75, 23)
-		Me.editBridgeButton.TabIndex = 5
-		Me.editBridgeButton.Text = "橋梁編集"
-		Me.editBridgeButton.UseVisualStyleBackColor = True
-		'
-		'editBridgeNoteButton
-		'
-		Me.editBridgeNoteButton.Location = New System.Drawing.Point(437, 12)
-		Me.editBridgeNoteButton.Name = "editBridgeNoteButton"
-		Me.editBridgeNoteButton.Size = New System.Drawing.Size(103, 23)
-		Me.editBridgeNoteButton.TabIndex = 6
-		Me.editBridgeNoteButton.Text = "橋梁メモ編集"
-		Me.editBridgeNoteButton.UseVisualStyleBackColor = True
-		'
-		'openDirectoryButton
-		'
-		Me.openDirectoryButton.Location = New System.Drawing.Point(106, 13)
-		Me.openDirectoryButton.Name = "openDirectoryButton"
-		Me.openDirectoryButton.Size = New System.Drawing.Size(116, 23)
-		Me.openDirectoryButton.TabIndex = 7
-		Me.openDirectoryButton.Text = "点検データフォルダ"
-		Me.openDirectoryButton.UseVisualStyleBackColor = True
 		'
 		'id
 		'
@@ -412,6 +369,95 @@ Partial Class BridgeManagementViewForm
 		Me.datasavedir.HeaderText = "データディレクトリ"
 		Me.datasavedir.Name = "datasavedir"
 		Me.datasavedir.ReadOnly = True
+		'
+		'bridgeHistoryButton
+		'
+		Me.bridgeHistoryButton.Location = New System.Drawing.Point(856, 12)
+		Me.bridgeHistoryButton.Name = "bridgeHistoryButton"
+		Me.bridgeHistoryButton.Size = New System.Drawing.Size(75, 23)
+		Me.bridgeHistoryButton.TabIndex = 3
+		Me.bridgeHistoryButton.Text = "橋梁履歴"
+		Me.bridgeHistoryButton.UseVisualStyleBackColor = True
+		'
+		'bridgeNoteButton
+		'
+		Me.bridgeNoteButton.Location = New System.Drawing.Point(555, 13)
+		Me.bridgeNoteButton.Name = "bridgeNoteButton"
+		Me.bridgeNoteButton.Size = New System.Drawing.Size(93, 23)
+		Me.bridgeNoteButton.TabIndex = 4
+		Me.bridgeNoteButton.Text = "橋梁メモ履歴"
+		Me.bridgeNoteButton.UseVisualStyleBackColor = True
+		'
+		'editBridgeButton
+		'
+		Me.editBridgeButton.Location = New System.Drawing.Point(775, 13)
+		Me.editBridgeButton.Name = "editBridgeButton"
+		Me.editBridgeButton.Size = New System.Drawing.Size(75, 23)
+		Me.editBridgeButton.TabIndex = 5
+		Me.editBridgeButton.Text = "橋梁編集"
+		Me.editBridgeButton.UseVisualStyleBackColor = True
+		'
+		'editBridgeNoteButton
+		'
+		Me.editBridgeNoteButton.Location = New System.Drawing.Point(446, 13)
+		Me.editBridgeNoteButton.Name = "editBridgeNoteButton"
+		Me.editBridgeNoteButton.Size = New System.Drawing.Size(103, 23)
+		Me.editBridgeNoteButton.TabIndex = 6
+		Me.editBridgeNoteButton.Text = "橋梁メモ編集"
+		Me.editBridgeNoteButton.UseVisualStyleBackColor = True
+		'
+		'openDirectoryButton
+		'
+		Me.openDirectoryButton.Location = New System.Drawing.Point(187, 13)
+		Me.openDirectoryButton.Name = "openDirectoryButton"
+		Me.openDirectoryButton.Size = New System.Drawing.Size(116, 23)
+		Me.openDirectoryButton.TabIndex = 7
+		Me.openDirectoryButton.Text = "点検データフォルダ"
+		Me.openDirectoryButton.UseVisualStyleBackColor = True
+		'
+		'searchButton
+		'
+		Me.searchButton.Location = New System.Drawing.Point(1160, 12)
+		Me.searchButton.Name = "searchButton"
+		Me.searchButton.Size = New System.Drawing.Size(58, 23)
+		Me.searchButton.TabIndex = 8
+		Me.searchButton.Text = "絞込"
+		Me.searchButton.UseVisualStyleBackColor = True
+		'
+		'inspectionYearComboBox
+		'
+		Me.inspectionYearComboBox.FormattingEnabled = True
+		Me.inspectionYearComboBox.Location = New System.Drawing.Point(1033, 13)
+		Me.inspectionYearComboBox.Name = "inspectionYearComboBox"
+		Me.inspectionYearComboBox.Size = New System.Drawing.Size(121, 20)
+		Me.inspectionYearComboBox.TabIndex = 9
+		'
+		'Label1
+		'
+		Me.Label1.AutoSize = True
+		Me.Label1.Location = New System.Drawing.Point(974, 17)
+		Me.Label1.Name = "Label1"
+		Me.Label1.Size = New System.Drawing.Size(53, 12)
+		Me.Label1.TabIndex = 10
+		Me.Label1.Text = "次回調査"
+		'
+		'exportButton
+		'
+		Me.exportButton.Location = New System.Drawing.Point(1224, 12)
+		Me.exportButton.Name = "exportButton"
+		Me.exportButton.Size = New System.Drawing.Size(105, 23)
+		Me.exportButton.TabIndex = 11
+		Me.exportButton.Text = "データエクスポート"
+		Me.exportButton.UseVisualStyleBackColor = True
+		'
+		'archiveButton
+		'
+		Me.archiveButton.Location = New System.Drawing.Point(1335, 13)
+		Me.archiveButton.Name = "archiveButton"
+		Me.archiveButton.Size = New System.Drawing.Size(102, 23)
+		Me.archiveButton.TabIndex = 12
+		Me.archiveButton.Text = "点検データまとめ"
+		Me.archiveButton.UseVisualStyleBackColor = True
 		'
 		'IdDataGridViewTextBoxColumn
 		'
@@ -655,37 +701,13 @@ Partial Class BridgeManagementViewForm
 		'
 		Me.BridgemanagementviewBindingSource.DataSource = GetType(BridgeManagement.bridgemanagementview)
 		'
-		'searchButton
-		'
-		Me.searchButton.Location = New System.Drawing.Point(1160, 12)
-		Me.searchButton.Name = "searchButton"
-		Me.searchButton.Size = New System.Drawing.Size(58, 23)
-		Me.searchButton.TabIndex = 8
-		Me.searchButton.Text = "絞込"
-		Me.searchButton.UseVisualStyleBackColor = True
-		'
-		'inspectionYearComboBox
-		'
-		Me.inspectionYearComboBox.FormattingEnabled = True
-		Me.inspectionYearComboBox.Location = New System.Drawing.Point(1033, 13)
-		Me.inspectionYearComboBox.Name = "inspectionYearComboBox"
-		Me.inspectionYearComboBox.Size = New System.Drawing.Size(121, 20)
-		Me.inspectionYearComboBox.TabIndex = 9
-		'
-		'Label1
-		'
-		Me.Label1.AutoSize = True
-		Me.Label1.Location = New System.Drawing.Point(974, 17)
-		Me.Label1.Name = "Label1"
-		Me.Label1.Size = New System.Drawing.Size(53, 12)
-		Me.Label1.TabIndex = 10
-		Me.Label1.Text = "次回調査"
-		'
 		'BridgeManagementViewForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1460, 606)
+		Me.Controls.Add(Me.archiveButton)
+		Me.Controls.Add(Me.exportButton)
 		Me.Controls.Add(Me.Label1)
 		Me.Controls.Add(Me.inspectionYearComboBox)
 		Me.Controls.Add(Me.searchButton)
@@ -786,4 +808,6 @@ Partial Class BridgeManagementViewForm
 	Friend WithEvents searchButton As Button
 	Friend WithEvents inspectionYearComboBox As ComboBox
 	Friend WithEvents Label1 As Label
+	Friend WithEvents exportButton As Button
+	Friend WithEvents archiveButton As Button
 End Class
