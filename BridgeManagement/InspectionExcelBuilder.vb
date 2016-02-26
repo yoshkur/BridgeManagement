@@ -53,7 +53,7 @@ Public Class InspectionExcelBuilder
 		Try
 			Dim excelController As New ExcelControllClass
 
-			excelController.openFile(Me.getExcelFilenName, True)
+			excelController.openFile(Me.getExcelFileName, True)
 			excelController.setWorkSheet(Me.setting.SheetName)
 			Dim inspectionYear = excelController.Cells(Me.setting.InspectionyearRow, Me.setting.InspectionyearColumn).Text
 			Dim dtInspectionYear As DateTime
@@ -84,7 +84,7 @@ Public Class InspectionExcelBuilder
 
 	End Sub
 
-	Private Function getExcelFilenNamee() As String
+	Private Function getExcelFileName() As String
 		Dim files = Directory.GetFiles(Me._inspectionExcel.datadir)
 		Dim query = From file In files Where Path.GetFileName(file).StartsWith(Me.setting.FilePrefix)
 		If query.Count > 1 Then
