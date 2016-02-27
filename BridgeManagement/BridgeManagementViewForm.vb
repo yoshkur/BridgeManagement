@@ -109,13 +109,22 @@
 
 	Private Sub exportButton_Click(sender As Object, e As EventArgs) Handles exportButton.Click
 		Dim colCount = Me.DataGridView1.ColumnCount
-		For i = 0 To colCount - 1
-			'MsgBox(Me.DataGridView1.Columns(i).HeaderText)
-		Next
-		For Each row As DataGridViewRow In Me.DataGridView1.SelectedRows
+		If colCount > 0 Then
 			For i = 0 To colCount - 1
-				MsgBox(Me.DataGridView1(i, row.Index).Value)
+				MsgBox(Me.DataGridView1.Columns(i).HeaderText, vbOKOnly, "実験中")
 			Next
-		Next
+			For Each row As DataGridViewRow In Me.DataGridView1.SelectedRows
+				For i = 0 To colCount - 1
+					MsgBox(Me.DataGridView1(i, row.Index).Value, vbOKOnly, "実験中")
+				Next
+			Next
+		Else
+			MsgBox("行を選択してください。", vbOKOnly, "実験中")
+		End If
+	End Sub
+
+	Private Sub archiveButton_Click(sender As Object, e As EventArgs) Handles archiveButton.Click
+		MsgBox("この機能は未実装です。")
+		Return
 	End Sub
 End Class
