@@ -38,6 +38,7 @@ Partial Class MenuForm
 		Me.Button1.TabIndex = 0
 		Me.Button1.Text = "Button1"
 		Me.Button1.UseVisualStyleBackColor = True
+		Me.Button1.Visible = False
 		'
 		'Button2
 		'
@@ -48,6 +49,7 @@ Partial Class MenuForm
 		Me.Button2.TabIndex = 2
 		Me.Button2.Text = "Button2"
 		Me.Button2.UseVisualStyleBackColor = True
+		Me.Button2.Visible = False
 		'
 		'TextBox1
 		'
@@ -55,6 +57,7 @@ Partial Class MenuForm
 		Me.TextBox1.Name = "TextBox1"
 		Me.TextBox1.Size = New System.Drawing.Size(100, 19)
 		Me.TextBox1.TabIndex = 3
+		Me.TextBox1.Visible = False
 		'
 		'inspectionDataImportButtom
 		'
