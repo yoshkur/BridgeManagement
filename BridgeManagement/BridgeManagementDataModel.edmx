@@ -30,6 +30,26 @@
           <Property Name="undercondition" Type="nvarchar(max)" />
           <Property Name="emergencyroad" Type="nvarchar(max)" />
         </EntityType>
+        <!--生成中に見つかったエラー:
+警告 6013: テーブル/ビュー 'bridgemanagement.dbo.bridge_temp' に主キーが定義されておらず、有効な主キーを推論できませんでした。このテーブル/ビューは除外されました。エンティティを使用するには、スキーマを確認し、正しいキーを追加して、コメントを解除する必要があります。
+        <EntityType Name="bridge_temp">
+          <Property Name="国交省作業番号" Type="varchar" MaxLength="50" />
+          <Property Name="道路橋名" Type="varchar" MaxLength="50" />
+          <Property Name="道路橋名(カナ)" Type="varchar" MaxLength="50" />
+          <Property Name="路線名" Type="varchar" MaxLength="50" />
+          <Property Name="所在地" Type="varchar" MaxLength="50" />
+          <Property Name="緯度" Type="varchar" MaxLength="50" />
+          <Property Name="経度" Type="varchar" MaxLength="50" />
+          <Property Name="架設年次" Type="varchar" MaxLength="50" />
+          <Property Name="橋長" Type="varchar" MaxLength="50" />
+          <Property Name="幅員" Type="varchar" MaxLength="50" />
+          <Property Name="径間数" Type="varchar" MaxLength="50" />
+          <Property Name="構造形式" Type="varchar" MaxLength="50" />
+          <Property Name="上部工使用材料" Type="varchar" MaxLength="50" />
+          <Property Name="床板材料" Type="varchar" MaxLength="50" />
+          <Property Name="路下条件" Type="varchar" MaxLength="50" />
+          <Property Name="緊急輸送道路" Type="varchar" MaxLength="50" />
+        </EntityType>-->
         <EntityType Name="bridgehistory">
           <Key>
             <PropertyRef Name="id" />
@@ -102,7 +122,9 @@
           <Property Name="emergencyroad" Type="nvarchar(max)" />
           <Property Name="occupancy" Type="nvarchar(max)" />
           <Property Name="soundness" Type="nvarchar(max)" />
-          <Property Name="uppermaterial" Type="nvarchar(max)" />
+          <Property Name="uppermaterialmain" Type="nvarchar(max)" />
+          <Property Name="uppermaterialside" Type="nvarchar(max)" />
+          <Property Name="uppermaterialfloor" Type="nvarchar(max)" />
           <Property Name="undermaterial" Type="nvarchar(max)" />
           <Property Name="bearing" Type="nvarchar(max)" />
           <Property Name="face" Type="nvarchar(max)" />
@@ -123,7 +145,9 @@
           <Property Name="emergencyroad" Type="nvarchar(max)" />
           <Property Name="occupancy" Type="nvarchar(max)" />
           <Property Name="soundness" Type="nvarchar(max)" />
-          <Property Name="uppermaterial" Type="nvarchar(max)" />
+          <Property Name="uppermaterialmain" Type="nvarchar(max)" />
+          <Property Name="uppermaterialside" Type="nvarchar(max)" />
+          <Property Name="uppermaterialfloor" Type="nvarchar(max)" />
           <Property Name="undermaterial" Type="nvarchar(max)" />
           <Property Name="bearing" Type="nvarchar(max)" />
           <Property Name="face" Type="nvarchar(max)" />
@@ -148,12 +172,34 @@
           <Property Name="emergencyroad" Type="nvarchar(max)" />
           <Property Name="occupancy" Type="nvarchar(max)" />
           <Property Name="soundness" Type="nvarchar(max)" />
-          <Property Name="uppermaterial" Type="nvarchar(max)" />
+          <Property Name="uppermaterialmain" Type="nvarchar(max)" />
+          <Property Name="uppermaterialside" Type="nvarchar(max)" />
+          <Property Name="uppermaterialfloor" Type="nvarchar(max)" />
           <Property Name="undermaterial" Type="nvarchar(max)" />
           <Property Name="bearing" Type="nvarchar(max)" />
           <Property Name="face" Type="nvarchar(max)" />
           <Property Name="datasavedir" Type="nvarchar(max)" />
         </EntityType>
+        <!--生成中に見つかったエラー:
+警告 6013: テーブル/ビュー 'bridgemanagement.dbo.パスコデータ' に主キーが定義されておらず、有効な主キーを推論できませんでした。このテーブル/ビューは除外されました。エンティティを使用するには、スキーマを確認し、正しいキーを追加して、コメントを解除する必要があります。
+        <EntityType Name="パスコデータ">
+          <Property Name="国交省作業用番号" Type="varchar" MaxLength="50" />
+          <Property Name="道路橋名" Type="varchar" MaxLength="50" />
+          <Property Name="道路橋名カナ" Type="varchar" MaxLength="50" />
+          <Property Name="路線名" Type="varchar" MaxLength="50" />
+          <Property Name="所在地" Type="varchar" MaxLength="50" />
+          <Property Name="緯度" Type="varchar" MaxLength="50" />
+          <Property Name="経度" Type="varchar" MaxLength="50" />
+          <Property Name="年次" Type="varchar" MaxLength="50" />
+          <Property Name="橋長" Type="varchar" MaxLength="50" />
+          <Property Name="幅員" Type="varchar" MaxLength="50" />
+          <Property Name="径間数" Type="varchar" MaxLength="50" />
+          <Property Name="構造形式" Type="varchar" MaxLength="50" />
+          <Property Name="上部工使用材料" Type="varchar" MaxLength="50" />
+          <Property Name="床板材料" Type="varchar" MaxLength="50" />
+          <Property Name="路下条件" Type="varchar" MaxLength="50" />
+          <Property Name="緊急輸送道路" Type="varchar" MaxLength="50" />
+        </EntityType>-->
         <!--生成中に見つかったエラー:
 警告 6002: テーブル/ビュー 'bridgemanagement.dbo.bridgemanagementview' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
         <EntityType Name="bridgemanagementview">
@@ -161,39 +207,41 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="bridgename" Type="text" />
-          <Property Name="bridgenameruby" Type="text" />
-          <Property Name="route" Type="text" />
-          <Property Name="address" Type="text" />
-          <Property Name="latitude" Type="text" />
-          <Property Name="longitude" Type="text" />
+          <Property Name="bridgename" Type="nvarchar(max)" />
+          <Property Name="bridgenameruby" Type="nvarchar(max)" />
+          <Property Name="route" Type="nvarchar(max)" />
+          <Property Name="address" Type="nvarchar(max)" />
+          <Property Name="latitude" Type="nvarchar(max)" />
+          <Property Name="longitude" Type="nvarchar(max)" />
           <Property Name="made" Type="int" />
           <Property Name="bridgeage" Type="int" />
           <Property Name="bridgelength" Type="numeric" Precision="5" Scale="1" />
           <Property Name="bridgewidth" Type="numeric" Precision="3" Scale="1" />
           <Property Name="span" Type="int" />
-          <Property Name="bridgestructure" Type="text" />
-          <Property Name="uppermaterial" Type="text" />
-          <Property Name="lowermaterial" Type="text" />
-          <Property Name="undercondition" Type="text" />
-          <Property Name="emergencyroad" Type="text" />
-          <Property Name="repair" Type="text" />
+          <Property Name="bridgestructure" Type="nvarchar(max)" />
+          <Property Name="uppermaterial" Type="nvarchar(max)" />
+          <Property Name="lowermaterial" Type="nvarchar(max)" />
+          <Property Name="undercondition" Type="nvarchar(max)" />
+          <Property Name="emergencyroad" Type="nvarchar(max)" />
+          <Property Name="repair" Type="nvarchar(max)" />
           <Property Name="nextinspection" Type="int" />
-          <Property Name="inspectionway" Type="text" />
-          <Property Name="memo" Type="text" />
+          <Property Name="inspectionway" Type="nvarchar(max)" />
+          <Property Name="memo" Type="nvarchar(max)" />
           <Property Name="inspectionyear" Type="int" />
-          <Property Name="inspectioner" Type="text" />
-          <Property Name="inspectionundercondition" Type="text" />
-          <Property Name="alternatepath" Type="text" />
-          <Property Name="generalroad" Type="text" />
-          <Property Name="inspectionemergencyroad" Type="text" />
-          <Property Name="occupancy" Type="text" />
-          <Property Name="soundness" Type="text" />
-          <Property Name="inspectionuppermaterial" Type="text" />
-          <Property Name="undermaterial" Type="text" />
-          <Property Name="bearing" Type="text" />
-          <Property Name="face" Type="text" />
-          <Property Name="datasavedir" Type="text" />
+          <Property Name="inspectioner" Type="nvarchar(max)" />
+          <Property Name="inspectionundercondition" Type="nvarchar(max)" />
+          <Property Name="alternatepath" Type="nvarchar(max)" />
+          <Property Name="generalroad" Type="nvarchar(max)" />
+          <Property Name="inspectionemergencyroad" Type="nvarchar(max)" />
+          <Property Name="occupancy" Type="nvarchar(max)" />
+          <Property Name="soundness" Type="nvarchar(max)" />
+          <Property Name="uppermaterialmain" Type="nvarchar(max)" />
+          <Property Name="uppermaterialside" Type="nvarchar(max)" />
+          <Property Name="uppermaterialfloor" Type="nvarchar(max)" />
+          <Property Name="undermaterial" Type="nvarchar(max)" />
+          <Property Name="bearing" Type="nvarchar(max)" />
+          <Property Name="face" Type="nvarchar(max)" />
+          <Property Name="datasavedir" Type="nvarchar(max)" />
         </EntityType>
         <EntityContainer Name="bridgemanagementModelStoreContainer">
           <EntitySet Name="bridge" EntityType="Self.bridge" Schema="dbo" store:Type="Tables" />
@@ -234,7 +282,9 @@
     [bridgemanagementview].[inspectionemergencyroad] AS [inspectionemergencyroad], 
     [bridgemanagementview].[occupancy] AS [occupancy], 
     [bridgemanagementview].[soundness] AS [soundness], 
-    [bridgemanagementview].[inspectionuppermaterial] AS [inspectionuppermaterial], 
+    [bridgemanagementview].[uppermaterialmain] AS [uppermaterialmain], 
+    [bridgemanagementview].[uppermaterialside] AS [uppermaterialside], 
+    [bridgemanagementview].[uppermaterialfloor] AS [uppermaterialfloor], 
     [bridgemanagementview].[undermaterial] AS [undermaterial], 
     [bridgemanagementview].[bearing] AS [bearing], 
     [bridgemanagementview].[face] AS [face], 
@@ -353,7 +403,9 @@
           <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialmain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialside" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialfloor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -374,7 +426,9 @@
           <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialmain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialside" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialfloor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -399,7 +453,9 @@
           <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialmain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialside" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialfloor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -410,39 +466,41 @@
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="bridgenameruby" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bridgename" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bridgenameruby" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="route" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="made" Type="Int32" />
           <Property Name="bridgeage" Type="Int32" />
           <Property Name="bridgelength" Type="Decimal" Precision="5" Scale="1" />
           <Property Name="bridgewidth" Type="Decimal" Precision="3" Scale="1" />
           <Property Name="span" Type="Int32" />
-          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="repair" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bridgestructure" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="lowermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="emergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="repair" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="nextinspection" Type="Int32" />
-          <Property Name="inspectionway" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectionway" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="memo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="inspectionyear" Type="Int32" />
-          <Property Name="inspectioner" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="inspectionundercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="alternatepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="generalroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="inspectionemergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="inspectionuppermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="datasavedir" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="inspectioner" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="inspectionundercondition" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="alternatepath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="generalroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="inspectionemergencyroad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="occupancy" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="soundness" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialmain" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialside" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="uppermaterialfloor" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="undermaterial" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="bearing" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="face" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="datasavedir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -539,7 +597,9 @@
                 <ScalarProperty Name="face" ColumnName="face" />
                 <ScalarProperty Name="bearing" ColumnName="bearing" />
                 <ScalarProperty Name="undermaterial" ColumnName="undermaterial" />
-                <ScalarProperty Name="uppermaterial" ColumnName="uppermaterial" />
+                <ScalarProperty Name="uppermaterialfloor" ColumnName="uppermaterialfloor" />
+                <ScalarProperty Name="uppermaterialside" ColumnName="uppermaterialside" />
+                <ScalarProperty Name="uppermaterialmain" ColumnName="uppermaterialmain" />
                 <ScalarProperty Name="soundness" ColumnName="soundness" />
                 <ScalarProperty Name="occupancy" ColumnName="occupancy" />
                 <ScalarProperty Name="emergencyroad" ColumnName="emergencyroad" />
@@ -564,7 +624,9 @@
                 <ScalarProperty Name="face" ColumnName="face" />
                 <ScalarProperty Name="bearing" ColumnName="bearing" />
                 <ScalarProperty Name="undermaterial" ColumnName="undermaterial" />
-                <ScalarProperty Name="uppermaterial" ColumnName="uppermaterial" />
+                <ScalarProperty Name="uppermaterialfloor" ColumnName="uppermaterialfloor" />
+                <ScalarProperty Name="uppermaterialside" ColumnName="uppermaterialside" />
+                <ScalarProperty Name="uppermaterialmain" ColumnName="uppermaterialmain" />
                 <ScalarProperty Name="soundness" ColumnName="soundness" />
                 <ScalarProperty Name="occupancy" ColumnName="occupancy" />
                 <ScalarProperty Name="emergencyroad" ColumnName="emergencyroad" />
@@ -586,7 +648,9 @@
                 <ScalarProperty Name="face" ColumnName="face" />
                 <ScalarProperty Name="bearing" ColumnName="bearing" />
                 <ScalarProperty Name="undermaterial" ColumnName="undermaterial" />
-                <ScalarProperty Name="uppermaterial" ColumnName="uppermaterial" />
+                <ScalarProperty Name="uppermaterialfloor" ColumnName="uppermaterialfloor" />
+                <ScalarProperty Name="uppermaterialside" ColumnName="uppermaterialside" />
+                <ScalarProperty Name="uppermaterialmain" ColumnName="uppermaterialmain" />
                 <ScalarProperty Name="soundness" ColumnName="soundness" />
                 <ScalarProperty Name="occupancy" ColumnName="occupancy" />
                 <ScalarProperty Name="emergencyroad" ColumnName="emergencyroad" />
@@ -610,7 +674,9 @@
                 <ScalarProperty Name="face" ColumnName="face" />
                 <ScalarProperty Name="bearing" ColumnName="bearing" />
                 <ScalarProperty Name="undermaterial" ColumnName="undermaterial" />
-                <ScalarProperty Name="inspectionuppermaterial" ColumnName="inspectionuppermaterial" />
+                <ScalarProperty Name="uppermaterialfloor" ColumnName="uppermaterialfloor" />
+                <ScalarProperty Name="uppermaterialside" ColumnName="uppermaterialside" />
+                <ScalarProperty Name="uppermaterialmain" ColumnName="uppermaterialmain" />
                 <ScalarProperty Name="soundness" ColumnName="soundness" />
                 <ScalarProperty Name="occupancy" ColumnName="occupancy" />
                 <ScalarProperty Name="inspectionemergencyroad" ColumnName="inspectionemergencyroad" />

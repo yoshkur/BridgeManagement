@@ -1,18 +1,19 @@
 ﻿Public Class Setting
-	'元になるデータが保存されているディレクトリ
-	Private _workDirectoryPath As String = "C:\bridge\work"
+    '元になるデータが保存されているディレクトリ
+    Private _workDirectoryPath As String = "D:\bridge\work"
 
-	'管理番号が保存されているファイル名
-	Private _idFile As String = "管理番号.txt"
+    '管理番号が保存されているファイル名
+    Private _idFile As String = "管理番号.txt"
 
 	'データを取得するExcelファイル名の始まり
 	Private _filePrefix As String = "市道"
 
-	'データを取得するExcelシート名
-	Private _sheetName As String = "表紙"
+    'データを取得するExcelシート名
+    'Private _sheetName As String = "道路橋様式1P001"
+    Private _sheetName As String = "表紙"
 
-	'最新点検年度の取得元
-	Private _inspectionyearRow As Integer = 9
+    '最新点検年度の取得元
+    Private _inspectionyearRow As Integer = 9
 	Private _inspectionyearColumn As Integer = Asc("D") - Asc("A") + 1
 
 	'点検者の取得元
@@ -43,12 +44,20 @@
 	Private _soundnessRow As Integer = 25
 	Private _soundnessColumn As Integer = Asc("A") - Asc("A") + 1
 
-	'上部工の取得元
-	Private _uppermaterialRow As Integer = 15
-	Private _uppermaterialColumn As Integer = Asc("C") - Asc("A") + 1
+    '上部工主桁の取得元
+    Private _uppermaterialmainRow As Integer = 15
+    Private _uppermaterialmainColumn As Integer = Asc("C") - Asc("A") + 1
 
-	'下部工の取得元
-	Private _undermaterialRow As Integer = 18
+    '上部工横桁の取得元
+    Private _uppermaterialsideRow As Integer = 16
+    Private _uppermaterialsideColumn As Integer = Asc("C") - Asc("A") + 1
+
+    '上部工床桁の取得元
+    Private _uppermaterialfloorRow As Integer = 17
+    Private _uppermaterialfloorColumn As Integer = Asc("C") - Asc("A") + 1
+
+    '下部工の取得元
+    Private _undermaterialRow As Integer = 18
 	Private _undermaterialColumn As Integer = Asc("C") - Asc("A") + 1
 
 	'支承の取得元
@@ -59,9 +68,9 @@
 	Private _faceRow As Integer = 17
 	Private _faceColumn As Integer = Asc("C") - Asc("A") + 1
 
-	Private _saveDirectoryPath As String = "C:\bridge\data"
+    Private _saveDirectoryPath As String = "D:\bridge\data"
 
-	Private _inspectionspan As Integer = 5
+    Private _inspectionspan As Integer = 5
 
 	Private Shared _singleton As New Setting
 
@@ -238,34 +247,16 @@
 		End Set
 	End Property
 
-	Public Property UppermaterialRow As Integer
-		Get
-			Return _uppermaterialRow
-		End Get
-		Set(value As Integer)
-			_uppermaterialRow = value
-		End Set
-	End Property
+    Public Property UndermaterialRow As Integer
+        Get
+            Return _undermaterialRow
+        End Get
+        Set(value As Integer)
+            _undermaterialRow = value
+        End Set
+    End Property
 
-	Public Property UppermaterialColumn As Integer
-		Get
-			Return _uppermaterialColumn
-		End Get
-		Set(value As Integer)
-			_uppermaterialColumn = value
-		End Set
-	End Property
-
-	Public Property UndermaterialRow As Integer
-		Get
-			Return _undermaterialRow
-		End Get
-		Set(value As Integer)
-			_undermaterialRow = value
-		End Set
-	End Property
-
-	Public Property UndermaterialColumn As Integer
+    Public Property UndermaterialColumn As Integer
 		Get
 			Return _undermaterialColumn
 		End Get
@@ -336,4 +327,58 @@
 			_inspectionspan = value
 		End Set
 	End Property
+
+    Public Property UppermaterialmainRow As Integer
+        Get
+            Return _uppermaterialmainRow
+        End Get
+        Set(value As Integer)
+            _uppermaterialmainRow = value
+        End Set
+    End Property
+
+    Public Property UppermaterialmainColumn As Integer
+        Get
+            Return _uppermaterialmainColumn
+        End Get
+        Set(value As Integer)
+            _uppermaterialmainColumn = value
+        End Set
+    End Property
+
+    Public Property UppermaterialsideRow As Integer
+        Get
+            Return _uppermaterialsideRow
+        End Get
+        Set(value As Integer)
+            _uppermaterialsideRow = value
+        End Set
+    End Property
+
+    Public Property UppermaterialsideColumn As Integer
+        Get
+            Return _uppermaterialsideColumn
+        End Get
+        Set(value As Integer)
+            _uppermaterialsideColumn = value
+        End Set
+    End Property
+
+    Public Property UppermaterialfloorRow As Integer
+        Get
+            Return _uppermaterialfloorRow
+        End Get
+        Set(value As Integer)
+            _uppermaterialfloorRow = value
+        End Set
+    End Property
+
+    Public Property UppermaterialfloorColumn As Integer
+        Get
+            Return _uppermaterialfloorColumn
+        End Get
+        Set(value As Integer)
+            _uppermaterialfloorColumn = value
+        End Set
+    End Property
 End Class

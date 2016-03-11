@@ -22,13 +22,15 @@ Public Class ExcelImportForm
 				Dim i As Integer = 0
 				Dim inspectionExcel As inspectionexcel = New InspectionExcelBuilder(i, datadir).getInstance
 				db.inspectionexcel.Add(inspectionExcel)
-				_error = _error OrElse inspectionExcel.error
-			Next
+                _error = _error OrElse inspectionExcel.error
+            Next
 			db.SaveChanges()
 			Me.ImportButton.Enabled = Not _error
 		Catch ex As Exception
 
-		End Try
+
+
+        End Try
 	End Sub
 
 	Private Sub ImportButton_Click(sender As Object, e As EventArgs) Handles ImportButton.Click
@@ -62,12 +64,14 @@ Public Class ExcelImportForm
 			ent.emergencyroad = inspectionExcel.emergencyroad
 			ent.occupancy = inspectionExcel.occupancy
 			ent.soundness = inspectionExcel.soundness
-			ent.uppermaterial = inspectionExcel.uppermaterial
-			ent.undermaterial = inspectionExcel.undermaterial
-			ent.bearing = inspectionExcel.bearing
+            ent.uppermaterialmain = inspectionExcel.uppermaterialmain
+            ent.uppermaterialside = inspectionExcel.uppermaterialside
+            ent.uppermaterialfloor = inspectionExcel.uppermaterialfloor
+            ent.undermaterial = inspectionExcel.undermaterial
+            ent.bearing = inspectionExcel.bearing
 			ent.face = inspectionExcel.face
-			ent.datasavedir = Me.moveDirectory(inspectionExcel, ent)
-			If _new Then
+            ent.datasavedir = Me.moveDirectory(inspectionExcel, ent)
+            If _new Then
 				db.inspection.Add(ent)
 			End If
 		Next
@@ -80,6 +84,6 @@ Public Class ExcelImportForm
 		Dim dir As New DirectoryInfo(inspectionExcel.datadir)
 		Dim moveDirectoryTo = Path.Combine(saveDirectory, dir.Name)
 		dir.MoveTo(moveDirectoryTo)
-		Return moveDirectoryTo
-	End Function
+        Return moveDirectoryTo.Substring(setting.SaveDirectoryPath.Length + 1, moveDirectoryTo.Length - setting.SaveDirectoryPath.Length - 1)
+    End Function
 End Class

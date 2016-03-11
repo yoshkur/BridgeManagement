@@ -57,10 +57,14 @@ Public Class InspectionExcelBuilder
 			excelController.setWorkSheet(Me.setting.SheetName)
 			Dim inspectionYear = excelController.Cells(Me.setting.InspectionyearRow, Me.setting.InspectionyearColumn).Text
 			Dim dtInspectionYear As DateTime
-			If DateTime.TryParse(inspectionYear, dtInspectionYear) Then
-				Me._inspectionExcel.inspectionyear = dtInspectionYear.Year
-			Else
-				Me._inspectionExcel.error = True
+            If DateTime.TryParse(inspectionYear, dtInspectionYear) Then
+
+                '年度に変更（4月1日～翌年3月31日まで　月が1～3までは前年度にする）
+                dtInspectionYear = dtInspectionYear.AddMonths(-3)
+
+                Me._inspectionExcel.inspectionyear = dtInspectionYear.Year
+            Else
+                Me._inspectionExcel.error = True
 				Me._inspectionExcel.message = Me._inspectionExcel.message & "点検年度が取得できません。"
 			End If
 			Me._inspectionExcel.inspectioner = excelController.Cells(Me.setting.InspectionerRow, Me.setting.InspectionerColumn).Text
@@ -70,9 +74,11 @@ Public Class InspectionExcelBuilder
 			Me._inspectionExcel.emergencyroad = excelController.Cells(Me.setting.EmergencyroadRow, Me.setting.EmergencyroadColumn).Text
 			Me._inspectionExcel.occupancy = excelController.Cells(Me.setting.OccupancyRow, Me.setting.OccupancyColumn).Text
 			Me._inspectionExcel.soundness = excelController.Cells(Me.setting.SoundnessRow, Me.setting.SoundnessColumn).Text
-			Me._inspectionExcel.uppermaterial = excelController.Cells(Me.setting.UppermaterialRow, Me.setting.UppermaterialColumn).Text
-			Me._inspectionExcel.undermaterial = excelController.Cells(Me.setting.UndermaterialRow, Me.setting.UndermaterialColumn).Text
-			Me._inspectionExcel.bearing = excelController.Cells(Me.setting.BearingRow, Me.setting.BearingColumn).Text
+            Me._inspectionExcel.uppermaterialmain = excelController.Cells(Me.setting.UppermaterialmainRow, Me.setting.UppermaterialmainColumn).Text
+            Me._inspectionExcel.uppermaterialside = excelController.Cells(Me.setting.UppermaterialsideRow, Me.setting.UppermaterialsideColumn).Text
+            Me._inspectionExcel.uppermaterialfloor = excelController.Cells(Me.setting.UppermaterialfloorRow, Me.setting.UppermaterialfloorColumn).Text
+            Me._inspectionExcel.undermaterial = excelController.Cells(Me.setting.UndermaterialRow, Me.setting.UndermaterialColumn).Text
+            Me._inspectionExcel.bearing = excelController.Cells(Me.setting.BearingRow, Me.setting.BearingColumn).Text
 			Me._inspectionExcel.face = excelController.Cells(Me.setting.FaceRow, Me.setting.FaceColumn).Text
 			excelController.close(False)
 

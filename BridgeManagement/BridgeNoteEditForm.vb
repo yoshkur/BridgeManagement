@@ -14,9 +14,9 @@
 			ent.recordvalid = True
 
 			Me.BridgeNoteBindingSource.EndEdit()
-			Me.db.SaveChanges()
-			Me.Close()
-		Catch ex As Exception
+            Me.db.SaveChanges()
+            Me.Close()
+        Catch ex As Exception
 			MsgBox(ex.Message)
 		End Try
 	End Sub

@@ -40,7 +40,9 @@ Partial Public Class bridgemanagementview
     Public Property inspectionemergencyroad As String
     Public Property occupancy As String
     Public Property soundness As String
-    Public Property inspectionuppermaterial As String
+    Public Property uppermaterialmain As String
+    Public Property uppermaterialside As String
+    Public Property uppermaterialfloor As String
     Public Property undermaterial As String
     Public Property bearing As String
     Public Property face As String

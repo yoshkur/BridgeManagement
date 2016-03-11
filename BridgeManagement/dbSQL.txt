@@ -1,6 +1,6 @@
 ﻿USE [master]
 GO
-/****** Object:  Database [bridgemanagement]    Script Date: 2016/02/24 23:15:20 ******/
+/****** Object:  Database [bridgemanagement]    Script Date: 2016/03/12 4:48:26 ******/
 CREATE DATABASE [bridgemanagement]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -75,7 +75,28 @@ ALTER DATABASE [bridgemanagement] SET DELAYED_DURABILITY = DISABLED
 GO
 USE [bridgemanagement]
 GO
-/****** Object:  Table [dbo].[bridge]    Script Date: 2016/02/24 23:15:21 ******/
+/****** Object:  User [sqluser]    Script Date: 2016/03/12 4:48:27 ******/
+CREATE USER [sqluser] FOR LOGIN [sqluser] WITH DEFAULT_SCHEMA=[dbo]
+GO
+ALTER ROLE [db_owner] ADD MEMBER [sqluser]
+GO
+ALTER ROLE [db_accessadmin] ADD MEMBER [sqluser]
+GO
+ALTER ROLE [db_securityadmin] ADD MEMBER [sqluser]
+GO
+ALTER ROLE [db_ddladmin] ADD MEMBER [sqluser]
+GO
+ALTER ROLE [db_backupoperator] ADD MEMBER [sqluser]
+GO
+ALTER ROLE [db_datareader] ADD MEMBER [sqluser]
+GO
+ALTER ROLE [db_datawriter] ADD MEMBER [sqluser]
+GO
+ALTER ROLE [db_denydatareader] ADD MEMBER [sqluser]
+GO
+ALTER ROLE [db_denydatawriter] ADD MEMBER [sqluser]
+GO
+/****** Object:  Table [dbo].[bridge]    Script Date: 2016/03/12 4:48:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +129,36 @@ CREATE TABLE [dbo].[bridge](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[bridgehistory]    Script Date: 2016/02/24 23:15:21 ******/
+/****** Object:  Table [dbo].[bridge_temp]    Script Date: 2016/03/12 4:48:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[bridge_temp](
+	[国交省作業番号] [varchar](50) NULL,
+	[道路橋名] [varchar](50) NULL,
+	[道路橋名(カナ)] [varchar](50) NULL,
+	[路線名] [varchar](50) NULL,
+	[所在地] [varchar](50) NULL,
+	[緯度] [varchar](50) NULL,
+	[経度] [varchar](50) NULL,
+	[架設年次] [varchar](50) NULL,
+	[橋長] [varchar](50) NULL,
+	[幅員] [varchar](50) NULL,
+	[径間数] [varchar](50) NULL,
+	[構造形式] [varchar](50) NULL,
+	[上部工使用材料] [varchar](50) NULL,
+	[床板材料] [varchar](50) NULL,
+	[路下条件] [varchar](50) NULL,
+	[緊急輸送道路] [varchar](50) NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[bridgehistory]    Script Date: 2016/03/12 4:48:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -142,7 +192,7 @@ CREATE TABLE [dbo].[bridgehistory](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[bridgenote]    Script Date: 2016/02/24 23:15:21 ******/
+/****** Object:  Table [dbo].[bridgenote]    Script Date: 2016/03/12 4:48:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -164,7 +214,7 @@ CREATE TABLE [dbo].[bridgenote](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[bridgenotehistory]    Script Date: 2016/02/24 23:15:21 ******/
+/****** Object:  Table [dbo].[bridgenotehistory]    Script Date: 2016/03/12 4:48:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,7 +237,7 @@ CREATE TABLE [dbo].[bridgenotehistory](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[inspection]    Script Date: 2016/02/24 23:15:21 ******/
+/****** Object:  Table [dbo].[inspection]    Script Date: 2016/03/12 4:48:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -206,7 +256,9 @@ CREATE TABLE [dbo].[inspection](
 	[emergencyroad] [nvarchar](max) NULL,
 	[occupancy] [nvarchar](max) NULL,
 	[soundness] [nvarchar](max) NULL,
-	[uppermaterial] [nvarchar](max) NULL,
+	[uppermaterialmain] [nvarchar](max) NULL,
+	[uppermaterialside] [nvarchar](max) NULL,
+	[uppermaterialfloor] [nvarchar](max) NULL,
 	[undermaterial] [nvarchar](max) NULL,
 	[bearing] [nvarchar](max) NULL,
 	[face] [nvarchar](max) NULL,
@@ -218,7 +270,7 @@ CREATE TABLE [dbo].[inspection](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[inspectionexcel]    Script Date: 2016/02/24 23:15:21 ******/
+/****** Object:  Table [dbo].[inspectionexcel]    Script Date: 2016/03/12 4:48:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -235,7 +287,9 @@ CREATE TABLE [dbo].[inspectionexcel](
 	[emergencyroad] [nvarchar](max) NULL,
 	[occupancy] [nvarchar](max) NULL,
 	[soundness] [nvarchar](max) NULL,
-	[uppermaterial] [nvarchar](max) NULL,
+	[uppermaterialmain] [nvarchar](max) NULL,
+	[uppermaterialside] [nvarchar](max) NULL,
+	[uppermaterialfloor] [nvarchar](max) NULL,
 	[undermaterial] [nvarchar](max) NULL,
 	[bearing] [nvarchar](max) NULL,
 	[face] [nvarchar](max) NULL,
@@ -248,7 +302,7 @@ CREATE TABLE [dbo].[inspectionexcel](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  Table [dbo].[inspectionhistory]    Script Date: 2016/02/24 23:15:21 ******/
+/****** Object:  Table [dbo].[inspectionhistory]    Script Date: 2016/03/12 4:48:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -267,7 +321,9 @@ CREATE TABLE [dbo].[inspectionhistory](
 	[emergencyroad] [nvarchar](max) NULL,
 	[occupancy] [nvarchar](max) NULL,
 	[soundness] [nvarchar](max) NULL,
-	[uppermaterial] [nvarchar](max) NULL,
+	[uppermaterialmain] [nvarchar](max) NULL,
+	[uppermaterialside] [nvarchar](max) NULL,
+	[uppermaterialfloor] [nvarchar](max) NULL,
 	[undermaterial] [nvarchar](max) NULL,
 	[bearing] [nvarchar](max) NULL,
 	[face] [nvarchar](max) NULL,
@@ -280,7 +336,36 @@ CREATE TABLE [dbo].[inspectionhistory](
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 
 GO
-/****** Object:  View [dbo].[bridgemanagementview]    Script Date: 2016/02/24 23:15:21 ******/
+/****** Object:  Table [dbo].[パスコデータ]    Script Date: 2016/03/12 4:48:27 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[パスコデータ](
+	[国交省作業用番号] [varchar](50) NULL,
+	[道路橋名] [varchar](50) NULL,
+	[道路橋名カナ] [varchar](50) NULL,
+	[路線名] [varchar](50) NULL,
+	[所在地] [varchar](50) NULL,
+	[緯度] [varchar](50) NULL,
+	[経度] [varchar](50) NULL,
+	[年次] [varchar](50) NULL,
+	[橋長] [varchar](50) NULL,
+	[幅員] [varchar](50) NULL,
+	[径間数] [varchar](50) NULL,
+	[構造形式] [varchar](50) NULL,
+	[上部工使用材料] [varchar](50) NULL,
+	[床板材料] [varchar](50) NULL,
+	[路下条件] [varchar](50) NULL,
+	[緊急輸送道路] [varchar](50) NULL
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  View [dbo].[bridgemanagementview]    Script Date: 2016/03/12 4:48:27 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -294,8 +379,9 @@ SELECT                      dbo.bridge.id, dbo.bridge.bridgename, dbo.bridge.bri
                                       dbo.bridgenote.nextinspection, dbo.bridgenote.inspectionway, dbo.bridgenote.memo, dbo.inspection.inspectionyear, 
                                       dbo.inspection.inspectioner, dbo.inspection.undercondition AS inspectionundercondition, dbo.inspection.alternatepath, 
                                       dbo.inspection.generalroad, dbo.inspection.emergencyroad AS inspectionemergencyroad, dbo.inspection.occupancy, 
-                                      dbo.inspection.soundness, dbo.inspection.uppermaterial AS inspectionuppermaterial, dbo.inspection.undermaterial, 
-                                      dbo.inspection.bearing, dbo.inspection.face, dbo.inspection.datasavedir
+                                      dbo.inspection.soundness, dbo.inspection.uppermaterialmain, dbo.inspection.uppermaterialside, 
+                                      dbo.inspection.uppermaterialfloor, dbo.inspection.undermaterial, dbo.inspection.bearing, dbo.inspection.face, 
+                                      dbo.inspection.datasavedir
 FROM                         dbo.bridge LEFT OUTER JOIN
                                       dbo.bridgenote ON dbo.bridge.id = dbo.bridgenote.id LEFT OUTER JOIN
                                       dbo.inspection ON dbo.bridge.id = dbo.inspection.id
@@ -306,7 +392,7 @@ Begin DesignProperties =
    Begin PaneConfigurations = 
       Begin PaneConfiguration = 0
          NumPanes = 4
-         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+         Configuration = "(H (1[41] 4[27] 2[14] 3) )"
       End
       Begin PaneConfiguration = 1
          NumPanes = 3
@@ -380,7 +466,7 @@ Begin DesignProperties =
                Right = 209
             End
             DisplayFlags = 280
-            TopColumn = 0
+            TopColumn = 16
          End
          Begin Table = "bridgenote"
             Begin Extent = 
@@ -400,7 +486,7 @@ Begin DesignProperties =
                Right = 624
             End
             DisplayFlags = 280
-            TopColumn = 0
+            TopColumn = 16
          End
       End
    End
@@ -412,7 +498,7 @@ Begin DesignProperties =
    End
    Begin CriteriaPane = 
       Begin ColumnWidths = 11
-         Column = 1440
+         Column = 2850
          Alias = 900
          Table = 1170
          Output = 720
