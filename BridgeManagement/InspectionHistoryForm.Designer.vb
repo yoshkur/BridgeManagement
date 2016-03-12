@@ -24,6 +24,9 @@ Partial Class InspectionHistoryForm
 	Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.InspectionhistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.openDirectoryButton = New System.Windows.Forms.Button()
+        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.recorddate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.inspectionyear = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -34,13 +37,13 @@ Partial Class InspectionHistoryForm
         Me.emergencyroad = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.occupancy = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.soundness = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.uppermaterial = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.uppermaterialmain = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.uppermaterialside = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.uppermaterialfloor = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.undermaterial = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.bearing = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.face = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.datasavedir = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.InspectionhistoryBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.openDirectoryButton = New System.Windows.Forms.Button()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RecorddateDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RecordprogramDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -54,12 +57,10 @@ Partial Class InspectionHistoryForm
         Me.EmergencyroadDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.OccupancyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SoundnessDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.UppermaterialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.UndermaterialDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.BearingDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FaceDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DatasavedirDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InspectionhistoryBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -74,7 +75,7 @@ Partial Class InspectionHistoryForm
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.recorddate, Me.inspectionyear, Me.inspectioner, Me.undercondition, Me.alternatepath, Me.generalroad, Me.emergencyroad, Me.occupancy, Me.soundness, Me.uppermaterial, Me.undermaterial, Me.bearing, Me.face, Me.datasavedir, Me.IdDataGridViewTextBoxColumn, Me.RecorddateDataGridViewTextBoxColumn, Me.RecordprogramDataGridViewTextBoxColumn, Me.RecorduseridDataGridViewTextBoxColumn, Me.RecordvalidDataGridViewCheckBoxColumn, Me.InspectionyearDataGridViewTextBoxColumn, Me.InspectionerDataGridViewTextBoxColumn, Me.UnderconditionDataGridViewTextBoxColumn, Me.AlternatepathDataGridViewTextBoxColumn, Me.GeneralroadDataGridViewTextBoxColumn, Me.EmergencyroadDataGridViewTextBoxColumn, Me.OccupancyDataGridViewTextBoxColumn, Me.SoundnessDataGridViewTextBoxColumn, Me.UppermaterialDataGridViewTextBoxColumn, Me.UndermaterialDataGridViewTextBoxColumn, Me.BearingDataGridViewTextBoxColumn, Me.FaceDataGridViewTextBoxColumn, Me.DatasavedirDataGridViewTextBoxColumn})
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.id, Me.recorddate, Me.inspectionyear, Me.inspectioner, Me.undercondition, Me.alternatepath, Me.generalroad, Me.emergencyroad, Me.occupancy, Me.soundness, Me.uppermaterialmain, Me.uppermaterialside, Me.uppermaterialfloor, Me.undermaterial, Me.bearing, Me.face, Me.datasavedir, Me.IdDataGridViewTextBoxColumn, Me.RecorddateDataGridViewTextBoxColumn, Me.RecordprogramDataGridViewTextBoxColumn, Me.RecorduseridDataGridViewTextBoxColumn, Me.RecordvalidDataGridViewCheckBoxColumn, Me.InspectionyearDataGridViewTextBoxColumn, Me.InspectionerDataGridViewTextBoxColumn, Me.UnderconditionDataGridViewTextBoxColumn, Me.AlternatepathDataGridViewTextBoxColumn, Me.GeneralroadDataGridViewTextBoxColumn, Me.EmergencyroadDataGridViewTextBoxColumn, Me.OccupancyDataGridViewTextBoxColumn, Me.SoundnessDataGridViewTextBoxColumn, Me.UndermaterialDataGridViewTextBoxColumn, Me.BearingDataGridViewTextBoxColumn, Me.FaceDataGridViewTextBoxColumn, Me.DatasavedirDataGridViewTextBoxColumn})
         Me.DataGridView1.DataSource = Me.InspectionhistoryBindingSource
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
@@ -83,6 +84,38 @@ Partial Class InspectionHistoryForm
         Me.DataGridView1.RowTemplate.Height = 21
         Me.DataGridView1.Size = New System.Drawing.Size(962, 517)
         Me.DataGridView1.TabIndex = 0
+        '
+        'InspectionhistoryBindingSource
+        '
+        Me.InspectionhistoryBindingSource.DataSource = GetType(BridgeManagement.inspectionhistory)
+        '
+        'openDirectoryButton
+        '
+        Me.openDirectoryButton.Location = New System.Drawing.Point(12, 6)
+        Me.openDirectoryButton.Name = "openDirectoryButton"
+        Me.openDirectoryButton.Size = New System.Drawing.Size(116, 23)
+        Me.openDirectoryButton.TabIndex = 1
+        Me.openDirectoryButton.Text = "点検データフォルダ"
+        Me.openDirectoryButton.UseVisualStyleBackColor = True
+        '
+        'SplitContainer1
+        '
+        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
+        Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
+        Me.SplitContainer1.Name = "SplitContainer1"
+        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
+        '
+        'SplitContainer1.Panel1
+        '
+        Me.SplitContainer1.Panel1.Controls.Add(Me.openDirectoryButton)
+        '
+        'SplitContainer1.Panel2
+        '
+        Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
+        Me.SplitContainer1.Size = New System.Drawing.Size(962, 556)
+        Me.SplitContainer1.SplitterDistance = 35
+        Me.SplitContainer1.TabIndex = 2
         '
         'id
         '
@@ -154,12 +187,26 @@ Partial Class InspectionHistoryForm
         Me.soundness.Name = "soundness"
         Me.soundness.ReadOnly = True
         '
-        'uppermaterial
+        'uppermaterialmain
         '
-        Me.uppermaterial.DataPropertyName = "uppermaterial"
-        Me.uppermaterial.HeaderText = "上部工"
-        Me.uppermaterial.Name = "uppermaterial"
-        Me.uppermaterial.ReadOnly = True
+        Me.uppermaterialmain.DataPropertyName = "uppermaterialmain"
+        Me.uppermaterialmain.HeaderText = "上部工主桁"
+        Me.uppermaterialmain.Name = "uppermaterialmain"
+        Me.uppermaterialmain.ReadOnly = True
+        '
+        'uppermaterialside
+        '
+        Me.uppermaterialside.DataPropertyName = "uppermaterialside"
+        Me.uppermaterialside.HeaderText = "上部工横桁"
+        Me.uppermaterialside.Name = "uppermaterialside"
+        Me.uppermaterialside.ReadOnly = True
+        '
+        'uppermaterialfloor
+        '
+        Me.uppermaterialfloor.DataPropertyName = "uppermaterialfloor"
+        Me.uppermaterialfloor.HeaderText = "上部工床桁"
+        Me.uppermaterialfloor.Name = "uppermaterialfloor"
+        Me.uppermaterialfloor.ReadOnly = True
         '
         'undermaterial
         '
@@ -188,19 +235,6 @@ Partial Class InspectionHistoryForm
         Me.datasavedir.HeaderText = "データディレクトリ"
         Me.datasavedir.Name = "datasavedir"
         Me.datasavedir.ReadOnly = True
-        '
-        'InspectionhistoryBindingSource
-        '
-        Me.InspectionhistoryBindingSource.DataSource = GetType(BridgeManagement.inspectionhistory)
-        '
-        'openDirectoryButton
-        '
-        Me.openDirectoryButton.Location = New System.Drawing.Point(12, 6)
-        Me.openDirectoryButton.Name = "openDirectoryButton"
-        Me.openDirectoryButton.Size = New System.Drawing.Size(116, 23)
-        Me.openDirectoryButton.TabIndex = 1
-        Me.openDirectoryButton.Text = "点検データフォルダ"
-        Me.openDirectoryButton.UseVisualStyleBackColor = True
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -293,13 +327,6 @@ Partial Class InspectionHistoryForm
         Me.SoundnessDataGridViewTextBoxColumn.Name = "SoundnessDataGridViewTextBoxColumn"
         Me.SoundnessDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'UppermaterialDataGridViewTextBoxColumn
-        '
-        Me.UppermaterialDataGridViewTextBoxColumn.DataPropertyName = "uppermaterial"
-        Me.UppermaterialDataGridViewTextBoxColumn.HeaderText = "uppermaterial"
-        Me.UppermaterialDataGridViewTextBoxColumn.Name = "UppermaterialDataGridViewTextBoxColumn"
-        Me.UppermaterialDataGridViewTextBoxColumn.ReadOnly = True
-        '
         'UndermaterialDataGridViewTextBoxColumn
         '
         Me.UndermaterialDataGridViewTextBoxColumn.DataPropertyName = "undermaterial"
@@ -328,25 +355,6 @@ Partial Class InspectionHistoryForm
         Me.DatasavedirDataGridViewTextBoxColumn.Name = "DatasavedirDataGridViewTextBoxColumn"
         Me.DatasavedirDataGridViewTextBoxColumn.ReadOnly = True
         '
-        'SplitContainer1
-        '
-        Me.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1
-        Me.SplitContainer1.Location = New System.Drawing.Point(0, 0)
-        Me.SplitContainer1.Name = "SplitContainer1"
-        Me.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal
-        '
-        'SplitContainer1.Panel1
-        '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.openDirectoryButton)
-        '
-        'SplitContainer1.Panel2
-        '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
-        Me.SplitContainer1.Size = New System.Drawing.Size(962, 556)
-        Me.SplitContainer1.SplitterDistance = 35
-        Me.SplitContainer1.TabIndex = 2
-        '
         'InspectionHistoryForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 12.0!)
@@ -368,21 +376,25 @@ Partial Class InspectionHistoryForm
     Friend WithEvents DataGridView1 As DataGridView
 	Friend WithEvents InspectionhistoryBindingSource As BindingSource
 	Friend WithEvents openDirectoryButton As Button
-	Friend WithEvents id As DataGridViewTextBoxColumn
-	Friend WithEvents recorddate As DataGridViewTextBoxColumn
-	Friend WithEvents inspectionyear As DataGridViewTextBoxColumn
-	Friend WithEvents inspectioner As DataGridViewTextBoxColumn
-	Friend WithEvents undercondition As DataGridViewTextBoxColumn
-	Friend WithEvents alternatepath As DataGridViewTextBoxColumn
-	Friend WithEvents generalroad As DataGridViewTextBoxColumn
-	Friend WithEvents emergencyroad As DataGridViewTextBoxColumn
-	Friend WithEvents occupancy As DataGridViewTextBoxColumn
-	Friend WithEvents soundness As DataGridViewTextBoxColumn
-	Friend WithEvents uppermaterial As DataGridViewTextBoxColumn
-	Friend WithEvents undermaterial As DataGridViewTextBoxColumn
-	Friend WithEvents bearing As DataGridViewTextBoxColumn
-	Friend WithEvents face As DataGridViewTextBoxColumn
-	Friend WithEvents datasavedir As DataGridViewTextBoxColumn
+    Friend WithEvents UppermaterialDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents SplitContainer1 As SplitContainer
+    Friend WithEvents id As DataGridViewTextBoxColumn
+    Friend WithEvents recorddate As DataGridViewTextBoxColumn
+    Friend WithEvents inspectionyear As DataGridViewTextBoxColumn
+    Friend WithEvents inspectioner As DataGridViewTextBoxColumn
+    Friend WithEvents undercondition As DataGridViewTextBoxColumn
+    Friend WithEvents alternatepath As DataGridViewTextBoxColumn
+    Friend WithEvents generalroad As DataGridViewTextBoxColumn
+    Friend WithEvents emergencyroad As DataGridViewTextBoxColumn
+    Friend WithEvents occupancy As DataGridViewTextBoxColumn
+    Friend WithEvents soundness As DataGridViewTextBoxColumn
+    Friend WithEvents uppermaterialmain As DataGridViewTextBoxColumn
+    Friend WithEvents uppermaterialside As DataGridViewTextBoxColumn
+    Friend WithEvents uppermaterialfloor As DataGridViewTextBoxColumn
+    Friend WithEvents undermaterial As DataGridViewTextBoxColumn
+    Friend WithEvents bearing As DataGridViewTextBoxColumn
+    Friend WithEvents face As DataGridViewTextBoxColumn
+    Friend WithEvents datasavedir As DataGridViewTextBoxColumn
     Friend WithEvents IdDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents RecorddateDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents RecordprogramDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
@@ -396,10 +408,8 @@ Partial Class InspectionHistoryForm
     Friend WithEvents EmergencyroadDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents OccupancyDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents SoundnessDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents UppermaterialDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents UndermaterialDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents BearingDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents FaceDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
     Friend WithEvents DatasavedirDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
-    Friend WithEvents SplitContainer1 As SplitContainer
 End Class
