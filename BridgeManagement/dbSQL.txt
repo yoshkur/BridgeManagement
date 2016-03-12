@@ -522,3 +522,45 @@ USE [master]
 GO
 ALTER DATABASE [bridgemanagement] SET  READ_WRITE 
 GO
+
+/****** Object:  Trigger [dbo].[triggerbridge]    Script Date: 2016/03/13 3:03:04 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER TRIGGER [dbo].[triggerbridge]
+ on [dbo].[bridge] 
+ for insert, update
+
+as 
+
+insert into bridgehistory
+select * from inserted
+
+/****** Object:  Trigger [dbo].[triggerbridgenote]    Script Date: 2016/03/13 3:04:21 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER TRIGGER [dbo].[triggerbridgenote]
+ on [dbo].[bridgenote]
+ for insert, update
+
+as 
+
+insert into bridgenotehistory
+select * from inserted
+
+/****** Object:  Trigger [dbo].[triggerinspection]    Script Date: 2016/03/13 3:04:52 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER TRIGGER [dbo].[triggerinspection]
+ on [dbo].[inspection]
+ for insert, update
+
+as 
+
+insert into inspectionhistory
+select * from inserted
