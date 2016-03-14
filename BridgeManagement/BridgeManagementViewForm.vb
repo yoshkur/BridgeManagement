@@ -2,15 +2,16 @@
 
 Public Class BridgeManagementViewForm
     Private setting As Setting = Setting.getInstance
+    Private designationYear As Integer = 0
 
     Public Sub updateDatasource()
         Dim db As New bridgemanagementEntities
         Dim bs As New BindingSource
         Dim query
-        If Me.inspectionYearComboBox.SelectedItem Is Nothing Then
+        If Me.designationYear = 0 Then
             query = db.bridgemanagementview
         Else
-            query = db.bridgemanagementview.SqlQuery("select * from bridgemanagementview where nextinspection = " & Me.inspectionYearComboBox.SelectedItem & " or inspectionyear + " & Me.setting.Inspectionspan & " = " & Me.inspectionYearComboBox.SelectedItem)
+            query = db.bridgemanagementview.SqlQuery("select * from bridgemanagementview where nextinspection = " & Me.designationYear & " or inspectionyear + " & Me.setting.Inspectionspan & " = " & Me.designationYear)
         End If
         For Each ent In query
             bs.Add(ent)
@@ -93,6 +94,7 @@ Public Class BridgeManagementViewForm
     End Sub
 
     Private Sub searchButton_Click(sender As Object, e As EventArgs) Handles searchButton.Click
+        Me.designationYear = Me.inspectionYearComboBox.SelectedItem
         Me.updateDatasource()
     End Sub
 
@@ -118,6 +120,7 @@ Public Class BridgeManagementViewForm
     End Sub
 
     Private Sub searchCancelButton_Click(sender As Object, e As EventArgs) Handles searchCancelButton.Click
+        Me.designationYear = 0
         Me.inspectionYearComboBox.Text = Nothing
         Me.updateDatasource()
     End Sub
