@@ -76,11 +76,55 @@
 
 	Private Shared _singleton As New Setting
 
-	Private Sub New()
+    Private Sub New()
+        Try
+            Dim excelController As New ExcelControllClass
+            excelController.openFile("BridgeManagementSetting", False)
+            excelController.setWorkSheet("BridgeManagement")
 
-	End Sub
+            Me._workDirectoryPath = excelController.Cells(1, 2).Text
+            Me._idFile = excelController.Cells(2, 2).Text
+            Me._filePrefix = excelController.Cells(3, 2).Text
+            Me._sheetName = excelController.Cells(4, 2).Text
+            Me._inspectionyearRow = excelController.Cells(5, 2).Text
+            Me._inspectionyearColumn = excelController.Cells(6, 2).Text
+            Me._inspectionerRow = excelController.Cells(7, 2).Text
+            Me._inspectionerColumn = excelController.Cells(8, 2).Text
+            Me._underconditionRow = excelController.Cells(9, 2).Text
+            Me._underconditionColumn = excelController.Cells(10, 2).Text
+            Me._alternatepathRow = excelController.Cells(11, 2).Text
+            Me._alternatepathColumn = excelController.Cells(12, 2).Text
+            Me._generalroadRow = excelController.Cells(13, 2).Text
+            Me._generalroadColumn = excelController.Cells(14, 2).Text
+            Me._emergencyroadRow = excelController.Cells(15, 2).Text
+            Me._emergencyroadColumn = excelController.Cells(16, 2).Text
+            Me._occupancyRow = excelController.Cells(17, 2).Text
+            Me._occupancyColumn = excelController.Cells(18, 2).Text
+            Me._soundnessRow = excelController.Cells(19, 2).Text
+            Me._soundnessColumn = excelController.Cells(20, 2).Text
+            Me._uppermaterialmainRow = excelController.Cells(21, 2).Text
+            Me._uppermaterialmainColumn = excelController.Cells(22, 2).Text
+            Me._uppermaterialsideRow = excelController.Cells(23, 2).Text
+            Me._uppermaterialsideColumn = excelController.Cells(24, 2).Text
+            Me._uppermaterialfloorRow = excelController.Cells(25, 2).Text
+            Me._uppermaterialfloorColumn = excelController.Cells(26, 2).Text
+            Me._undermaterialRow = excelController.Cells(27, 2).Text
+            Me._undermaterialColumn = excelController.Cells(28, 2).Text
+            Me._bearingRow = excelController.Cells(29, 2).Text
+            Me._bearingColumn = excelController.Cells(30, 2).Text
+            Me._faceRow = excelController.Cells(31, 2).Text
+            Me._faceColumn = excelController.Cells(32, 2).Text
+            Me._saveDirectoryPath = excelController.Cells(33, 2).Text
+            Me._inspectionspan = excelController.Cells(34, 2).Text
 
-	Public Shared Function getInstance() As Setting
+            excelController.close(False)
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Public Shared Function getInstance() As Setting
 		Return _singleton
 	End Function
 
