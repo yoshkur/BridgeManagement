@@ -48,7 +48,6 @@ Public Class ExcelImportForm
     Private Sub ImportButton_Click(sender As Object, e As EventArgs) Handles ImportButton.Click
         Dim db As New bridgemanagementEntities
         Me.addInspection(db)
-        'db.inspectionexcel.RemoveRange(db.inspectionexcel)
         db.SaveChanges()
         If Me.getError Then
             Me.updateDataSource()
@@ -62,32 +61,32 @@ Public Class ExcelImportForm
         Me.setError(False)
 
         For Each inspectionExcel In inspectionExcels
-            Dim ent = db.inspection.Find(inspectionExcel.id)
-            Dim _new As Boolean = ent Is Nothing
-
-            If _new Then
-                ent = New inspection
-            End If
-            ent.id = inspectionExcel.id
-            ent.recorddate = Now
-            ent.recordprogram = Me.Name
-            ent.recorduserid = System.Environment.UserName
-            ent.recordvalid = True
-            ent.inspectionyear = inspectionExcel.inspectionyear
-            ent.inspectioner = inspectionExcel.inspectioner
-            ent.undercondition = inspectionExcel.undercondition
-            ent.alternatepath = inspectionExcel.alternatepath
-            ent.generalroad = inspectionExcel.generalroad
-            ent.emergencyroad = inspectionExcel.emergencyroad
-            ent.occupancy = inspectionExcel.occupancy
-            ent.soundness = inspectionExcel.soundness
-            ent.uppermaterialmain = inspectionExcel.uppermaterialmain
-            ent.uppermaterialside = inspectionExcel.uppermaterialside
-            ent.uppermaterialfloor = inspectionExcel.uppermaterialfloor
-            ent.undermaterial = inspectionExcel.undermaterial
-            ent.bearing = inspectionExcel.bearing
-            ent.face = inspectionExcel.face
             Try
+                Dim ent = db.inspection.Find(inspectionExcel.id)
+                Dim _new As Boolean = ent Is Nothing
+
+                If _new Then
+                    ent = New inspection
+                End If
+                ent.id = inspectionExcel.id
+                ent.recorddate = Now
+                ent.recordprogram = Me.Name
+                ent.recorduserid = System.Environment.UserName
+                ent.recordvalid = True
+                ent.inspectionyear = inspectionExcel.inspectionyear
+                ent.inspectioner = inspectionExcel.inspectioner
+                ent.undercondition = inspectionExcel.undercondition
+                ent.alternatepath = inspectionExcel.alternatepath
+                ent.generalroad = inspectionExcel.generalroad
+                ent.emergencyroad = inspectionExcel.emergencyroad
+                ent.occupancy = inspectionExcel.occupancy
+                ent.soundness = inspectionExcel.soundness
+                ent.uppermaterialmain = inspectionExcel.uppermaterialmain
+                ent.uppermaterialside = inspectionExcel.uppermaterialside
+                ent.uppermaterialfloor = inspectionExcel.uppermaterialfloor
+                ent.undermaterial = inspectionExcel.undermaterial
+                ent.bearing = inspectionExcel.bearing
+                ent.face = inspectionExcel.face
                 ent.datasavedir = Me.moveDirectory(inspectionExcel, ent)
                 If _new Then
                     db.inspection.Add(ent)

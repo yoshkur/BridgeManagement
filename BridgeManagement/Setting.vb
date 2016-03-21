@@ -65,7 +65,7 @@
 	Private _bearingColumn As Integer = Asc("C") - Asc("A") + 1
 
 	'橋面の取得元
-	Private _faceRow As Integer = 17
+	Private _faceRow As Integer = 20
 	Private _faceColumn As Integer = Asc("C") - Asc("A") + 1
 
     Private _saveDirectoryPath As String = "D:\bridge\data"
