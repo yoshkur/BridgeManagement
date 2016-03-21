@@ -68,8 +68,10 @@
 	Private _faceRow As Integer = 20
 	Private _faceColumn As Integer = Asc("C") - Asc("A") + 1
 
+    '点検データ保存ディレクトリ
     Private _saveDirectoryPath As String = "D:\bridge\data"
 
+    '調査の間隔
     Private _inspectionspan As Integer = 5
 
 	Private Shared _singleton As New Setting
